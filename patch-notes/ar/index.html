@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ملاحظات الإصدار — ArabDev</title>
+<meta name="description" content="كل ما هو جديد ومحسَّن ومُصلَح في كل إصدار من ArabDev.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="alternate" hreflang="en" href="../en/">
+<script>
+  (function () {
+    try {
+      var mode = localStorage.getItem('arabdev.mode') || 'system';
+      var dark = mode === 'dark' || (mode === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    } catch (e) {}
+  })();
+</script>
+<link rel="stylesheet" href="../assets/patch-notes.css">
+</head>
+<body>
+<a class="skip" href="#notes">انتقل إلى الملاحظات</a>
+
+<header class="site-header">
+  <a class="brand" href="https://arabdev.site/dashboard" aria-label="الصفحة الرئيسية لـ ArabDev">
+    <span class="brand-word" dir="ltr"><span class="arab">Arab</span>Dev</span>
+    <span class="brand-label">ملاحظات الإصدار</span>
+  </a>
+  <div class="search" role="search">
+    <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"/></svg>
+    <input type="search" data-search placeholder="صفِّ التغييرات (اضغط /)" aria-label="تصفية التغييرات" autocomplete="off">
+  </div>
+  <div class="header-actions">
+    <a class="btn" href="../en/" data-lang-switch data-base="../en/" lang="en" hreflang="en">English</a>
+    <button class="btn icon-btn" type="button" data-theme-toggle aria-label="التبديل بين الوضع الفاتح والداكن">◐</button>
+    <a class="btn btn-primary" href="https://arabdev.site/dashboard"><span aria-hidden="true">↩</span><span class="btn-label">افتح ArabDev</span></a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">سجل الإصدارات</span>
+    <h1>ملاحظات إصدار ArabDev</h1>
+    <p class="hero-lead">
+      كل تغيير في ArabDev، إصدارًا بعد إصدار: الميزات الجديدة والتحسينات والإصلاحات وأعمال الأمان
+      والتغييرات الخاصة بالمطوّرين. استخدم عوامل التصفية لعرض نوع واحد من التغييرات، أو اكتب للبحث.
+    </p>
+    <div class="latest">
+      <div class="latest-version">1.0.0</div>
+      <div>
+        <h2>أحدث إصدار: ArabDev 1.0.0، الإصدار العام الأول</h2>
+        <p>صدر في <time datetime="2026-09-19">19 سبتمبر 2026</time>.</p>
+        <ul class="stats" aria-label="التغييرات في 1.0.0">
+          <li>إجمالي التغييرات <strong data-count="all">—</strong></li>
+          <li><span class="dot new" aria-hidden="true"></span><strong data-count="new">—</strong> جديد</li>
+          <li><span class="dot improved" aria-hidden="true"></span><strong data-count="improved">—</strong> تحسين</li>
+          <li><span class="dot fixed" aria-hidden="true"></span><strong data-count="fixed">—</strong> إصلاح</li>
+          <li><span class="dot security" aria-hidden="true"></span><strong data-count="security">—</strong> أمان</li>
+          <li><span class="dot developer" aria-hidden="true"></span><strong data-count="developer">—</strong> للمطوّرين</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="layout">
+<aside class="sidebar" aria-label="عوامل التصفية والإصدارات">
+  <div class="side-block">
+    <h2>عرض</h2>
+    <div class="filters" role="group" aria-label="التصفية حسب نوع التغيير">
+      <button class="filter" type="button" data-filter="all" aria-pressed="true"><span class="dot" aria-hidden="true"></span>كل التغييرات<span class="count" data-count="all"></span></button>
+      <button class="filter" type="button" data-filter="new" aria-pressed="false"><span class="dot new" aria-hidden="true"></span>جديد<span class="count" data-count="new"></span></button>
+      <button class="filter" type="button" data-filter="improved" aria-pressed="false"><span class="dot improved" aria-hidden="true"></span>تحسين<span class="count" data-count="improved"></span></button>
+      <button class="filter" type="button" data-filter="fixed" aria-pressed="false"><span class="dot fixed" aria-hidden="true"></span>إصلاح<span class="count" data-count="fixed"></span></button>
+      <button class="filter" type="button" data-filter="security" aria-pressed="false"><span class="dot security" aria-hidden="true"></span>أمان<span class="count" data-count="security"></span></button>
+      <button class="filter" type="button" data-filter="developer" aria-pressed="false"><span class="dot developer" aria-hidden="true"></span>للمطوّرين<span class="count" data-count="developer"></span></button>
+    </div>
+  </div>
+  <div class="side-block releases">
+    <h2>الإصدارات</h2>
+    <ul class="side-nav">
+      <li>
+        <a class="release-link" href="#v1-0-0">1.0.0 <small>19 سبتمبر 2026 · الأحدث</small></a>
+        <ul>
+          <li><a href="#v100-accounts">الحسابات وتسجيل الدخول</a></li>
+          <li><a href="#v100-onboarding">إعداد الزيارة الأولى</a></li>
+          <li><a href="#v100-navigation">التنقل والصفحات</a></li>
+          <li><a href="#v100-profiles">الملفات الشخصية</a></li>
+          <li><a href="#v100-feed">الصفحة الرئيسية</a></li>
+          <li><a href="#v100-editor">محرر المنشورات</a></li>
+          <li><a href="#v100-shortcuts">الاختصارات وMarkdown</a></li>
+          <li><a href="#v100-posts">قراءة المنشورات</a></li>
+          <li><a href="#v100-interactions">الإعجاب وإعادة النشر والحفظ</a></li>
+          <li><a href="#v100-comments">التعليقات</a></li>
+          <li><a href="#v100-community">المجتمع والإشراف</a></li>
+          <li><a href="#v100-following">المتابعة والاقتراحات</a></li>
+          <li><a href="#v100-explore">الاستكشاف والوسوم</a></li>
+          <li><a href="#v100-search">البحث</a></li>
+          <li><a href="#v100-notifications">الإشعارات</a></li>
+          <li><a href="#v100-settings">الإعدادات</a></li>
+          <li><a href="#v100-messages">رسائل واضحة</a></li>
+          <li><a href="#v100-ads">الإعلانات</a></li>
+          <li><a href="#v100-languages">العربية والإنجليزية</a></li>
+          <li><a href="#v100-design">التصميم والوضع الداكن</a></li>
+          <li><a href="#v100-accessibility">إمكانية الوصول</a></li>
+          <li><a href="#v100-performance">الأداء</a></li>
+          <li><a href="#v100-security">الأمان</a></li>
+          <li><a href="#v100-limits">الحدود</a></li>
+          <li><a href="#v100-privacy">الخصوصية</a></li>
+          <li><a href="#v100-api">الواجهة البرمجية والمطوّرون</a></li>
+          <li><a href="#v100-datamodel">نموذج البيانات</a></li>
+          <li><a href="#v100-backend">بنية الخادم</a></li>
+          <li><a href="#v100-frontend">بنية الواجهة</a></li>
+          <li><a href="#v100-deployment">التشغيل والنشر</a></li>
+          <li><a href="#v100-docs">التوثيق</a></li>
+          <li><a href="#v100-quality">الاختبارات وجودة الشيفرة</a></li>
+          <li><a href="#v100-prerelease">اختبارات ما قبل الإطلاق</a></li>
+          <li><a href="#v100-numbers">بالأرقام</a></li>
+          <li><a href="#v100-interests">الاهتمامات الـ 25</a></li>
+          <li><a href="#v100-quickstart">جرّبه محليًا</a></li>
+          <li><a href="#v100-help">أين تجد المساعدة</a></li>
+          <li><a href="#v100-limitations">قيود معروفة</a></li>
+          <li><a href="#v100-requirements">المتطلبات</a></li>
+          <li><a href="#v100-credits">شكر وتقدير</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+<main class="notes" id="notes" tabindex="-1">
+<p class="filter-status" data-filter-status hidden></p>
+<div class="no-results" data-no-results hidden>لا توجد تغييرات تطابق عوامل التصفية. جرّب كلمة أخرى، أو اعرض كل التغييرات.</div>
+
+<article class="release" id="v1-0-0" aria-labelledby="v1-0-0-title">
+  <header class="release-header">
+    <h2 id="v1-0-0-title">ArabDev 1.0.0</h2>
+    <span class="badge">الأحدث</span>
+    <time datetime="2026-09-19">19 سبتمبر 2026</time>
+  </header>
+  <p class="release-summary" data-hide-when-filtered>
+    الإصدار العام الأول من ArabDev: مجتمع للمطوّرين الناطقين بالعربية لكتابة المنشورات التقنية ومتابعة
+    بعضهم واكتشاف مواضيع جديدة، بالعربية والإنجليزية بالكامل. البنود الموسومة بـ<em>جديد</em> تصف ما يأتي
+    به هذا الإصدار، أما بنود <em>تحسين</em> و<em>إصلاح</em> فتصف التغييرات التي أُجريت أثناء اختبار الإصدار قبل إطلاقه.
+  </p>
+
+  <ul class="highlights" data-hide-when-filtered aria-label="أبرز ما في الإصدار">
+    <li><span class="highlight-icon" aria-hidden="true">✎</span><strong>محرر حقيقي للكتابة التقنية</strong><span>عناوين وكتل شيفرة وجداول وروابط وثلاثة خطوط وستة أحجام وخمسة ألوان تتكيّف مع المظهر، مع معاينة حية ومسوّدات.</span></li>
+    <li><span class="highlight-icon" aria-hidden="true">⇄</span><strong>العربية أولًا، والإنجليزية أيضًا</strong><span>تنقلب الواجهة بالكامل بين اليمين إلى اليسار واليسار إلى اليمين، وكل فقرة تجد اتجاهها بنفسها.</span></li>
+    <li><span class="highlight-icon" aria-hidden="true">☰</span><strong>خلاصة لها نهاية</strong><span>ثلاثة تبويبات و20 منشورًا في الصفحة وصفحات مرقّمة بدل التمرير اللانهائي.</span></li>
+    <li><span class="highlight-icon" aria-hidden="true">⚑</span><strong>إعلانات صادقة ومتوقَّعة</strong><span>موسومة بوضوح، بعد كل 8 منشورات، ولا تُختار أبدًا بناءً على معلوماتك الشخصية.</span></li>
+    <li><span class="highlight-icon" aria-hidden="true">🔒</span><strong>آمن من التصميم</strong><span>كلمات مرور Argon2id، وجلسات دوّارة تكتشف السرقة، ومحتوى منظَّف، وصور مرفوعة منقّاة.</span></li>
+    <li><span class="highlight-icon" aria-hidden="true">✓</span><strong>لا نبيع بياناتك أبدًا</strong><span>لا أدوات تتبّع، ولا تحليلات خارجية، وسياسة خصوصية بلغة واضحة.</span></li>
+  </ul>
+
+  <!-- ====================================================== accounts -->
+  <section class="area" id="v100-accounts" aria-labelledby="v100-accounts-title">
+    <h3 id="v100-accounts-title">الحسابات وتسجيل الدخول<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صفحة ترحيبية مقسومة: قصة ArabDev في جانب، وتسجيل الدخول أو إنشاء الحساب في الجانب الآخر. وعلى الهواتف يأتي الجزءان فوق بعضهما.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أنشئ حسابًا باسم مستخدم وبريد إلكتروني وكلمة مرور (تُكتب مرتين). إنشاء الحساب يسجّل دخولك مباشرة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اسم المستخدم من 3 إلى 20 حرفًا، بأحرف إنجليزية وأرقام وشرطات سفلية، ويبدأ بحرف، ولا يميّز بين الأحرف الكبيرة والصغيرة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لا يمكن تسجيل الأسماء المحجوزة مثل <code>admin</code> و<code>api</code> و<code>settings</code> و<code>explore</code> و<code>support</code>.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">فحص فوري لتوفّر اسم المستخدم أثناء الكتابة، مع علامة صح خضراء أو رسالة واضحة مثل «اسم المستخدم هذا مستخدم بالفعل».</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يتحقق حقل البريد من عدم استخدام العنوان في حساب آخر بمجرد مغادرتك له.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">قواعد كلمة المرور: من 8 إلى 128 حرفًا، وحرف واحد ورقم واحد على الأقل، ودون تكرار مفرط.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">شريط لقوة كلمة المرور يقيّمها أثناء الكتابة: ضعيفة أو مقبولة أو جيدة أو قوية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">زرّا إظهار وإخفاء في كل حقل لكلمة المرور.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تظهر رسائل الخطأ تحت الحقل الذي تخصّه وبلغتك، بدل تنبيه عام.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لغة الواجهة التي تستخدمها أثناء التسجيل تصبح لغتك المحفوظة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تسجيل الدخول بالبريد وكلمة المرور، مع خيار <em>إبقائي مسجلًا للدخول</em> الذي يدوم حتى 30 يومًا.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">من دون <em>إبقائي مسجلًا للدخول</em> تنتهي الجلسة عند إغلاق المتصفح، وبعد 12 ساعة على الأكثر.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">استعادة كلمة المرور المنسية: اطلب رابطًا، وافتحه خلال 30 دقيقة، واختر كلمة مرور جديدة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تسجيل الخروج من قائمة الحساب، وهو ينهي الجلسة على ذلك المتصفح.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الصفحات التي تحتاج حسابًا ترسل الزوار لتسجيل الدخول ثم تعيدهم إلى حيث كانوا.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">من يفتح صفحة الدخول أو التسجيل وهو مسجّل الدخول يُنقل إلى صفحته الرئيسية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُستعاد جلستك بهدوء عند إعادة فتح ArabDev، دون ظهور صفحة الدخول للحظة.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">يقول تسجيل الدخول فقط «البريد الإلكتروني أو كلمة المرور غير صحيحة»، ويستغرق الوقت نفسه سواء كان البريد مسجّلًا أم لا.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">نموذج نسيان كلمة المرور يعطي الإجابة نفسها لكل عنوان، فلا يكشف من لديه حساب.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">إعادة تعيين كلمة المرور تنهي كل الجلسات القائمة للحساب.</span></li>
+      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">لم يعد الزوار يرسلون طلب جلسة غير ضروري في كل زيارة: لا يحاول ArabDev استعادة الجلسة إلا في المتصفحات التي سجّلت الدخول من قبل.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== onboarding -->
+  <section class="area" id="v100-onboarding" aria-labelledby="v100-onboarding-title">
+    <h3 id="v100-onboarding-title">إعداد الزيارة الأولى<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">نافذة إعداد من أربع خطوات تُفتح في أول زيارة بعد إنشاء الحساب.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">شريط تقدّم وعدّاد مثل «الخطوة 2 من 4» يوضّحان موضعك.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الخطوة 1: ارفع صورة شخصية مع معاينة دائرية فورية أثناء الرفع، ويمكنك استبدالها أو إزالتها.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الخطوة 2: عدّل اسم المستخدم (مع فحص التوفّر نفسه)، وحدّد الاسم الظاهر، واكتب نبذة قصيرة مع عدّاد للأحرف.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الخطوة 3: اختر اهتماماتك من 25 موضوعًا. تظهر المواضيع المختارة بعلامة صح إضافة إلى الخلفية الملوّنة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الخطوة 4: حتى ثمانية مطوّرين مقترحين بناءً على الاهتمامات التي اخترتها للتو، ولكل منهم زر متابعة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يمكن تخطّي كل خطوة وإغلاق النافذة في أي وقت، وإكمال ما تخطّيته لاحقًا من الإعدادات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يُحفظ إنهاء الإعداد أو إغلاقه في حسابك، فلا يظهر مجددًا على أي جهاز.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تنتهي الخطوة الأخيرة بزر «الانتقال إلى الرئيسية» الذي يفتح خلاصة شكّلتها اختياراتك.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">على الهواتف يُفتح الإعداد بملء الشاشة لتتسع كل خطوة براحة.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== navigation -->
+  <section class="area" id="v100-navigation" aria-labelledby="v100-navigation-title">
+    <h3 id="v100-navigation-title">التنقل والصفحات<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">عمود تنقل بعناوين على الشاشات العريضة: الرئيسية، واستكشاف، والإشعارات، والمحفوظات، والملف الشخصي، والإعدادات، وزر منشور جديد.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">شريط أيقونات ضيق مع تلميحات على الأجهزة اللوحية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">شريط تنقل سفلي على الهواتف يضم الرئيسية واستكشاف وإنشاء والإشعارات والملف الشخصي.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">عمود جانبي على الشاشات العريضة فيه مطوّرون مقترحون وإعلان واحد والوسوم الشائعة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">قائمة حساب فيها تعديل الملف والمسودات والمحفوظات والإعدادات ومفاتيح المظهر واللغة وروابط التوثيق وتسجيل الخروج.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صفحة المحفوظات تعرض كل ما حفظته، الأحدث حفظًا أولًا.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صفحة المسودات بترقيم صفحات ومقتطفات ووسوم.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">شاشة ودودة لـ«الصفحة غير موجودة» مع طريق للعودة إلى الرئيسية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صفحتك الرئيسية هي لوحة التحكم على <code>arabdev.site/dashboard</code>، والعنوان <code>arabdev.site</code> يأخذك إليها مباشرة (أو إلى تسجيل الدخول).</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">رابط «الدعم» في قائمة الحساب وفي كل تذييل، يفتح رسالة بريد إلى <code>support@arabdev.site</code>.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لكل قسم من الإعدادات عنوانه الخاص، مثل <code>/settings/privacy</code>.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">كل صفحة تُحمَّل فقط عند فتحها أول مرة، فتبقى الزيارة الأولى خفيفة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">عناوين تبويب المتصفح تصف الصفحة، مثل عنوان المنشور أو اسم الشخص.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">عناصر تحميل مؤقتة بشكل المحتوى الذي تنوب عنه.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== profiles -->
+  <section class="area" id="v100-profiles" aria-labelledby="v100-profiles-title">
+    <h3 id="v100-profiles-title">الملفات الشخصية<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">ملفات شخصية عامة على <code>/u/username</code> يمكن قراءتها دون حساب.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يعرض الملف الصورة والاسم الظاهر و@اسم المستخدم والنبذة والموقع والموقع الإلكتروني وشهر الانضمام.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أعداد المتابَعين والمتابِعين والمنشورات، ويفتح أول عددين القائمتين الكاملتين.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">شارة «يتابعك» عندما يتابعك الشخص.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تظهر الاهتمامات كرقائق تفتح صفحة الوسم المطابق.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تبويبات الملف: المنشورات (مع إعادات النشر)، والردود (التعليقات مع رابط منشورها)، والمحفوظات في ملفك أنت.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">كل تبويب في الملف مقسّم إلى صفحات من 20 عنصرًا.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صفحتا المتابِعين والمتابَعين تعرضان كل شخص في بطاقة فيها النبذة والاهتمامات وزر المتابعة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">محرر للملف الشخصي: الاسم الظاهر (حتى 50 حرفًا)، واسم المستخدم، والنبذة (حتى 280)، والموقع (حتى 60)، والموقع الإلكتروني (حتى 200)، والاهتمامات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يبقى زر الحفظ معطّلًا حتى يتغيّر شيء، وتظهر المشكلات تحت الحقل المعني.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُضاف <code>https://</code> تلقائيًا إلى عناوين المواقع التي تخلو منها، ويُعرض العنوان باسم نطاق قصير.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الصور الشخصية: JPEG أو PNG أو WebP أو GIF حتى 5 ميغابايت، تُقصّ مربعًا في الوسط ويُعاد تحجيمها إلى 400×400.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">من لا صورة له تظهر الأحرف الأولى من اسمه على دائرة ملوّنة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">استبدال الصورة الشخصية أو إزالتها يحذف الملف القديم.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صفحة ودودة للملفات غير الموجودة بدل رسالة خطأ.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">من يخفي قوائمه تظهر في قوائمه عبارة «هذا الحساب يُبقي قائمة متابعاته خاصة».</span></li>
+      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">تبقى تبويبات الملف الشخصي مثبّتة أسفل الشريط العلوي أثناء التمرير.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">لم يعد يظهر خط سفلي شارد تحت الصورة الشخصية عند النقر عليها.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== feed -->
+  <section class="area" id="v100-feed" aria-labelledby="v100-feed-title">
+    <h3 id="v100-feed-title">الصفحة الرئيسية<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">خلاصة رئيسية بثلاثة تبويبات: لك، والمتابَعون، والأحدث.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تبويب «لك» يجمع المنشورات حسب اليوم، ثم يعرض من تتابعهم أولًا، ثم المنشورات المطابقة لاهتماماتك، ثم البقية، والأحدث أولًا داخل كل مجموعة. لا يُخفى شيء، بل يُعاد ترتيبه فقط.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تبويب «المتابَعون» يعرض منشوراتك ومنشورات من تتابعهم والمنشورات التي أعادوا نشرها.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">إذا أعاد عدة أشخاص تتابعهم نشر المنشور نفسه، يظهر مرة واحدة مع اسم من أعاد نشره.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تبويب «الأحدث» يعرض كل المنشورات من الأحدث إلى الأقدم بدقة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">ترقيم صفحات على الخادم: 20 منشورًا في الصفحة مع أزرار السابق والتالي وروابط مرقّمة. لا تمرير لانهائي.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">على الهواتف تُستبدل روابط الصفحات بعبارة مختصرة مثل «الصفحة 2 من 5».</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يُحفظ التبويب ورقم الصفحة في العنوان (<code>/dashboard?tab=following&amp;page=2</code>)، فتبقى في مكانك عند إعادة التحميل أو المشاركة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الانتقال إلى صفحة أخرى يعيدك إلى أعلى الخلاصة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">مربع «على ماذا تعمل الآن؟» في أعلى الخلاصة يفتح المحرر.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">عناصر تحميل بشكل المنشورات بدل مؤشرات الدوران.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">حالات فراغ مفيدة: «لا توجد منشورات بعد» مع زر لكتابة منشور، وتبويب متابَعين فارغ يرشدك إلى صفحة الاستكشاف.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">زر لإعادة المحاولة إذا تعذّر تحميل الخلاصة.</span></li>
+      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">تبقى الصفحة الحالية ظاهرة وباهتة قليلًا أثناء تحميل الصفحة التالية، فلا تومض الشاشة فارغة أبدًا.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== editor -->
+  <section class="area" id="v100-editor" aria-labelledby="v100-editor-title">
+    <h3 id="v100-editor-title">محرر المنشورات<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">محرر منشورات غني مع عنوان اختياري حتى 200 حرف.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">فقرات وعناوين وعناوين فرعية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">غامق ومائل وتسطير ويتوسطه خط وشيفرة ضمن السطر.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">قوائم نقطية ومرقّمة، بما في ذلك القوائم المتداخلة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اقتباسات تظهر بشريط أحمر في بداية السطر.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">كتل شيفرة بخلفية داكنة، دائمًا من اليسار إلى اليمين حتى داخل المنشورات العربية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">جداول بصف عناوين: أدرج جدولًا، وأضف صفوفًا وأعمدة أو احذفها، واحذف الجدول.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">روابط عبر نافذة لإضافة رابط على النص المحدد أو تغييره أو إزالته.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">محاذاة النص: البداية والوسط والنهاية والضبط، وفق اتجاه كل فقرة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">ثلاثة خطوط: تجوال (Tajawal) وألكسندريا (Alexandria) وأنتون (Anton)، ويظهر كل منها بخطّه في القائمة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">ستة أحجام للنص: 14 و16 و18 و20 و24 و30.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">خمسة ألوان للنص (أحمر، وأحمر داكن، وحبري، ورمادي فحمي، وخافت)، لكل منها درجة للوضع الفاتح وأخرى للداكن، فيبقى النص الملوّن مقروءًا في الوضعين.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">زرّا تراجع وإعادة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُبرز أزرار شريط الأدوات عندما يكون تنسيقها نشطًا عند المؤشر.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يبقى شريط الأدوات مثبّتًا أسفل الشريط العلوي أثناء كتابة المنشورات الطويلة، ويتمرر أفقيًا على الشاشات الضيقة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اختصارات لوحة المفاتيح، مثل <kbd>Ctrl</kbd> + <kbd>B</kbd> للغامق و<kbd>Ctrl</kbd> + <kbd>E</kbd> للشيفرة ضمن السطر و<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>C</kbd> لكتلة شيفرة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اختصارات بأسلوب Markdown أثناء الكتابة: <code>##</code> لعنوان، و<code>-</code> لقائمة، و<code>```</code> لكتلة شيفرة، و<code>**bold**</code> للغامق.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">مفتاح <kbd>Tab</kbd> في الجدول ينتقل إلى الخلية التالية، ويضيف صفًا من الخلية الأخيرة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">كل فقرة وعنوان وعنصر قائمة وخلية جدول تختار اتجاهها من أول حروفها، فتمتزج العربية والإنجليزية بشكل طبيعي في منشور واحد.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أرفق صورة واحدة لكل منشور (JPEG أو PNG أو WebP أو GIF حتى 5 ميغابايت) مع شريط تقدّم للرفع وزر إزالة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُصغَّر الصور الكبيرة لتتسع ضمن 1600×1600 وتُحفظ بصيغة WebP.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">إزالة صورة رفعتها للتو قبل الحفظ تحذفها من الخادم.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أرفق رابطًا واحدًا يدور حوله المنشور؛ يظهر أسفل المنشور كبطاقة فيها اسم الموقع وعنوانه.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">حتى 5 وسوم لكل منشور، تُدخل بمفتاح Enter أو تُختار من الاقتراحات أو تُلصق مفصولة بفواصل.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">معاينة حية تعرض المنشور تمامًا كما سيراه القرّاء: بجانب المحرر على الشاشات العريضة، وخلف تبويب «معاينة» على الأصغر.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">المسوّدات: احفظ كل شيء دون نشر، بما فيه العنوان والنص والوسوم والصورة والرابط.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">بعد الحفظ الأول تحصل المسوّدة على عنوانها الخاص (<code>/drafts/12</code>)، فتصبح إعادة التحميل آمنة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صفحة المسودات تعرض مسوّداتك، الأحدث تعديلًا أولًا، مع مقتطفات ووسوم وزر حذف.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">نشر المسوّدة يحوّلها إلى منشور ويحذف المسوّدة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">سؤال «تجاهل التغييرات؟» عند مغادرة المحرر وفيه عمل غير محفوظ، إضافة إلى تحذير المتصفح نفسه عند إغلاق التبويب.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">عدّل منشوراتك بالمحرر نفسه؛ وتظهر على المنشورات المعدّلة علامة «معدّل».</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">رسائل واضحة للمنشور الفارغ أو الرابط غير الصالح، تظهر حيث تقع المشكلة.</span></li>
+      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">قائمة حجم الخط عريضة بما يكفي لعرض قيمها كاملة.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">لم تعد نافذة مغادرة المحرر تكرّر سؤالها مرتين.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">المحتوى الملصوق يحتفظ فقط بالخطوط والأحجام والألوان التي يوفّرها المحرر، ويُزال كل ما عداها على الخادم عند النشر.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== shortcuts -->
+  <section class="area" id="v100-shortcuts" aria-labelledby="v100-shortcuts-title">
+    <h3 id="v100-shortcuts-title">اختصارات المحرر وMarkdown<span class="area-count"></span></h3>
+    <p>كل اختصار أدناه جرى التحقق منه في المحرر نفسه. ويجمعها كلها جدول واحد في <a href="https://wiki.arabdev.site/ar/#formatting-reference" target="_blank" rel="noopener">مرجع التنسيق</a> في الويكي.</p>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text"><span dir="ltr"><kbd>Ctrl</kbd> + <kbd>B</kbd></span> للغامق، و<span dir="ltr"><kbd>Ctrl</kbd> + <kbd>I</kbd></span> للمائل، و<span dir="ltr"><kbd>Ctrl</kbd> + <kbd>U</kbd></span> للتسطير.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text"><span dir="ltr"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd></span> لنص يتوسطه خط.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text"><span dir="ltr"><kbd>Ctrl</kbd> + <kbd>E</kbd></span> للشيفرة ضمن السطر.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text"><span dir="ltr"><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>2</kbd></span> لعنوان، و<span dir="ltr"><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>3</kbd></span> لعنوان فرعي.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text"><span dir="ltr"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>8</kbd></span> لقائمة نقطية، و<span dir="ltr"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>7</kbd></span> لقائمة مرقّمة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text"><span dir="ltr"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd></span> لاقتباس.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text"><span dir="ltr"><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>C</kbd></span> لكتلة شيفرة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text"><span dir="ltr"><kbd>Ctrl</kbd> + <kbd>Z</kbd></span> للتراجع، و<span dir="ltr"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd></span> أو <span dir="ltr"><kbd>Ctrl</kbd> + <kbd>Y</kbd></span> للإعادة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text"><span dir="ltr"><kbd>Shift</kbd> + <kbd>Enter</kbd></span> لسطر جديد داخل الفقرة نفسها.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text"><kbd>Tab</kbd> و<span dir="ltr"><kbd>Shift</kbd> + <kbd>Tab</kbd></span> لزيادة إزاحة عنصر القائمة وإنقاصها.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">على أجهزة Mac يعمل <kbd>⌘</kbd> حيثما تذكر الاختصارات <kbd>Ctrl</kbd>.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اكتب <code>##</code> ثم مسافة لعنوان، أو <code>###</code> ثم مسافة لعنوان فرعي.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اكتب <code>-</code> أو <code>*</code> أو <code>+</code> ثم مسافة لقائمة نقطية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اكتب <code>1.</code> ثم مسافة لقائمة مرقّمة تبدأ من ذلك الرقم.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اكتب <code>&gt;</code> ثم مسافة لاقتباس.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اكتب <code>```</code> ثم مسافة لكتلة شيفرة، ويمكنك إضافة اسم لغة مثل <code>```python</code>.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اكتب <code>---</code> لخط فاصل أفقي.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أحِط النص بـ<code>**</code> للغامق، وبـ<code>*</code> أو <code>_</code> للمائل، وبـ<code>~~</code> لخط في الوسط، وبعلامتي backtick للشيفرة ضمن السطر.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">كتابة عنوان ويب أو لصقه متبوعًا بمسافة يحوّله إلى رابط.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لصق عنوان أثناء تحديد نص يحوّل النص المحدد إلى رابط.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">نافذة الجدول تتيح اختيار 1 إلى 20 صفًا و1 إلى 8 أعمدة، وهل يكون الصف الأول صف عناوين.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">داخل الجدول يقدّم زر الجدول: إضافة صف أسفل، وإضافة عمود بعد، وحذف صف، وحذف عمود، وحذف الجدول.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الجداول العريضة تتمرر أفقيًا على الشاشات الصغيرة بدل ضغط محتواها.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُضاف <code>https://</code> تلقائيًا إلى عناوين الروابط المكتوبة دونها.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اختيار المحاذاة النشطة مرة أخرى يلغيها ويعيد الفقرة إلى محاذاتها الطبيعية.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== posts -->
+  <section class="area" id="v100-posts" aria-labelledby="v100-posts-title">
+    <h3 id="v100-posts-title">قراءة المنشورات<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">بطاقات المنشورات تعرض الكاتب والوقت النسبي (مع التاريخ الدقيق عند التمرير فوقه) والعنوان والمحتوى والصورة وبطاقة الرابط والوسوم.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُقصّ المنشورات الطويلة في الخلاصة بتلاشٍ لطيف ورابط «اقرأ المزيد».</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">النقر في أي مكان على البطاقة يفتح المنشور، إلا على الروابط والأزرار والنص الذي تحدّده.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صفحة كاملة للمنشور بمحتواه الكامل وزر متابعة الكاتب والنقاش.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">وقت قراءة تقديري في أعلى كل صفحة منشور.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">المنشورات التي بلا عنوان تُعنون باسم كاتبها.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">قائمة ⋯ في المنشورات فيها «نسخ الرابط» للجميع، و«تعديل المنشور» و«حذف المنشور» للكاتب.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">حذف المنشور يطلب تأكيدًا ويوضّح أن تعليقاته وإعجاباته وإعادات نشره وحفظه ستُحذف معه.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الإشارات (<code>@username</code>) في المنشورات تُشعِر الأشخاص المشار إليهم، حتى 10 أشخاص لكل منشور.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الروابط داخل المنشورات تُفتح في تبويب جديد.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الاقتباسات والقوائم والجداول تحتفظ باتجاه اللغة المكتوبة بها، حتى داخل واجهة اللغة الأخرى.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الصور في المنشورات موصوفة لقارئات الشاشة باستخدام عنوان المنشور.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صفحة واضحة للمنشورات المحذوفة أو غير الموجودة.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">أصبح زر المتابعة في صفحة المنشور يوضّح هل تتابع الكاتب بالفعل، بدل أن يعرض «متابعة» دائمًا.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">أصبحت الوسوم المكتوبة بالعربية تظهر بالاتجاه الصحيح.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== interactions -->
+  <section class="area" id="v100-interactions" aria-labelledby="v100-interactions-title">
+    <h3 id="v100-interactions-title">الإعجاب وإعادة النشر والحفظ والمشاركة<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صف أزرار تحت كل منشور: تعليق، وإعادة نشر، وإعجاب، وحفظ، ومشاركة، مع العدد عندما يزيد على صفر.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الإعجاب: يمتلئ القلب بالأحمر ويتحدّث العدد فورًا.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">إعادة النشر تشارك المنشور مع متابعيك وتظهر في ملفك؛ واضغط مرة أخرى للتراجع.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لا يمكنك إعادة نشر منشورك، لذا يكون الزر معطّلًا عليه.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الحفظ خاص تمامًا، ويظهر في صفحة المحفوظات وفي تبويب المحفوظات في ملفك.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">المشاركة تستخدم نافذة المشاركة في جهازك إن وُجدت، وإلا تنسخ الرابط وتقول «تم نسخ الرابط».</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">كل تغيير يظهر فورًا ويُلغى تلقائيًا إذا رفضه الخادم.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تبقى حالة الإعجاب والحفظ وإعادة النشر متسقة في كل مكان يظهر فيه المنشور نفسه: الخلاصة والملف والبحث وصفحة المنشور.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الزوار الذين يحاولون الإعجاب أو إعادة النشر أو الحفظ يُطلب منهم تسجيل الدخول ثم يعودون إلى المنشور.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">التراجع عن إعجاب أو إعادة نشر قبل أن يقرأ الكاتب الإشعار يسحب الإشعار.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُعلن الأزرار حالتها لقارئات الشاشة، مثل «إعجاب (4)» وهل هو مفعّل.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== comments -->
+  <section class="area" id="v100-comments" aria-labelledby="v100-comments-title">
+    <h3 id="v100-comments-title">التعليقات<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">قسم «النقاش» تحت كل منشور، الأقدم أولًا، 20 تعليقًا في الصفحة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تعليقات نصية من 1 إلى 2000 حرف، مع الحفاظ على الأسطر الجديدة وعدّاد للأحرف.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أرسل بزر «تعليق» أو بـ<span dir="ltr"><kbd>Ctrl</kbd> + <kbd>Enter</kbd></span>.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الردود: اختر «رد» لتظهر رقاقة «ردًا على @username»، واحذف الرقاقة للإلغاء.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">بعد النشر ينتقل النقاش إلى الصفحة التي تحتوي تعليقك الجديد.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الإشارات في التعليقات تصبح روابط إلى الملفات الشخصية وتُشعِر المشار إليهم.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">إشعار واحد لكل شخص في كل تعليق، حتى لو كان التعليق ردًا عليه وإشارة إليه معًا.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يمكن حذف التعليقات من كاتبها أو كاتب المنشور أو أحد المسؤولين، وتُحذف ردودها معها.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">التعليقات العربية والإنجليزية تتحاذى كل منها بشكل صحيح بمفردها.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">أصبحت كل إشارة في التعليق رابطًا؛ فقد كانت كل إشارة ثانية في التعليق قد تُفوَّت.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">لم تعد أسماء المستخدمين الإنجليزية داخل الجمل العربية تقفز إلى موضع خاطئ في السطر.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== community -->
+  <section class="area" id="v100-community" aria-labelledby="v100-community-title">
+    <h3 id="v100-community-title">المجتمع والإشراف<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">إرشادات المجتمع في الويكي: شارك بسخاء، وانسب الفضل لأهله، ورحّب بالمبتدئين، واكتب باللغة التي تخدم قرّاءك.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">قواعد واضحة ضد التحرش والكراهية والرسائل المزعجة ونشر المعلومات الخاصة والبرمجيات الخبيثة وانتحال الشخصية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">إرشادات للبحث الأمني والإفصاح المسؤول.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يستطيع كتّاب المنشورات حذف التعليقات على منشوراتهم.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يستطيع المسؤولون حذف أي منشور أو تعليق يخالف الإرشادات، وتعطيل الحسابات عند الإساءة الجسيمة أو المتكررة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الحسابات المعطّلة لا تستطيع تسجيل الدخول وتُستبعد من الاقتراحات والبحث.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== following -->
+  <section class="area" id="v100-following" aria-labelledby="v100-following-title">
+    <h3 id="v100-following-title">المتابعة والاقتراحات<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تابع أو ألغِ المتابعة من الملفات الشخصية وبطاقات الاقتراحات وقوائم الأشخاص وصفحات المنشورات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يتحوّل زر «تتابعه» إلى «إلغاء المتابعة» بالأحمر عند التمرير فوقه أو التركيز عليه بلوحة المفاتيح، فيتضح الإجراء قبل تنفيذه.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اقتراحات «مطورون قد تهتم بهم» تُحسب نقاطها من الاهتمامات المشتركة (3 نقاط لكل منها) ومن تتابعهم ممن يتابعونهم (نقطتان لكل منهم).</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لا تتضمن الاقتراحات أبدًا حسابك، ولا من تتابعهم، ولا الحسابات المعطّلة، ولا من أوقفوا ظهورهم في البحث والاقتراحات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الزوار غير المسجّلين يرون المطوّرين الأكثر متابَعة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">متابعة شخص تحدّث عدد متابعيه وعدد من تتابعهم في كل مكان دفعة واحدة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">إلغاء المتابعة قبل أن يقرأ الشخص الإشعار يسحب الإشعار.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== explore -->
+  <section class="area" id="v100-explore" aria-labelledby="v100-explore-title">
+    <h3 id="v100-explore-title">الاستكشاف والرائج والوسوم<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صفحة استكشاف مفتوحة للجميع، فيها البحث والمنشورات الرائجة والوسوم الشائعة ومطوّرون للمتابعة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«الرائج هذا الأسبوع» يرتّب منشورات آخر 7 أيام حسب الإعجابات مضافًا إليها ضعف التعليقات وضعف إعادات النشر، تفضيلًا للنقاش.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">إذا لم يُنشر شيء خلال الأسبوع الأخير، يعرض الرائج الترتيب على الإطلاق بدل ألا يعرض شيئًا.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">وسوم شائعة مرتّبة حسب الاستخدام خلال آخر 30 يومًا، مع إبراز الثلاثة الأولى.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صفحات للوسوم على <code>/tags/name</code> فيها منشورات الوسم، الأحدث أولًا، وعدد المنشورات التي تستخدمه.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُرتَّب الوسوم تلقائيًا: أحرف صغيرة، والمسافات تصبح شرطات، وتُزال <code>#</code> في البداية، والوسوم العربية مدعومة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُدمج التهجئات الشائعة في وسم واحد، مثل <code>js</code> ← <code>javascript</code> و<code>c++</code> ← <code>cpp</code> و<code>node.js</code> ← <code>nodejs</code>.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">25 اهتمامًا، من JavaScript وRust إلى الأمن السيبراني وتصميم الواجهات، كل منها مرتبط بوسم ليلتقي الناس بالمنشورات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أسماء الاهتمامات مترجمة إلى العربية حيث يستخدم المطوّرون اسمًا عربيًا، وتبقى كما هي للغات والأطر.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">على الشاشات الأصغر تنتقل الوسوم الشائعة والاقتراحات إلى أعلى صفحة الاستكشاف.</span></li>
+      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">صفحات الوسوم تعرض عدد المنشورات بصيغ الجمع الصحيحة في العربية والإنجليزية.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== search -->
+  <section class="area" id="v100-search" aria-labelledby="v100-search-title">
+    <h3 id="v100-search-title">البحث<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">مربع بحث واحد للمنشورات والمطوّرين والوسوم، في الشريط العلوي وصفحة الاستكشاف وصفحة البحث.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اقتراحات فورية بعد حرفين وتوقّف 300 جزء من الثانية، مجمّعة في المطوّرين والوسوم والمنشورات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">دعم لوحة المفاتيح: <kbd>↑</kbd> و<kbd>↓</kbd> للتنقل، و<kbd>Enter</kbd> للفتح، و<kbd>Esc</kbd> للإغلاق.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">ابدأ بـ<code>@</code> للبحث عن الأشخاص وبـ<code>#</code> للبحث عن الوسوم.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صفحة نتائج على <code>/search?q=</code> بتبويبات الكل والمنشورات والمطوّرون والوسوم، 20 نتيجة في الصفحة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">التطابق التام مع اسم المستخدم يأتي أولًا في نتائج المطوّرين.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">البحث لا يميّز بين الأحرف الكبيرة والصغيرة، وتُطابَق الرموز مثل <code>%</code> و<code>_</code> حرفيًا.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اقتراحات مفيدة عندما لا يطابق شيء.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">على الهواتف يُفتح البحث من عدسة مكبّرة في الشريط العلوي.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== notifications -->
+  <section class="area" id="v100-notifications" aria-labelledby="v100-notifications-title">
+    <h3 id="v100-notifications-title">الإشعارات<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">إشعارات للإعجابات والتعليقات والردود والمتابعين الجدد وإعادات النشر والإشارات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">شارة حمراء لغير المقروء على عنصر الإشعارات، تتحدّث كل 30 ثانية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الإشعارات غير المقروءة لها خلفية ملوّنة واسم بخط غامق وعلامة «جديد»، فتبرز دون الاعتماد على اللون.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">كل إشعار يعرض من قام بالفعل، وما فعله، وعنوان المنشور، ونص التعليق في حالة التعليقات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اختيار الإشعار يعلّمه كمقروء ويفتح المنشور أو الملف الشخصي.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«تعليم الكل كمقروء».</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لا إشعارات لأفعالك أنت، ولا تكرار عند إعادة الإعجاب أو المتابعة أو إعادة النشر.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يمكن إيقاف كل نوع من الإشعارات من الإعدادات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اختر من يمكنه إرسال إشعار إشارة إليك: الجميع، أو من تتابعهم، أو لا أحد.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">قائمة الإشعارات مقسّمة إلى صفحات من 20، وتتحدّث كل دقيقة وهي مفتوحة.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== settings -->
+  <section class="area" id="v100-settings" aria-labelledby="v100-settings-title">
+    <h3 id="v100-settings-title">الإعدادات<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">إعدادات مقسّمة إلى الحساب والملف الشخصي والمظهر والخصوصية والإشعارات، كقائمة جانبية على الشاشات العريضة وتبويبات على الهواتف.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">غيّر بريدك الإلكتروني مع تأكيد بكلمة مرورك الحالية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">غيّر كلمة مرورك؛ فيُسجَّل خروج الأجهزة الأخرى ويبقى الجهاز الحالي مسجّلًا للدخول.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">المظهر: فاتح أو داكن أو حسب النظام، الذي يتبع جهازك.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اللغة: العربية أو English.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يُحفظ المظهر واللغة في حسابك وينتقلان معك إلى أجهزتك الأخرى.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الخصوصية: «إظهاري في البحث والاقتراحات» و«إظهار قائمتي المتابِعين والمتابَعين».</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">خمسة مفاتيح للإشعارات: الإعجابات، والتعليقات والردود، والمتابعون الجدد، وإعادات النشر، والإشارات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُحفظ المفاتيح فورًا مع رسالة «تم حفظ الإعدادات»، وتعود إلى وضعها السابق إذا فشل الحفظ.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«حذف حسابي» مع تأكيد بكلمة المرور، ويحذف الحساب نهائيًا مع كل ما يرتبط به.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">مفاتيح سريعة للمظهر واللغة في قائمة الحساب.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">رابط إلى سياسة الخصوصية من قسم الخصوصية.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== messages -->
+  <section class="area" id="v100-messages" aria-labelledby="v100-messages-title">
+    <h3 id="v100-messages-title">رسائل واضحة<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«محاولات كثيرة. انتظر قليلًا ثم حاول مجددًا.» عند بلوغ حد الطلبات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«انتهت جلستك. سجّل الدخول مرة أخرى.» عندما تنتهي الجلسة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«اسم المستخدم هذا محجوز.» للأسماء التي يستخدمها الموقع نفسه.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«كلمتا المرور غير متطابقتين.» عندما يختلف حقلا كلمة المرور.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«اجمع بين الحروف والأرقام لتصبح أصعب في التخمين.» لكلمات المرور الضعيفة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«يجب ألا يتجاوز حجم الصورة 5 ميغابايت.» و«استخدم صورة بصيغة JPEG أو PNG أو WebP أو GIF.» للصور المرفوضة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«هذا الملف ليس صورة صالحة.» للملفات التالفة أو المتنكّرة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«هذه الصورة صغيرة جدًا.» و«أبعاد هذه الصورة كبيرة جدًا.»، مع الحدود الدقيقة في الويكي.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«اكتب شيئًا قبل النشر.» عندما يخلو المنشور من نص.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«أدخل رابطًا صحيحًا يبدأ بـ http:// أو https://.» للروابط المرفقة غير الصالحة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«لا يمكنك إعادة نشر منشورك.» عند محاولة إعادة نشر منشورك.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">«تعذر الاتصال بالخادم.» عند انقطاع الاتصال، مع زر لإعادة المحاولة حيث يفيد.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">كل رسالة موجودة بالعربية والإنجليزية، ومقالة «حل المشكلات» في الويكي تشرح كلًا منها.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== ads -->
+  <section class="area" id="v100-ads" aria-labelledby="v100-ads-title">
+    <h3 id="v100-ads-title">الإعلانات<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">إعلانات في الخلاصات بعد كل 8 منشورات، أي إعلانان على الأكثر في صفحة من 20 منشورًا، ولا تظهر أبدًا في مواضع عشوائية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">موضع إعلاني واحد في العمود الجانبي على الشاشات العريضة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">كل إعلان يحمل علامة «إعلان» داخل إطار، ويذكر من يروّج له، ويستخدم إطارًا متقطعًا وخلفية ملوّنة حتى لا يُخلط بالمنشورات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أيقونة معلومات تشرح سبب ظهور الإعلانات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُختار الإعلانات بناءً على الموضع واللغة ورقم الصفحة فقط، وتتناوب بين الصفحات بشكل متوقَّع.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يمكن توجيه الإعلانات للعربية أو الإنجليزية أو كلتيهما، ويمكن أن يكون لها تاريخ بداية ونهاية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُعدّ مرات الظهور والنقرات كمجاميع، ولا ترتبط أبدًا بالأشخاص.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">ينطلق ArabDev بإعلاناته الخاصة، الموسومة بـ«مُروَّج من ArabDev».</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لا إعلانات داخل المنشورات أو التعليقات أو الملفات الشخصية أو نتائج البحث أو الإشعارات أو الإعدادات، ولا نوافذ منبثقة.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">علامة الإعلان في الواجهة الإنجليزية لم تعد تُكتب بأحرف كبيرة كأنها صراخ.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">القوائم التي لا تعرض إعلانات أبدًا، مثل تبويبات الملف الشخصي، لم تعد تطلبها.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== languages -->
+  <section class="area" id="v100-languages" aria-labelledby="v100-languages-title">
+    <h3 id="v100-languages-title">العربية والإنجليزية والاتجاه من اليمين إلى اليسار<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">واجهة عربية كاملة وهي الافتراضية، وواجهة إنجليزية كاملة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تبديل اللغة يقلب التخطيط كله دفعة واحدة: التنقل والقوائم والأدراج والمسافات والمحاذاة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الأيقونات ذات الاتجاه، مثل أسهم الرجوع وأسهم الصفحات والتراجع، تنعكس في العربية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صيغ جمع عربية صحيحة للأعداد: للمفرد والمثنى والجمع القليل والكثير صيغة لكل منها.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">التواريخ والأوقات النسبية بلغة الواجهة، مثل «منذ 3 ساعات» و«3 hr. ago».</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أرقام غربية (0–9) في اللغتين، وهي الأسهل قراءة بجوار الشيفرة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أسماء المستخدمين وعناوين البريد والشيفرة تظهر دائمًا من اليسار إلى اليمين، حتى في الجمل العربية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">رسائل الخطأ القادمة من الخادم تصل بلغتك.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُضبط لغة الصفحة واتجاهها قبل ظهورها الأول، فلا وميض عند التحميل.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">كل نصوص الواجهة في ملفّي ترجمة، فلا شيء مكتوب بلغة واحدة داخل الشيفرة.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">أصبح مفتاح اللغة متاحًا على الهواتف قبل تسجيل الدخول.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== design -->
+  <section class="area" id="v100-design" aria-labelledby="v100-design-title">
+    <h3 id="v100-design-title">التصميم والوضع الداكن<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">هوية ArabDev: «Arab» بالأحمر و«Dev» بالأسود (وبالأبيض في الوضع الداكن)، بخط Anton.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">خط ألكسندريا للعناوين، وتجوال للنصوص، وأنتون للشعار والإحصاءات، وكلها مستضافة لدى ArabDev نفسه.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">هوية بصرية حمراء وبيضاء مع وضع داكن مضبوط بعناية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">وضع داكن يتبع جهازك افتراضيًا، مع اختيار يدوي في الإعدادات وقائمة الحساب.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لا وميض لمظهر خاطئ أثناء تحميل الصفحات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تخطيط بثلاثة أعمدة على الشاشات العريضة، وشريط أيقونات على الأجهزة اللوحية، وشريط تنقل سفلي على الهواتف.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">زر «إنشاء» أحمر في منتصف شريط التنقل على الهواتف.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أيقونة ArabDev لتبويب المتصفح.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">لم يعد رأس الصفحة على الهواتف ينقسم إلى سطرين.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== accessibility -->
+  <section class="area" id="v100-accessibility" aria-labelledby="v100-accessibility-title">
+    <h3 id="v100-accessibility-title">إمكانية الوصول<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">رابط «انتقل إلى المحتوى» عند أول ضغطة على <kbd>Tab</kbd>.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">كل عنصر تحكّم يمكن الوصول إليه واستخدامه بلوحة المفاتيح، مع إطار تركيز أحمر واضح.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">للأزرار ذات الأيقونات فقط أسماء منطوقة، ومفاتيح التبديل تعلن هل هي مفعّلة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اقتراحات البحث تتبع نمط القائمة المنسدلة القياسي لقارئات الشاشة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">النوافذ الحوارية تُبقي التركيز داخلها حتى تُغلق.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">مناطق التحميل معلَّمة بأنها مشغولة، والرسائل مثل «تم نسخ الرابط» تُعلَن.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لا تُعرض الحالة باللون وحده: للإشعارات غير المقروءة علامة «جديد»، وللاهتمامات المختارة علامة صح.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تباين يلبّي الإرشادات الشائعة في الوضعين الفاتح والداكن.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تتوقف الحركات عندما يطلب جهازك تقليل الحركة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تكبير الصفحات دون فقدان المحتوى، من الهواتف الصغيرة إلى الشاشات العريضة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لكل صفحة عنوان ذو معنى، مثل عنوان المنشور أو اسم الشخص.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== performance -->
+  <section class="area" id="v100-performance" aria-labelledby="v100-performance-title">
+    <h3 id="v100-performance-title">الأداء<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يرسل الخادم 20 منشورًا على الأكثر في كل مرة، وتُجلب كل صفحة بعدد ثابت من استعلامات قاعدة البيانات مهما كان عدد منشوراتها.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لا يُحمَّل المحرر إلا عند فتحه، فتبقى قراءة ArabDev سريعة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">مكتبة الواجهة والمحرر مقسّمان في حزم منفصلة قابلة للتخزين المؤقت.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">البيانات التي عُرضت مؤخرًا تُعاد فورًا وتُحدَّث بهدوء في الخلفية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الوسوم الشائعة وقائمة الاهتمامات مخزّنة مؤقتًا على الخادم.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الصور المرفوعة تُقدَّم بترويسات تخزين مؤقت طويلة لأن أسماءها لا تتغير أبدًا.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الردود الكبيرة من الواجهة البرمجية مضغوطة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الخطوط مستضافة ذاتيًا بصيغة WOFF2 وتُعرض مع <code>font-display: swap</code>، فيصبح النص مقروءًا فورًا.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">اقتراحات البحث تنتظر توقّفك عن الكتابة بدل الاستعلام مع كل ضغطة مفتاح.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يعمل SQLite بوضع سجل الكتابة المسبقة (WAL) فلا تحجب القراءة والكتابة بعضهما.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== security -->
+  <section class="area" id="v100-security" aria-labelledby="v100-security-title">
+    <h3 id="v100-security-title">الأمان<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">كلمات المرور مجزّأة بخوارزمية Argon2id، وتُرقّى تلقائيًا إذا أصبحت إعدادات التجزئة أقوى.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">رموز وصول قصيرة العمر (15 دقيقة) تُحفظ في ذاكرة الصفحة فقط، ولا تُحفظ أبدًا في تخزين المتصفح.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">رموز الدخول طويلة العمر عشوائية، ولا تُخزَّن إلا كتجزئات SHA-256، وتُرسل في ملف تعريف ارتباط HttpOnly مقصور على نقاط تسجيل الدخول.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">رموز الدخول تُدوَّر مع كل استخدام؛ وإعادة استخدام رمز قديم تنهي سلسلة الجلسات كلها.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">تغيير كلمة المرور أو إعادة تعيينها يُبطل فورًا كل رموز الوصول القائمة.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">تجديد الجلسة وتسجيل الخروج يتطلبان ترويسة مخصصة لا تستطيع المواقع الأخرى إرسالها، وهذا يمنع تزوير الطلبات عبر المواقع.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">روابط إعادة تعيين كلمة المرور تُستخدم مرة واحدة، وتنتهي بعد 30 دقيقة، ولا تُخزَّن إلا كتجزئات.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">حدود للطلبات على تسجيل الدخول والتسجيل وإعادة تعيين كلمة المرور والنشر والتعليق والتفاعلات والمتابعة والرفع والبحث.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">تُشارك حدود الطلبات بين عمليات الخادم عبر Redis عند إعداده.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">تُنظَّف المنشورات على الخادم بقائمة سماح صارمة للوسوم والسمات والخطوط والأحجام والألوان وأنواع الروابط.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">تُنظَّف المنشورات مرة أخرى في المتصفح قبل عرضها، كخط دفاع ثانٍ.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">الروابط في المنشورات تسمح فقط بـ<code>http</code> و<code>https</code> و<code>mailto</code>، وتُعلَّم بـ<code>noopener noreferrer nofollow ugc</code>.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">تُفك الملفات المرفوعة كصور حقيقية ويُعاد ترميزها؛ وأي شيء آخر يُرفض.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">حجم الرفع محدود بـ 5 ميغابايت، وتُرفض الأبعاد المتطرفة للصور.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">ترويسات أمان تمنع المواقع الأخرى من تضمين ArabDev في إطار، وتمنع المتصفحات من تخمين أنواع الملفات.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">كل صلاحية تُفحص على الخادم: الكتّاب وحدهم يعدّلون منشوراتهم، والأشخاص المخوّلون وحدهم يحذفون التعليقات.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">تغيير البريد الإلكتروني أو حذف الحساب يتطلب كلمة مرورك الحالية.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">لا يمكن إرفاق الصور إلا من الحساب الذي رفعها.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">ترفض الواجهة البرمجية العمل في بيئة الإنتاج دون مفتاح سري حقيقي.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">وصول المتصفحات إلى الواجهة البرمجية مقصور على المصادر المُعدّة.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">تُحذف جلسات الدخول المنتهية وروابط إعادة التعيين القديمة تلقائيًا كل ست ساعات.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">لم يعد تجديد تبويبين للجلسة في اللحظة نفسها يسجّل خروجك: فترة سماح مدتها 20 ثانية تميّز ذلك عن سرقة حقيقية للرمز.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== limits -->
+  <section class="area" id="v100-limits" aria-labelledby="v100-limits-title">
+    <h3 id="v100-limits-title">حدود تُبقي ArabDev عادلًا<span class="area-count"></span></h3>
+    <p>الاستخدام العادي لا يقترب أبدًا من هذه الحدود. وُجدت لإيقاف إساءة الاستخدام الآلية.</p>
+    <ul class="changes">
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">تسجيل الدخول: 10 محاولات في الدقيقة لكل شبكة.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">إنشاء حساب: 10 في الساعة لكل شبكة.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">نسيان كلمة المرور: 5 طلبات كل 15 دقيقة.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">إعادة تعيين كلمة المرور وتغييرها: 10 لكل منهما كل 15 دقيقة.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">فحص توفّر اسم المستخدم والبريد: 60 في الدقيقة.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">تجديد الجلسة: 60 في الدقيقة.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">نشر المنشورات: 30 في الساعة.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">التعليقات: 60 كل 10 دقائق.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">الإعجابات والحفظ وإعادات النشر: 300 في الساعة.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">المتابعات: 120 في الساعة.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">رفع الصور: 30 كل 10 دقائق.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">البحث: 120 في الدقيقة.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">عدّ نقرات الإعلانات: 60 في الدقيقة، فلا يمكن تضخيم المجاميع.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">المنشورات: حتى 5 وسوم بطول 30 حرفًا لكل منها، وعنوان من 200 حرف، ورابط مرفق واحد حتى 500 حرف.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">المنشور الواحد يُشعِر 10 أشخاص مشار إليهم على الأكثر.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== privacy -->
+  <section class="area" id="v100-privacy" aria-labelledby="v100-privacy-title">
+    <h3 id="v100-privacy-title">الخصوصية<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">سياسة خصوصية كاملة بالعربية والإنجليزية، مرتّبة حسب المواضيع، مع تعهّد بأن ArabDev لا يبيع معلومات المستخدمين أبدًا.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لا أدوات تحليل خارجية، ولا أدوات تتبّع، ولا بكسلات إعلانية، ولا أدوات منصات التواصل.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">ملف تعريف ارتباط واحد فقط يبقيك مسجّلًا للدخول. لا حاجة لشريط موافقة على الكوكيز لأن لا شيء يتتبّعك.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">تُزال بيانات الموقع والكاميرا من كل صورة مرفوعة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">الإعلانات لا تستخدم المعلومات الشخصية أبدًا، والمعلنون لا يتلقون شيئًا عن المستخدمين.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">المحفوظات والمسوّدات خاصة، ولا يُبلَّغ الكتّاب أبدًا بمن حفظ منشوراتهم.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أوقف ظهورك في البحث والاقتراحات لتخرج منهما.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أخفِ قائمتي المتابِعين والمتابَعين.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">حذف الحساب يزيل محتواك وتفاعلاتك وملفاتك المرفوعة وجلساتك فورًا، ويعيد حساب الأعداد على المنشورات الأخرى.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">لا تظهر عناوين البريد الإلكتروني أبدًا للمستخدمين الآخرين.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">عبارات البحث لا تُخزَّن.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== api -->
+  <section class="area" id="v100-api" aria-labelledby="v100-api-title">
+    <h3 id="v100-api-title">الواجهة البرمجية والمطوّرون<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">واجهة REST ذات إصدار تحت <code>/api/v1</code> تغطي كل ما يفعله التطبيق.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">توثيق تفاعلي على <code>/api/docs</code> و<code>/api/redoc</code>، ووصف OpenAPI على <code>/api/v1/openapi.json</code>.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">كل نقطة تُرجع قائمة تستخدم ترقيم الصفحات نفسه: <code>page</code> و<code>limit</code> مُدخلًا، و<code>{items, page, limit, total, pages}</code> مُخرجًا.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">أخطاء متسقة: <code>detail</code> مقروء، و<code>code</code> ثابت، و<code>field</code> أو <code>errors</code> لمشكلات التحقق.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">تُترجم رسائل الخطأ باستخدام ترويسة <code>Accept-Language</code>.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">الطلبات التي تتجاوز الحد تُرجع HTTP 429 مع ترويسة <code>Retry-After</code>.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">نقاط المصادقة: التسجيل، والدخول، والتجديد، والخروج، والتوفّر، ونسيان كلمة المرور، وإعادة تعيينها.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">نقاط الحساب للملف الشخصي واسم المستخدم والبريد وكلمة المرور والاهتمامات والإعدادات والترحيب والصورة والمحفوظات والحذف.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">نقطة الخلاصة مع <code>tab=for_you|following|latest</code> وتصفية اختيارية بـ<code>tag</code>، إضافة إلى نقطة الرائج.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">نقاط للمنشورات والمسوّدات والتعليقات والإعجابات والحفظ وإعادة النشر والمتابعة.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">بحث مع <code>type=all|posts|users|tags</code>، والوسوم الشائعة، وتفاصيل الوسم، وقائمة الاهتمامات.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">نقاط للإشعارات مع عدد غير المقروء، وتعليم إشعار واحد، وتعليم الكل.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">رفع الوسائط وحذف الملفات المرفوعة غير المستخدمة.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">تقديم الإعلانات وعدّ النقرات، ونقاط للمسؤولين لإنشاء الإعلانات وتحديثها وحذفها.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">نقطة صحة تُبلغ عن حالة قاعدة البيانات وRedis.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">خادم بطبقات: مسارات وخدمات ومستودعات، مع مخططات Pydantic لكل طلب ورد.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">نموذج بيانات SQLAlchemy 2 مُنمَّط من 19 جدولًا مع ترحيلات Alembic.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">طبقة تجريد لتخزين الملفات المرفوعة، مع واجهة قرص محلي جاهزة للاستبدال بتخزين كائنات.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">طبقة تجريد للبريد؛ ومن دون مزوّد تُكتب الرسائل في سجل الخادم.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">عميل API مُنمَّط في الواجهة مع تجديد تلقائي للجلسة لا يُنفَّذ إلا مرة واحدة في الوقت نفسه.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">مفاتيح الاستعلام وتحديثات الذاكرة المؤقتة منظّمة بحيث يحدّث تغيير واحد كل قائمة تعرض المنشور أو الشخص نفسه.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== datamodel -->
+  <section class="area" id="v100-datamodel" aria-labelledby="v100-datamodel-title">
+    <h3 id="v100-datamodel-title">نموذج البيانات<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>users</code> و<code>profiles</code> و<code>user_settings</code>: الحسابات وتفاصيل الملف العامة والتفضيلات، صف واحد لكل منها لكل شخص.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>interests</code> و<code>user_interests</code>: المواضيع الـ 25 ومن اختارها.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>posts</code> و<code>tags</code> و<code>post_tags</code>: المنشورات ووسومها، مع توحيد أسماء الوسوم.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>drafts</code>: المنشورات غير المنشورة، الخاصة بكاتبها.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>comments</code>: التعليقات والردود، كل منها مرتبط بمنشوره، والردود مرتبطة بالتعليق الذي تجيب عنه.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>likes</code> و<code>bookmarks</code> و<code>reposts</code> و<code>follows</code>: صف واحد لكل تفاعل، بمفاتيح مركّبة تجعل التكرار مستحيلًا.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>notifications</code>: من فعل ماذا ولمن، وهل قُرئ.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>media</code>: الصور المرفوعة مع مالكها ونوعها وحجمها وأبعادها.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>ads</code>: محتوى الإعلان وموضعه ولغته وجدوله وعدّاداته الإجمالية.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>refresh_tokens</code> و<code>password_reset_tokens</code>: تجزئات الرموز فقط، ولا القيم الأصلية أبدًا.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">عدّادات المنشور (الإعجابات والتعليقات وإعادات النشر) مخزّنة على المنشور ويُعاد حسابها عند حذف الحسابات أو التعليقات، فلا تحتاج القوائم إلى عدّ مكلف.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">حذف حساب أو منشور يزيل كل الصفوف التابعة عبر الحذف المتتالي على مستوى قاعدة البيانات.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">كل الأوقات مخزّنة بالتوقيت العالمي المنسّق (UTC) وتُرجع مع المنطقة الزمنية.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== backend -->
+  <section class="area" id="v100-backend" aria-labelledby="v100-backend-title">
+    <h3 id="v100-backend-title">بنية الخادم<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">المسارات رفيعة: تتحقق من المدخلات وتفحص الصلاحيات وتستدعي خدمة.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">الخدمات تحمل قواعد العمل: المصادقة والمستخدمون والمنشورات والتفاعلات والتعليقات والإشعارات والاكتشاف والإعلانات والوسائط.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">المستودعات تحمل استعلامات قاعدة البيانات، بما فيها ترتيب «لك» وخلاصة المتابَعين والرائج.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">المُقدِّمات تبني ردود الواجهة لصفحة كاملة دفعة واحدة، فتحمّل الكتّاب والوسوم وحالة تفاعلك في استعلامات مجمّعة قليلة.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">أخطاء التحقق تحمل رموزًا ثابتة تترجمها الواجهة، بدل جمل إنجليزية.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">الإعدادات مُنمَّطة وتُحمَّل من البيئة، مع قيم افتراضية آمنة للتطوير.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">طبقة تخزين مؤقت تستخدم Redis عند توفّره والذاكرة في غير ذلك.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">تُعالج الصور بمكتبة Pillow: فكّ وفحص وتحجيم وإزالة للبيانات الوصفية وحفظ بصيغة WebP.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">منظِّف HTML يسمح فقط بما ينتجه المحرر، بما فيه خطوطه وأحجامه وألوان المظهر والمحاذاة واتجاه النص.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">بيانات أولية: 25 اهتمامًا و6 إعلانات خاصة بـ ArabDev، تُدرج دون تكرار.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">بيانات تجريبية: عشرة مطوّرين خياليين مع منشورات ومتابعات وإعجابات وتعليقات، لتجربة ArabDev محليًا.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">مهمة خلفية دورية تحذف الجلسات المنتهية وروابط إعادة التعيين القديمة كل ست ساعات.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== frontend -->
+  <section class="area" id="v100-frontend" aria-labelledby="v100-frontend-title">
+    <h3 id="v100-frontend-title">بنية الواجهة<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">منظّمة حسب الميزات: المصادقة والترحيب والمنشورات والمحرر والتعليقات والاكتشاف والبحث والإشعارات والملف والمستخدمون والإعلانات والتفضيلات.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">كل صفحة مسار يُحمَّل عند الحاجة، مع حراسة للصفحات الخاصة بالمسجّلين وتلك الخاصة بغير المسجّلين.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">بيانات الخادم تُعدّ حديثة 30 ثانية وتُحفظ 5 دقائق؛ ولا تُعاد محاولة أخطاء العميل، وتُعاد أخطاء الخادم مرتين.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">تحديثات متفائلة للإعجاب والحفظ وإعادة النشر والمتابعة والإعدادات، تُلغى عند الفشل.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">عميل API واحد يضيف رمز الوصول واللغة إلى كل طلب، ويجدد الجلسة مرة واحدة عندما تفشل عدة طلبات معًا.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">مظهر مبني على متغيرات CSS للوضعين الفاتح والداكن، فلا يعيد تبديل المظهر رسم التطبيق.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">ذاكرة أنماط للاتجاه من اليمين إلى اليسار تعكس أنماط التخطيط تلقائيًا للعربية.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">محتوى المنشورات يستخدم خصائص CSS المنطقية، فيحتفظ المحتوى باتجاهه أيًا كانت لغة الواجهة.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">كل النصوص تأتي من <code>ar.json</code> و<code>en.json</code>، مع قواعد الجمع العربية.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">مجموعة صغيرة مشتركة من اللبنات: حالات الفراغ والخطأ وهياكل التحميل وترقيم الصفحات ونوافذ التأكيد والتنبيهات.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">عناوين الصفحات وسمات اللغة تُدار مركزيًا.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== deployment -->
+  <section class="area" id="v100-deployment" aria-labelledby="v100-deployment-title">
+    <h3 id="v100-deployment-title">التشغيل والنشر<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">SQLite قاعدةً للبيانات، مع تفعيل سجل الكتابة المسبقة والمفاتيح الأجنبية ومهلة الانشغال.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">الإعداد عبر متغيرات البيئة وملفات <code>.env</code>، مع أمثلة موثّقة.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">Redis اختياري: من دونه تعود حدود الطلبات والتخزين المؤقت إلى الذاكرة.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>python -m app.cli seed</code> يضيف الاهتمامات الـ 25 والإعلانات الخاصة، ويمكن تشغيله مرارًا بأمان.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>python -m app.cli seed --demo</code> يضيف عشرة مطوّرين خياليين ومنشوراتهم للتجربة المحلية.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>python -m app.cli make-admin USERNAME</code> يمنح صلاحيات المسؤول.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text"><code>python -m app.cli purge-tokens</code> يحذف الجلسات المنتهية وروابط إعادة التعيين القديمة عند الطلب.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">إعداد Docker Compose يضم Redis والواجهة البرمجية وحاوية nginx تقدّم التطبيق على المنفذ 8080.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">حاوية الواجهة البرمجية تطبّق الترحيلات وتُدرج البيانات الأولية عند بدء تشغيلها.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">وحدات تخزين دائمة لملف قاعدة البيانات والوسائط المرفوعة.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">تُبنى الواجهة كموقع ثابت، جاهز لـ Cloudflare Pages أو أي استضافة ثابتة.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">خادم التطوير يمرّر <code>/api</code> و<code>/media</code> إلى الواجهة البرمجية.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">الويكي وسياسة الخصوصية وملاحظات الإصدار مواقع ثابتة مكتفية بذاتها، بخطوطها وأيقونتها، تُنشر دون خطوة بناء على <code>wiki.arabdev.site</code> و<code>privacy.arabdev.site</code> و<code>patch.arabdev.site</code>.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">خادم التطوير يقدّم هذه المواقع محليًا على <code>/wiki/</code> و<code>/privacy/</code> و<code>/patch-notes/</code>، وتبقى الروابط بينها محلية على جهازك.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">بناء التطبيق ينشر الرخصة على <code>arabdev.site/LICENSE.txt</code>.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">المتغير <code>VITE_API_ORIGIN</code> يتيح للتطبيق على Cloudflare Pages الوصول إلى واجهة برمجية مستضافة على عنوان آخر، ويمكن تغيير عناوين التوثيق بالطريقة نفسها.</span></li>
+      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">أصبح ArabDev يعمل على SQLite فقط. أُزيل دعم MySQL لإبقاء المنظومة خفيفة وسهلة النشر.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== docs -->
+  <section class="area" id="v100-docs" aria-labelledby="v100-docs-title">
+    <h3 id="v100-docs-title">التوثيق<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">ويكي ArabDev: 25 مقالة بالعربية والإنجليزية تغطي كل ميزة، والأمان، وحل المشكلات، والتطوير.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">بحث في الويكي يعمل داخل متصفحك، بمطابقة تراعي العربية واختصار <kbd>/</kbd>.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">مربعات محتويات تُولَّد تلقائيًا، وروابط للأقسام، وتنقل بين المقالة السابقة والتالية في كل مقالة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">سياسة خصوصية من 28 قسمًا بملخصات بلغة واضحة، وقائمة محتويات تتبع قراءتك، ودعم للطباعة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">ملاحظات الإصدار هذه، مع تصفية حسب النوع وأعداد حية وبحث.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">مقالات للقادمين الجدد في الويكي: البدء، وصفحة الأسئلة الشائعة، ومسرد لمصطلحات ArabDev والمطوّرين.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أدلة في الويكي لكل ميزة: الملفات الشخصية، والصفحة الرئيسية، وكتابة المنشورات، ومرجع التنسيق، والوسوم والاهتمامات، والتعليقات، والمتابعة، والبحث، والإشعارات، والإعدادات.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">مقالات في الويكي عن الثقة والأمان: الخصوصية والأمان، وأمان الحساب، والإعلانات، وإرشادات المجتمع.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">مقالة «حل المشكلات» تشرح كل رسالة شائعة وما يجب فعله حيالها.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">مقالات للمطوّرين: نظرة على البنية، والتشغيل والاستضافة الذاتية، ومرجع كامل للواجهة البرمجية، والمساهمة والرخصة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">صفحات الويكي تعرض مقالة واحدة في كل مرة مع شريط جانبي لكل المقالات، وتبقى تعمل كصفحة طويلة واحدة دون JavaScript.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">سياسة الخصوصية فيها ملخص «باختصار» لكل قسم، وجداول لملفات تعريف الارتباط ومفاتيح التخزين ومدد الاحتفاظ، وقائمة بقوانين حماية البيانات في تسع دول عربية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">سياسة الخصوصية تُبرز القسم الذي تقرؤه وتعرض تقدّم قراءتك.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">كل مواقع التوثيق تعمل على الهواتف، وتُطبع بشكل نظيف، وتدعم الوضع الداكن، وفيها روابط تخطٍّ لمستخدمي لوحة المفاتيح.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">يفتح التطبيق كل موقع توثيق بلغتك، وتبديل اللغة فيها يحافظ على موضعك.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">مقالة «التواصل والدعم» في الويكي: <code>support@arabdev.site</code> للمساعدة والأعطال والبلاغات والخصوصية والأمان، و<code>hi@arabdev.site</code> للرعاية والمساهمات والشراكات والأسئلة.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">روابط إلى الويكي وسياسة الخصوصية وملاحظات الإصدار والرخصة في العمود الجانبي للتطبيق وقائمة الحساب وصفحات الدخول، تُفتح في تبويب جديد.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">ArabDev برنامج حر بموجب رخصة جنو العمومية العامة الإصدار 3، ونصّ الرخصة كاملًا منشور على <code>/LICENSE.txt</code>.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">ملف README يغطي الميزات والبنية والإعداد والتهيئة والنشر والنسخ الاحتياطي.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== quality -->
+  <section class="area" id="v100-quality" aria-labelledby="v100-quality-title">
+    <h3 id="v100-quality-title">الاختبارات وجودة الشيفرة<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">47 اختبارًا آليًا للخادم تغطي المصادقة والجلسات والمنشورات والخلاصات والتعليقات والتفاعلات والإشعارات والرفع والبحث وحذف الحساب.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">كل اختبار يعمل على قاعدة بيانات جديدة في الذاكرة.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">TypeScript صارم في كل الواجهة، يُفحص بـ<code>npm run typecheck</code>.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">تنسيق متسق بـ Prettier (<code>npm run format</code>).</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">مبني على الإصدارات الرئيسية الحالية: React 19 وMaterial UI 9 وReact Router 8 وTanStack Query 5 وTipTap 3 وVite 8 وTypeScript 7.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">على الخادم: FastAPI وPydantic 2 وSQLAlchemy 2 وAlembic.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">عدة أيقونات أُعيدت تسميتها في Material UI 9 أصبحت تُحمَّل بشكل صحيح.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">أُعيدت كتابة أنماط كانت تعتمد على ميزات أُزيلت من Material UI 9، وهذا أزال أيضًا تحذيرًا في وحدة التحكم.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== pre-release -->
+  <section class="area" id="v100-prerelease" aria-labelledby="v100-prerelease-title">
+    <h3 id="v100-prerelease-title">ما تغيّر أثناء اختبارات ما قبل الإطلاق<span class="area-count"></span></h3>
+    <p>قبل الإطلاق اختُبر ArabDev صفحةً صفحة، باللغتين، على الشاشات العريضة والضيقة. هذه هي التغييرات التي نتجت عن ذلك، ويظهر معظمها أيضًا في قسمه أعلاه.</p>
+    <ul class="changes">
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">توقفت تبويبات الملف الشخصي عن الالتصاق بأعلى الشاشة بعد تمرير الصفحة.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">كان زر المتابعة في صفحة المنشور يقول «متابعة» دائمًا، حتى لو كنت تتابع الكاتب.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">في التعليق الذي يحتوي عدة إشارات، لم تكن بعض الإشارات تتحوّل إلى روابط.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">كانت الوسوم العربية تظهر بالاتجاه الخاطئ.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">كانت علامة الإعلان تُعرض بأحرف كبيرة في الواجهة الإنجليزية.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">كان رأس الصفحة على الهواتف ينقسم إلى سطرين في الشاشات الضيقة.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">لم يكن هناك مفتاح للغة على الهواتف قبل تسجيل الدخول.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">كانت الصور الشخصية المستخدمة كروابط تظهر بخط سفلي.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">كانت أسماء المستخدمين الإنجليزية داخل التعليقات العربية قد تظهر في الطرف الخاطئ من الجملة.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">كانت نافذة التغييرات غير المحفوظة تكرّر نصها.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">كانت قائمة حجم الخط في المحرر مقصوصة.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">كان الزوار الذين لم يسجّلوا الدخول قط يرسلون طلب جلسة فاشلًا مع كل تحميل للصفحة.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">كانت قاعدة تنسيق تسبّب تحذيرًا في وحدة تحكم المتصفح.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">كانت تبويبات الملف الشخصي وقوائم أخرى تطلب إعلانات لا تعرضها أبدًا.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">كان فتح ArabDev في تبويبين قد يسجّل خروجك عندما يجدد كلاهما الجلسة في الوقت نفسه.</span></li>
+      <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">كانت بعض الأيقونات مفقودة بعد ترقية مكتبة الواجهة.</span></li>
+      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">أصبح عدد المنشورات في صفحة الوسم يستخدم صيغ الجمع الصحيحة في اللغتين.</span></li>
+      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">أُعيد بناء استعلامات خلاصة المتابَعين وإعادات النشر لتكون أدق وأسرع.</span></li>
+      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">أصبح الخادم يمنع متابعة المرء لنفسه برسالة خطأ واضحة، بدل الاعتماد على قاعدة البيانات.</span></li>
+      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">بُسّطت طبقة قاعدة البيانات لتعمل على SQLite فقط، تمهيدًا لنشر الواجهة على Cloudflare Pages.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">أصبحت الجلسات المنتهية والمغلقة وروابط إعادة التعيين القديمة تُنظَّف تلقائيًا، كما تصف سياسة الخصوصية.</span></li>
+      <li data-type="new"><span class="tag new">جديد</span><span class="text">أُضيفت رخصة GNU GPL الإصدار 3 والويكي وسياسة الخصوصية وملاحظات الإصدار هذه قبل الإطلاق.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== numbers -->
+  <section class="info-block" id="v100-numbers" data-hide-when-filtered aria-labelledby="v100-numbers-title">
+    <h3 id="v100-numbers-title">الإصدار 1.0.0 بالأرقام</h3>
+    <ul>
+      <li><strong>2</strong>: لغتان كاملتان للواجهة، العربية والإنجليزية، بتخطيطين من اليمين إلى اليسار ومن اليسار إلى اليمين.</li>
+      <li><strong>3</strong> تبويبات في الخلاصة و<strong>20</strong> منشورًا في الصفحة.</li>
+      <li><strong>5</strong> أنواع من الإشعارات، لكل منها مفتاحه.</li>
+      <li><strong>25</strong> اهتمامًا مرتبطًا بالوسوم.</li>
+      <li><strong>3</strong> خطوط و<strong>6</strong> أحجام و<strong>5</strong> ألوان تتكيّف مع المظهر في المحرر.</li>
+      <li><strong>19</strong> جدولًا في قاعدة البيانات و<strong>49</strong> مسارًا في الواجهة البرمجية.</li>
+      <li><strong>47</strong> اختبارًا آليًا للخادم.</li>
+      <li><strong>25</strong> مقالة في الويكي، وسياسة خصوصية من <strong>28</strong> قسمًا، وملاحظات الإصدار هذه، وكلها باللغتين.</li>
+      <li>ملف تعريف ارتباط <strong>1</strong>، و<strong>0</strong> أدوات تتبّع.</li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== interests -->
+  <section class="info-block" id="v100-interests" data-hide-when-filtered aria-labelledby="v100-interests-title">
+    <h3 id="v100-interests-title">الاهتمامات الـ 25 عند الإطلاق</h3>
+    <p>تُختار أثناء الإعداد أو من الإعدادات، وتُطابَق مع الوسم الظاهر بعد كل اسم.</p>
+    <ul class="credits">
+      <li>JavaScript <small><code>javascript</code></small></li>
+      <li>TypeScript <small><code>typescript</code></small></li>
+      <li>Python <small><code>python</code></small></li>
+      <li>C++ <small><code>cpp</code></small></li>
+      <li>Rust <small><code>rust</code></small></li>
+      <li>Go <small><code>go</code></small></li>
+      <li>Java <small><code>java</code></small></li>
+      <li>C# <small><code>csharp</code></small></li>
+      <li>React <small><code>react</code></small></li>
+      <li>Vue <small><code>vue</code></small></li>
+      <li>Angular <small><code>angular</code></small></li>
+      <li>Node.js <small><code>nodejs</code></small></li>
+      <li>FastAPI <small><code>fastapi</code></small></li>
+      <li>Django <small><code>django</code></small></li>
+      <li>الذكاء الاصطناعي <small><code>ai</code></small></li>
+      <li>تعلّم الآلة <small><code>machine-learning</code></small></li>
+      <li>الأمن السيبراني <small><code>cybersecurity</code></small></li>
+      <li>Linux <small><code>linux</code></small></li>
+      <li>DevOps <small><code>devops</code></small></li>
+      <li>الحوسبة السحابية <small><code>cloud</code></small></li>
+      <li>قواعد البيانات <small><code>databases</code></small></li>
+      <li>تطوير الألعاب <small><code>game-development</code></small></li>
+      <li>تطوير تطبيقات الجوال <small><code>mobile-development</code></small></li>
+      <li>تصميم الواجهات UI/UX <small><code>ui-ux</code></small></li>
+      <li>المصادر المفتوحة <small><code>open-source</code></small></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== quick start -->
+  <section class="info-block" id="v100-quickstart" data-hide-when-filtered aria-labelledby="v100-quickstart-title">
+    <h3 id="v100-quickstart-title">جرّب الإصدار 1.0.0 محليًا</h3>
+    <p>أسرع طريقة لتشغيل المنظومة كاملة هي Docker Compose من مجلد المشروع:</p>
+    <pre dir="ltr"><code>cp .env.example .env        # set SECRET_KEY
+docker compose up --build   # then open http://localhost:8080</code></pre>
+    <p>وللعمل على الشيفرة، شغّل الواجهة البرمجية والواجهة كلًا على حدة:</p>
+    <pre dir="ltr"><code>cd backend
+python -m venv .venv
+.venv/Scripts/activate      # macOS/Linux: source .venv/bin/activate
+pip install -e ".[dev]"
+alembic upgrade head
+python -m app.cli seed --demo
+uvicorn app.main:app --reload --port 8000
+
+cd ../frontend
+npm install
+npm run dev                 # http://localhost:5173</code></pre>
+    <p>مقالة <a href="https://wiki.arabdev.site/ar/#self-hosting" target="_blank" rel="noopener">التشغيل والاستضافة الذاتية</a> في الويكي تشرح التهيئة والنشر والنسخ الاحتياطي بالتفصيل.</p>
+  </section>
+
+  <!-- ====================================================== help -->
+  <section class="info-block" id="v100-help" data-hide-when-filtered aria-labelledby="v100-help-title">
+    <h3 id="v100-help-title">أين تجد المساعدة</h3>
+    <ul>
+      <li>ابدأ بمقالتي <a href="https://wiki.arabdev.site/ar/#getting-started" target="_blank" rel="noopener">البدء</a> و<a href="https://wiki.arabdev.site/ar/#faq" target="_blank" rel="noopener">الأسئلة الشائعة</a> في الويكي.</li>
+      <li>إذا ظهرت رسالة خطأ، فمقالة <a href="https://wiki.arabdev.site/ar/#troubleshooting" target="_blank" rel="noopener">حل المشكلات</a> تشرح كل رسالة.</li>
+      <li>مشكلات الحساب والأعطال والإبلاغ عن المحتوى وطلبات الخصوصية: راسل <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a>. وتشرح مقالة <a href="https://wiki.arabdev.site/ar/#contact" target="_blank" rel="noopener">التواصل والدعم</a> ما يجب ذكره.</li>
+      <li>وجدت مشكلة أمنية؟ أبلغ عنها بشكل خاص إلى <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a> بعنوان «أمان»، لا في منشور عام.</li>
+      <li>الرعاية والمساهمات والشراكات والأسئلة الأخرى: راسل <a href="mailto:hi@arabdev.site" dir="ltr">hi@arabdev.site</a>.</li>
+      <li>يمكن للمطوّرين استكشاف التوثيق الحي للواجهة البرمجية على <code>/api/docs</code>.</li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== limitations -->
+  <section class="info-block" id="v100-limitations" data-hide-when-filtered aria-labelledby="v100-limitations-title">
+    <h3 id="v100-limitations-title">قيود معروفة</h3>
+    <p>أشياء لا يفعلها ArabDev 1.0.0 بعد. ليست وعودًا بموعد، لكنها أول ما ننظر فيه.</p>
+    <ul>
+      <li>لا توجد رسائل خاصة بين الأعضاء.</li>
+      <li>لا يوجد مزوّد بريد متصل، لذا تُكتب روابط إعادة تعيين كلمة المرور في سجل الخادم بدل إرسالها بالبريد. يمكن لمن يستضيف ArabDev ذاتيًا ربط مزوّد في <code>email_service.py</code>.</li>
+      <li>لا يوجد بعد زر للإبلاغ عن المنشورات أو التعليقات أو الملفات الشخصية؛ أرسل البلاغات إلى <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a>.</li>
+      <li>لا يمكن إدارة الإعلانات إلا عبر الواجهة البرمجية؛ لا توجد شاشة إدارة.</li>
+      <li>لكل منشور صورة واحدة.</li>
+      <li>التعليقات نص عادي؛ لا تدعم التنسيق ولا الصور.</li>
+      <li>لا توجد بعد أداة لتنزيل بياناتك بنفسك؛ نسخ بياناتك متاحة عند الطلب.</li>
+      <li>الإشعارات تظهر داخل ArabDev فقط؛ لا إشعارات بالبريد أو إشعارات فورية.</li>
+      <li>صُمّمت الواجهة البرمجية لتعمل كعملية واحدة مع SQLite.</li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== requirements -->
+  <section class="info-block" id="v100-requirements" data-hide-when-filtered aria-labelledby="v100-requirements-title">
+    <h3 id="v100-requirements-title">المتطلبات وملاحظات الترقية</h3>
+    <ul>
+      <li>المتصفحات: الإصدارات الحالية من Chrome وEdge وFirefox وSafari، على الحاسوب والهاتف.</li>
+      <li>لتشغيل الواجهة البرمجية: Python 3.11 أو أحدث. ولبناء الواجهة: Node.js 20.19 أو أحدث (أو 22.12 وما بعده).</li>
+      <li>هذا هو الإصدار الأول، فلا يوجد ما يُرقّى منه. التثبيتات الجديدة تشغّل <code>alembic upgrade head</code> لإنشاء قاعدة البيانات.</li>
+      <li>اضبط <code>SECRET_KEY</code>، وفي بيئة الإنتاج أيضًا <code>ENVIRONMENT=production</code> و<code>COOKIE_SECURE=true</code> خلف HTTPS.</li>
+      <li>انسخ <code>arabdev.db</code> ومجلد الوسائط احتياطيًا بانتظام.</li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== credits -->
+  <section class="info-block" id="v100-credits" data-hide-when-filtered aria-labelledby="v100-credits-title">
+    <h3 id="v100-credits-title">شكر وتقدير</h3>
+    <p>يقف ArabDev على أكتاف أعمال رائعة مفتوحة المصدر. شكرًا لكل من يقف خلف:</p>
+    <ul class="credits">
+      <li>Alexandria <small>خط · رخصة SIL المفتوحة للخطوط</small></li>
+      <li>Tajawal <small>خط · رخصة SIL المفتوحة للخطوط</small></li>
+      <li>Anton <small>خط · رخصة SIL المفتوحة للخطوط</small></li>
+      <li>React <small>واجهة المستخدم</small></li>
+      <li>Material UI وEmotion <small>المكوّنات والتنسيق</small></li>
+      <li>stylis-plugin-rtl <small>أنماط الاتجاه من اليمين إلى اليسار</small></li>
+      <li>React Router <small>التوجيه</small></li>
+      <li>TanStack Query <small>جلب البيانات وتخزينها مؤقتًا</small></li>
+      <li>TipTap وProseMirror <small>محرر المنشورات</small></li>
+      <li>i18next <small>الترجمة</small></li>
+      <li>DOMPurify <small>التنظيف في المتصفح</small></li>
+      <li>Axios <small>عميل HTTP</small></li>
+      <li>Vite وTypeScript <small>أدوات البناء</small></li>
+      <li>FastAPI وStarlette <small>الواجهة البرمجية</small></li>
+      <li>Pydantic <small>التحقق</small></li>
+      <li>SQLAlchemy وAlembic <small>قاعدة البيانات والترحيلات</small></li>
+      <li>SQLite <small>قاعدة البيانات</small></li>
+      <li>argon2-cffi <small>تجزئة كلمات المرور</small></li>
+      <li>PyJWT <small>رموز الوصول</small></li>
+      <li>nh3 <small>التنظيف على الخادم</small></li>
+      <li>Pillow <small>معالجة الصور</small></li>
+      <li>Redis <small>حدود وتخزين مؤقت مشتركان اختياريًا</small></li>
+      <li>pytest <small>الاختبارات</small></li>
+    </ul>
+  </section>
+</article>
+</main>
+</div>
+
+<footer class="site-footer">
+  <nav aria-label="صفحات ذات صلة">
+    <a href="https://arabdev.site/dashboard">ArabDev</a>
+    <a href="https://wiki.arabdev.site/ar/" target="_blank" rel="noopener">الويكي</a>
+    <a href="https://privacy.arabdev.site/ar/" target="_blank" rel="noopener">سياسة الخصوصية</a>
+    <a href="https://arabdev.site/LICENSE.txt" target="_blank" rel="noopener">الرخصة (GNU GPL الإصدار 3)</a>
+  </nav>
+  <p>ArabDev برنامج حر منشور بموجب رخصة جنو العمومية العامة الإصدار 3. الدعم: <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a> · التواصل: <a href="mailto:hi@arabdev.site" dir="ltr">hi@arabdev.site</a></p>
+</footer>
+<script src="../assets/patch-notes.js"></script>
+</body>
+</html>

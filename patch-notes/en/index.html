@@ -1,0 +1,1014 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patch notes — ArabDev</title>
+<meta name="description" content="Everything that is new, improved and fixed in each ArabDev release.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="alternate" hreflang="ar" href="../ar/">
+<script>
+  (function () {
+    try {
+      var mode = localStorage.getItem('arabdev.mode') || 'system';
+      var dark = mode === 'dark' || (mode === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    } catch (e) {}
+  })();
+</script>
+<link rel="stylesheet" href="../assets/patch-notes.css">
+</head>
+<body>
+<a class="skip" href="#notes">Skip to the notes</a>
+
+<header class="site-header">
+  <a class="brand" href="https://arabdev.site/dashboard" aria-label="ArabDev home">
+    <span class="brand-word" dir="ltr"><span class="arab">Arab</span>Dev</span>
+    <span class="brand-label">Patch notes</span>
+  </a>
+  <div class="search" role="search">
+    <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"/></svg>
+    <input type="search" data-search placeholder="Filter changes (press /)" aria-label="Filter changes" autocomplete="off">
+  </div>
+  <div class="header-actions">
+    <a class="btn" href="../ar/" data-lang-switch data-base="../ar/" lang="ar" hreflang="ar">العربية</a>
+    <button class="btn icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark mode">◐</button>
+    <a class="btn btn-primary" href="https://arabdev.site/dashboard"><span aria-hidden="true">↩</span><span class="btn-label">Open ArabDev</span></a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Release history</span>
+    <h1>ArabDev patch notes</h1>
+    <p class="hero-lead">
+      Every change to ArabDev, release by release: new features, improvements, fixes, security work and
+      changes for developers. Use the filters to see only one kind of change, or type to search.
+    </p>
+    <div class="latest">
+      <div class="latest-version">1.0.0</div>
+      <div>
+        <h2>Latest release: ArabDev 1.0.0, the first public release</h2>
+        <p>Released on <time datetime="2026-09-19">19 September 2026</time>.</p>
+        <ul class="stats" aria-label="Changes in 1.0.0">
+          <li><strong data-count="all">—</strong> changes</li>
+          <li><span class="dot new" aria-hidden="true"></span><strong data-count="new">—</strong> new</li>
+          <li><span class="dot improved" aria-hidden="true"></span><strong data-count="improved">—</strong> improved</li>
+          <li><span class="dot fixed" aria-hidden="true"></span><strong data-count="fixed">—</strong> fixed</li>
+          <li><span class="dot security" aria-hidden="true"></span><strong data-count="security">—</strong> security</li>
+          <li><span class="dot developer" aria-hidden="true"></span><strong data-count="developer">—</strong> developer</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="layout">
+<aside class="sidebar" aria-label="Filters and releases">
+  <div class="side-block">
+    <h2>Show</h2>
+    <div class="filters" role="group" aria-label="Filter by type of change">
+      <button class="filter" type="button" data-filter="all" aria-pressed="true"><span class="dot" aria-hidden="true"></span>All changes<span class="count" data-count="all"></span></button>
+      <button class="filter" type="button" data-filter="new" aria-pressed="false"><span class="dot new" aria-hidden="true"></span>New<span class="count" data-count="new"></span></button>
+      <button class="filter" type="button" data-filter="improved" aria-pressed="false"><span class="dot improved" aria-hidden="true"></span>Improved<span class="count" data-count="improved"></span></button>
+      <button class="filter" type="button" data-filter="fixed" aria-pressed="false"><span class="dot fixed" aria-hidden="true"></span>Fixed<span class="count" data-count="fixed"></span></button>
+      <button class="filter" type="button" data-filter="security" aria-pressed="false"><span class="dot security" aria-hidden="true"></span>Security<span class="count" data-count="security"></span></button>
+      <button class="filter" type="button" data-filter="developer" aria-pressed="false"><span class="dot developer" aria-hidden="true"></span>Developer<span class="count" data-count="developer"></span></button>
+    </div>
+  </div>
+  <div class="side-block releases">
+    <h2>Releases</h2>
+    <ul class="side-nav">
+      <li>
+        <a class="release-link" href="#v1-0-0">1.0.0 <small>19 September 2026 · Latest</small></a>
+        <ul>
+          <li><a href="#v100-accounts">Accounts and sign-in</a></li>
+          <li><a href="#v100-onboarding">First-visit setup</a></li>
+          <li><a href="#v100-navigation">Navigation and pages</a></li>
+          <li><a href="#v100-profiles">Profiles</a></li>
+          <li><a href="#v100-feed">Home feed</a></li>
+          <li><a href="#v100-editor">Post editor</a></li>
+          <li><a href="#v100-shortcuts">Shortcuts and Markdown</a></li>
+          <li><a href="#v100-posts">Reading posts</a></li>
+          <li><a href="#v100-interactions">Likes, reposts and saves</a></li>
+          <li><a href="#v100-comments">Comments</a></li>
+          <li><a href="#v100-community">Community and moderation</a></li>
+          <li><a href="#v100-following">Following and suggestions</a></li>
+          <li><a href="#v100-explore">Explore and tags</a></li>
+          <li><a href="#v100-search">Search</a></li>
+          <li><a href="#v100-notifications">Notifications</a></li>
+          <li><a href="#v100-settings">Settings</a></li>
+          <li><a href="#v100-messages">Clear messages</a></li>
+          <li><a href="#v100-ads">Ads</a></li>
+          <li><a href="#v100-languages">Arabic and English</a></li>
+          <li><a href="#v100-design">Design and dark mode</a></li>
+          <li><a href="#v100-accessibility">Accessibility</a></li>
+          <li><a href="#v100-performance">Performance</a></li>
+          <li><a href="#v100-security">Security</a></li>
+          <li><a href="#v100-limits">Limits</a></li>
+          <li><a href="#v100-privacy">Privacy</a></li>
+          <li><a href="#v100-api">API and developers</a></li>
+          <li><a href="#v100-datamodel">Data model</a></li>
+          <li><a href="#v100-backend">Backend architecture</a></li>
+          <li><a href="#v100-frontend">Frontend architecture</a></li>
+          <li><a href="#v100-deployment">Running and deployment</a></li>
+          <li><a href="#v100-docs">Documentation</a></li>
+          <li><a href="#v100-quality">Tests and code quality</a></li>
+          <li><a href="#v100-prerelease">Pre-release testing</a></li>
+          <li><a href="#v100-numbers">By the numbers</a></li>
+          <li><a href="#v100-interests">The 25 interests</a></li>
+          <li><a href="#v100-quickstart">Try it locally</a></li>
+          <li><a href="#v100-help">Where to get help</a></li>
+          <li><a href="#v100-limitations">Known limitations</a></li>
+          <li><a href="#v100-requirements">Requirements</a></li>
+          <li><a href="#v100-credits">Credits</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+<main class="notes" id="notes" tabindex="-1">
+<p class="filter-status" data-filter-status hidden></p>
+<div class="no-results" data-no-results hidden>No changes match your filters. Try another word, or show all changes.</div>
+
+<article class="release" id="v1-0-0" aria-labelledby="v1-0-0-title">
+  <header class="release-header">
+    <h2 id="v1-0-0-title">ArabDev 1.0.0</h2>
+    <span class="badge">Latest</span>
+    <time datetime="2026-09-19">19 September 2026</time>
+  </header>
+  <p class="release-summary" data-hide-when-filtered>
+    The first public release of ArabDev: a community for Arabic-speaking developers to write technical posts,
+    follow each other and discover new topics, fully in Arabic and English. Entries marked <em>New</em> describe
+    what ships in this release. <em>Improved</em> and <em>Fixed</em> entries describe changes made while testing the
+    release before launch.
+  </p>
+
+  <ul class="highlights" data-hide-when-filtered aria-label="Highlights">
+    <li><span class="highlight-icon" aria-hidden="true">✎</span><strong>A real editor for technical writing</strong><span>Headings, code blocks, tables, links, three fonts, six sizes and five theme-aware colors, with live preview and drafts.</span></li>
+    <li><span class="highlight-icon" aria-hidden="true">⇄</span><strong>Arabic first, English too</strong><span>The whole interface flips between right-to-left and left-to-right, and every paragraph finds its own direction.</span></li>
+    <li><span class="highlight-icon" aria-hidden="true">☰</span><strong>A feed with an end</strong><span>Three tabs, 20 posts per page and numbered pages instead of infinite scrolling.</span></li>
+    <li><span class="highlight-icon" aria-hidden="true">⚑</span><strong>Honest, predictable ads</strong><span>Clearly labelled, after every 8 posts, and never chosen using your personal information.</span></li>
+    <li><span class="highlight-icon" aria-hidden="true">🔒</span><strong>Secure by design</strong><span>Argon2id passwords, rotating sessions with theft detection, sanitised content and cleaned uploads.</span></li>
+    <li><span class="highlight-icon" aria-hidden="true">✓</span><strong>We never sell your data</strong><span>No trackers, no third-party analytics and a plain-language privacy policy.</span></li>
+  </ul>
+
+  <!-- ====================================================== accounts -->
+  <section class="area" id="v100-accounts" aria-labelledby="v100-accounts-title">
+    <h3 id="v100-accounts-title">Accounts and sign-in<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">A split landing page: the ArabDev story on one side and sign-in or registration on the other. On phones the two stack vertically.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Create an account with a username, email address and password (entered twice). Creating an account signs you in straight away.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Usernames are 3 to 20 characters, use English letters, numbers and underscores, start with a letter, and are not case-sensitive.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Reserved names such as <code>admin</code>, <code>api</code>, <code>settings</code>, <code>explore</code> and <code>support</code> cannot be registered.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Live username availability check while you type, with a green check mark or a clear message such as “This username is already taken”.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The email field checks that no other account uses the address as soon as you leave it.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Password rules: 8 to 128 characters, at least one letter and one number, and not overly repetitive.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A password strength bar rates your password as weak, fair, good or strong while you type.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Show and hide buttons on every password field.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Error messages appear under the field they belong to, in your language, instead of as a generic alert.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The interface language you use while registering becomes your saved language preference.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Sign in with email and password, with a <em>Keep me signed in</em> option that lasts up to 30 days.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Without <em>Keep me signed in</em>, the session ends when the browser closes, and after 12 hours at most.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Forgot-password flow: request a reset link, open it within 30 minutes, choose a new password.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Sign out from the account menu, which ends the session on that browser.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Pages that need an account send guests to sign in and bring them back to where they were afterwards.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Signed-in visitors who open the sign-in or registration page are taken to their feed instead.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Your session is restored silently when you reopen ArabDev, without a flash of the sign-in page.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Sign-in says only “Email or password is incorrect” and takes the same time whether or not the email is registered.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">The forgot-password form gives the same answer for every address, so it cannot reveal who has an account.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Resetting a password ends every existing session for the account.</span></li>
+      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">Guests no longer make an unnecessary session request on every visit: ArabDev only tries to restore a session in browsers that have signed in before.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== onboarding -->
+  <section class="area" id="v100-onboarding" aria-labelledby="v100-onboarding-title">
+    <h3 id="v100-onboarding-title">First-visit setup<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">A four-step setup window opens on your first visit after creating an account.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A progress bar and a “Step 2 of 4” counter show where you are.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Step 1: upload a profile picture, with an instant circular preview while it uploads, and replace or remove it.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Step 2: adjust your username (with the same availability check), set a display name and write a short bio with a character counter.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Step 3: choose your interests from 25 topics. Selected topics show a check mark as well as a tinted background.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Step 4: up to eight suggested developers, based on the interests you just chose, each with a follow button.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Every step can be skipped, and the window can be closed at any time. Anything skipped can be finished later in Settings.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Finishing or closing the setup is remembered on your account, so it never appears again on any device.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The last step ends with a “Go to my feed” button that opens a feed already shaped by your choices.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">On phones the setup opens full screen so every step fits comfortably.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== navigation -->
+  <section class="area" id="v100-navigation" aria-labelledby="v100-navigation-title">
+    <h3 id="v100-navigation-title">Navigation and pages<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">A navigation column with labels on wide screens: Home, Explore, Notifications, Bookmarks, Profile, Settings and a Create post button.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A narrow icon rail with tooltips on tablets.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A bottom navigation bar on phones with Home, Explore, Create, Notifications and Profile.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A side column on wide screens with suggested developers, one ad and popular tags.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">An account menu with Edit profile, Drafts, Bookmarks, Settings, theme and language switches, documentation links and Sign out.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A Bookmarks page listing everything you saved, newest save first.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A Drafts page with pagination, excerpts and tags.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A friendly “page not found” screen with a way back home.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Your home feed is the dashboard at <code>arabdev.site/dashboard</code>, and <code>arabdev.site</code> takes you straight there (or to sign in).</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A Support link in the account menu and in every footer, which opens an email to <code>support@arabdev.site</code>.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Settings sections have their own addresses, such as <code>/settings/privacy</code>.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Each page is loaded only when you first open it, keeping the first visit small.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Page titles in the browser tab describe the page, such as a post title or a person's name.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Loading placeholders shaped like the content they stand in for.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== profiles -->
+  <section class="area" id="v100-profiles" aria-labelledby="v100-profiles-title">
+    <h3 id="v100-profiles-title">Profiles<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">Public profiles at <code>/u/username</code>, readable without an account.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Profiles show picture, display name, @username, bio, location, website and joining month.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Following, followers and posts counts, with the first two opening the full lists.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A “Follows you” badge when the person follows you.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Interests are shown as chips that open the matching tag page.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Profile tabs: Posts (including reposts), Replies (comments with a link to their post) and, on your own profile, Saved.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Every profile tab is paginated, 20 items per page.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Followers and following pages show each person as a card with bio, interests and a follow button.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A profile editor for display name (up to 50 characters), username, bio (up to 280), location (up to 60), website (up to 200) and interests.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The Save button stays disabled until something changes, and problems are shown under the field concerned.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Website addresses without <code>https://</code> have it added automatically, and are displayed as a short host name.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Profile pictures: JPEG, PNG, WebP or GIF up to 5 MB, cropped to a centered square and resized to 400×400.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">People without a picture get their initials on a colored circle instead.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Replacing or removing a profile picture deletes the old file.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A friendly page for profiles that do not exist, instead of an error.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">People who hide their connections show “This account keeps its connections private” on their lists.</span></li>
+      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">The profile tabs now stay pinned under the top bar while you scroll.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Clicking a profile picture no longer shows a stray underline beneath it.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== feed -->
+  <section class="area" id="v100-feed" aria-labelledby="v100-feed-title">
+    <h3 id="v100-feed-title">Home feed<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">A home feed with three tabs: For you, Following and Latest.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">For you groups posts by day, then shows people you follow first, then posts matching your interests, then everything else, newest first within each group. Nothing is hidden, only reordered.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Following shows your posts, posts from people you follow, and posts they reposted.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">If several people you follow repost the same post, it appears once, with a label naming who reposted it.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Latest shows every post strictly newest first.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Server-side pagination: 20 posts per page, with Previous, Next and numbered page links. No infinite scroll.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">On phones the page links are replaced by a compact “Page 2 of 5”.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The tab and page number are kept in the address (<code>/dashboard?tab=following&amp;page=2</code>), so reloading or sharing keeps your place.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Changing page returns you to the top of the feed.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A “What are you working on?” box at the top of the feed that opens the editor.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Loading placeholders shaped like posts, instead of spinners.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Helpful empty states: “No posts yet” with a button to write one, and an empty Following tab that points you to Explore.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A retry button if the feed cannot be loaded.</span></li>
+      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">The current page stays visible, slightly faded, while the next page loads, so the screen never flashes blank.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== editor -->
+  <section class="area" id="v100-editor" aria-labelledby="v100-editor-title">
+    <h3 id="v100-editor-title">Post editor<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">A rich post editor with an optional title of up to 200 characters.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Paragraphs, headings and subheadings.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Bold, italic, underline, strikethrough and inline code.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Bulleted and numbered lists, including nested lists.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Quotes, shown with a red bar at the start of the line.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Code blocks on a dark background, always left-to-right, even inside Arabic posts.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Tables with a header row: insert, add or remove rows and columns, and delete the table.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Links through a dialog to add, change or remove a link on the selected text.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Text alignment: start, center, end and justify, following each paragraph's own direction.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Three fonts: Tajawal, Alexandria and Anton, each shown in its own typeface in the menu.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Six text sizes: 14, 16, 18, 20, 24 and 30.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Five text colors (Red, Dark red, Ink, Graphite and Muted) that each have a light-mode and a dark-mode shade, so colored text stays readable in both.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Undo and redo buttons.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Toolbar buttons are highlighted when their formatting is active at the cursor.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The toolbar stays pinned under the top bar while you write long posts, and scrolls sideways on narrow screens.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Keyboard shortcuts, for example <kbd>Ctrl</kbd> + <kbd>B</kbd> for bold, <kbd>Ctrl</kbd> + <kbd>E</kbd> for inline code and <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>C</kbd> for a code block.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Markdown-style shortcuts while typing: <code>##</code> for a heading, <code>-</code> for a list, <code>```</code> for a code block and <code>**bold**</code> for bold text.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text"><kbd>Tab</kbd> in a table moves to the next cell, and adds a row from the last cell.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Each paragraph, heading, list item and table cell picks its own direction from its first letters, so Arabic and English mix naturally in one post.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Attach one image per post (JPEG, PNG, WebP or GIF, up to 5 MB) with an upload progress bar and a remove button.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Large images are scaled to fit 1600×1600 and saved as WebP.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Removing an image you just uploaded, before saving, deletes it from the server.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Attach one link that the post is about; it is shown under the post as a card with the site name and address.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Up to 5 tags per post, entered with Enter, picked from suggestions, or pasted separated by commas.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A live preview that shows the post exactly as readers will see it: next to the editor on wide screens, behind a Preview tab on smaller ones.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Drafts: save everything without publishing, including title, body, tags, image and link.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">After the first save, a draft gets its own address (<code>/drafts/12</code>), so reloading is safe.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A Drafts page listing your drafts, most recently edited first, with excerpts, tags and a discard button.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Publishing a draft turns it into a post and removes the draft.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A “Discard your changes?” prompt when leaving the editor with unsaved work, plus the browser's own warning when closing the tab.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Edit your own posts with the same editor; edited posts show an “edited” note.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Clear messages for an empty post or an invalid link, shown where the problem is.</span></li>
+      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">The font size menu is wide enough to show its values in full.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">The leave-the-editor dialog no longer repeats its question twice.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Pasted content keeps only the fonts, sizes and colors the editor offers; everything else is removed on the server when you publish.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== shortcuts -->
+  <section class="area" id="v100-shortcuts" aria-labelledby="v100-shortcuts-title">
+    <h3 id="v100-shortcuts-title">Editor shortcuts and Markdown<span class="area-count"></span></h3>
+    <p>Every shortcut below was checked against the editor itself. The <a href="https://wiki.arabdev.site/en/#formatting-reference" target="_blank" rel="noopener">Formatting reference</a> in the wiki lists them all in one table.</p>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text"><kbd>Ctrl</kbd> + <kbd>B</kbd> for bold, <kbd>Ctrl</kbd> + <kbd>I</kbd> for italic and <kbd>Ctrl</kbd> + <kbd>U</kbd> for underline.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> for strikethrough.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text"><kbd>Ctrl</kbd> + <kbd>E</kbd> for inline code.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text"><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>2</kbd> for a heading and <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>3</kbd> for a subheading.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>8</kbd> for a bulleted list and <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>7</kbd> for a numbered list.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> for a quote.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text"><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>C</kbd> for a code block.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text"><kbd>Ctrl</kbd> + <kbd>Z</kbd> to undo, and <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> or <kbd>Ctrl</kbd> + <kbd>Y</kbd> to redo.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text"><kbd>Shift</kbd> + <kbd>Enter</kbd> for a line break inside the same paragraph.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text"><kbd>Tab</kbd> and <kbd>Shift</kbd> + <kbd>Tab</kbd> indent and outdent list items.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">On Mac, <kbd>⌘</kbd> works wherever the shortcuts say <kbd>Ctrl</kbd>.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Type <code>##</code> and a space for a heading, or <code>###</code> and a space for a subheading.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Type <code>-</code>, <code>*</code> or <code>+</code> and a space for a bulleted list.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Type <code>1.</code> and a space for a numbered list that starts at that number.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Type <code>&gt;</code> and a space for a quote.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Type <code>```</code> and a space for a code block, optionally with a language name such as <code>```python</code>.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Type <code>---</code> for a horizontal divider.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Wrap text in <code>**</code> for bold, <code>*</code> or <code>_</code> for italic, <code>~~</code> for strikethrough and backticks for inline code.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Typing or pasting a web address followed by a space turns it into a link.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Pasting an address while text is selected turns the selected text into a link.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The table dialog lets you choose 1 to 20 rows, 1 to 8 columns and whether the first row is a header.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Inside a table, the table button offers Add row below, Add column after, Delete row, Delete column and Delete table.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Wide tables scroll sideways on small screens instead of squeezing their content.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Link addresses typed without <code>https://</code> have it added automatically.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Choosing the active alignment again removes it, returning the paragraph to its natural alignment.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== posts -->
+  <section class="area" id="v100-posts" aria-labelledby="v100-posts-title">
+    <h3 id="v100-posts-title">Reading posts<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">Post cards show the author, relative time (with the exact date on hover), title, content, image, link card and tags.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Long posts are cut in the feed with a gentle fade and a “Read more” link.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Clicking anywhere on a card opens the post, except on links, buttons and text you are selecting.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A full post page with the complete content, the author's follow button and the discussion.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">An estimated reading time at the top of every post page.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Posts without a title are labelled with their author's name instead.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A ⋯ menu on posts with Copy link for everyone, and Edit post and Delete post for the author.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Deleting a post asks for confirmation and explains that its comments, likes, reposts and saves go with it.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Mentions (<code>@username</code>) in posts notify the people mentioned, up to 10 people per post.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Links inside posts open in a new tab.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Quotes, lists and tables keep the direction of the language they are written in, even inside the other language's interface.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Images in posts are described for screen readers using the post title.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A clear page for posts that were deleted or never existed.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">The follow button on a post page now shows whether you already follow the author, instead of always showing “Follow”.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Tags written in Arabic are now displayed in the correct direction.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== interactions -->
+  <section class="area" id="v100-interactions" aria-labelledby="v100-interactions-title">
+    <h3 id="v100-interactions-title">Likes, reposts, saves and sharing<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">An action row under every post: comment, repost, like, save and share, each with its count when above zero.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Likes: the heart fills in red and the count updates instantly.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Reposts share a post with your followers and appear on your profile; select again to undo.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">You cannot repost your own post, so the button is disabled there.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Saves (bookmarks) are completely private and listed on the Bookmarks page and your profile's Saved tab.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Share uses your device's share sheet where available, or copies the link and says “Link copied”.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Every change appears immediately and is undone automatically if the server refuses it.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Your like, save and repost state stays consistent everywhere the same post appears: feed, profile, search and the post page.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Guests who try to like, repost or save are asked to sign in and brought back to the post.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Undoing a like or repost before the author reads the notification withdraws the notification.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Buttons announce their state to screen readers, for example “Like (4)” and whether it is pressed.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== comments -->
+  <section class="area" id="v100-comments" aria-labelledby="v100-comments-title">
+    <h3 id="v100-comments-title">Comments<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">A Discussion section under each post, oldest comment first, 20 per page.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Plain-text comments of 1 to 2000 characters, with line breaks kept and a character counter.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Send with the Comment button or <kbd>Ctrl</kbd> + <kbd>Enter</kbd>.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Replies: choose Reply to show a “Replying to @username” chip, and remove the chip to cancel.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">After posting, the discussion jumps to the page that contains your new comment.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Mentions in comments become links to profiles and notify the people mentioned.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">One notification per person per comment, even if a comment both replies to and mentions them.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Comments can be deleted by their author, the post's author or an administrator; replies go with them.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Arabic and English comments each align correctly on their own.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Every mention in a comment is now linked; previously every second mention in a comment could be missed.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">English usernames mentioned inside Arabic sentences no longer jump to the wrong place in the line.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== community -->
+  <section class="area" id="v100-community" aria-labelledby="v100-community-title">
+    <h3 id="v100-community-title">Community and moderation<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">Community guidelines in the wiki: share generously, credit others, welcome beginners, and write in whichever language serves your readers.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Clear rules against harassment, hate, spam, sharing private information, malware and impersonation.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Guidance for responsible security research and disclosure.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Post authors can remove comments on their own posts.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Administrators can remove any post or comment that breaks the guidelines, and deactivate accounts for serious or repeated abuse.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Deactivated accounts cannot sign in and are left out of suggestions and search.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== following -->
+  <section class="area" id="v100-following" aria-labelledby="v100-following-title">
+    <h3 id="v100-following-title">Following and suggestions<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">Follow and unfollow from profiles, suggestion cards, people lists and post pages.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The Following button turns into a red “Unfollow” on hover or keyboard focus, so the action is clear before you take it.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">“Developers to follow” suggestions scored by shared interests (3 points each) and people you follow who follow them (2 points each).</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Suggestions never include you, people you already follow, deactivated accounts, or people who turned off discoverability.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Visitors who are not signed in see the most-followed developers.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Following someone updates their follower count and your following count everywhere at once.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Unfollowing before the person reads the notification withdraws it.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== explore -->
+  <section class="area" id="v100-explore" aria-labelledby="v100-explore-title">
+    <h3 id="v100-explore-title">Explore, trending and tags<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">An Explore page open to everyone, with search, trending posts, popular tags and developers to follow.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Trending this week ranks the last 7 days' posts by likes plus twice their comments plus twice their reposts, favouring conversation.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">If nothing was posted in the last week, Trending falls back to the all-time ranking instead of showing nothing.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Popular tags ranked by use over the last 30 days, with the top three highlighted.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Tag pages at <code>/tags/name</code> with the tag's posts, newest first, and how many posts use it.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Tags are tidied automatically: lower-case, spaces become hyphens, a leading <code>#</code> is removed, and Arabic tags are supported.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Common spellings are merged into one tag, for example <code>js</code> → <code>javascript</code>, <code>c++</code> → <code>cpp</code> and <code>node.js</code> → <code>nodejs</code>.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">25 interests, from JavaScript and Rust to Cybersecurity and UI/UX, each linked to a tag so posts and people meet.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Interest names are translated into Arabic where developers use an Arabic name, and kept as-is for languages and frameworks.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">On smaller screens, popular tags and suggestions move to the top of Explore.</span></li>
+      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">Tag pages show the number of posts with correct Arabic and English plural forms.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== search -->
+  <section class="area" id="v100-search" aria-labelledby="v100-search-title">
+    <h3 id="v100-search-title">Search<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">One search box for posts, developers and tags, in the top bar, on Explore and on the Search page.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Live suggestions after two characters and a 300 ms pause, grouped into Developers, Tags and Posts.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Keyboard support: <kbd>↑</kbd> and <kbd>↓</kbd> to move, <kbd>Enter</kbd> to open, <kbd>Esc</kbd> to close.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Start with <code>@</code> to search people and <code>#</code> to search tags.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A results page at <code>/search?q=</code> with All, Posts, Developers and Tags tabs, 20 results per page.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Exact username matches come first in developer results.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Search is not case-sensitive, and characters such as <code>%</code> and <code>_</code> are matched literally.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Helpful suggestions when nothing matches.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">On phones, search opens from a magnifying glass in the top bar.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== notifications -->
+  <section class="area" id="v100-notifications" aria-labelledby="v100-notifications-title">
+    <h3 id="v100-notifications-title">Notifications<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">Notifications for likes, comments and replies, new followers, reposts and mentions.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A red unread badge on the Notifications item, refreshed every 30 seconds.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Unread notifications have a tinted background, a bold name and a “New” label, so they stand out without relying on color.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Each notification shows who acted, what they did, the post title and, for comments, the comment itself.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Selecting a notification marks it as read and opens the post or profile.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Mark all as read.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">No notifications for your own actions, and no duplicates for repeated likes, follows or reposts.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Each kind of notification can be switched off in Settings.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Choose who can notify you with a mention: everyone, people you follow, or no one.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The notifications list is paginated, 20 per page, and refreshes every minute while open.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== settings -->
+  <section class="area" id="v100-settings" aria-labelledby="v100-settings-title">
+    <h3 id="v100-settings-title">Settings<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">Settings grouped into Account, Profile, Appearance, Privacy and Notifications, as a side list on wide screens and tabs on phones.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Change your email address, confirmed with your current password.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Change your password; other devices are signed out and the current one stays signed in.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Theme: Light, Dark or System, which follows your device.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Language: العربية or English.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Theme and language are saved to your account and follow you to other devices.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Privacy: “Show me in search and suggestions” and “Show my followers and following lists”.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Five notification switches: likes, comments and replies, new followers, reposts and mentions.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Switches save immediately with a “Settings saved” message, and go back if saving fails.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Delete my account, confirmed with your password, which permanently removes the account and everything linked to it.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Quick theme and language switches in the account menu.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A link to the privacy policy from the Privacy section.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== messages -->
+  <section class="area" id="v100-messages" aria-labelledby="v100-messages-title">
+    <h3 id="v100-messages-title">Clear messages<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">“Too many attempts. Wait a moment and try again.” when a rate limit is reached.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">“Your session has expired. Please sign in again.” when a session has ended.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">“This username is reserved.” for names the site uses itself.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">“Passwords don't match.” when the two password fields differ.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">“Mix letters and numbers so it's harder to guess.” for weak passwords.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">“Images must be 5 MB or smaller.” and “Use a JPEG, PNG, WebP or GIF image.” for rejected uploads.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">“This file isn't a valid image.” for damaged or disguised files.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">“This image is too small.” and “This image's dimensions are too large.”, with the exact limits in the wiki.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">“Write something before publishing.” when a post has no body.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">“Enter a valid link starting with http:// or https://.” for invalid attached links.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">“You can't repost your own post.” when trying to repost yourself.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">“Can't reach the server.” when the connection drops, with a retry button where it helps.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Every message exists in Arabic and English, and the wiki's Troubleshooting article explains each one.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== ads -->
+  <section class="area" id="v100-ads" aria-labelledby="v100-ads-title">
+    <h3 id="v100-ads-title">Ads<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">Ads in feeds after every 8 posts, so at most two on a 20-post page, never at random positions.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">One ad slot in the side column on wide screens.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Every ad has a boxed “Sponsored” label, says who promotes it, and uses a dashed frame and tinted background so it cannot be mistaken for a post.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">An information icon explains why ads are shown.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Ads are chosen only by placement, language and page number, and rotate predictably between pages.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Ads can target Arabic, English or both, and can have start and end dates.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Impressions and clicks are counted as totals, never linked to people.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">ArabDev launches with its own house ads, labelled “Promoted by ArabDev”.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">No ads inside posts, comments, profiles, search results, notifications or settings, and no pop-ups.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">The “Sponsored” label now uses normal capitalisation instead of shouting in capitals.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Lists that never show ads, such as profile tabs, no longer request them.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== languages -->
+  <section class="area" id="v100-languages" aria-labelledby="v100-languages-title">
+    <h3 id="v100-languages-title">Arabic, English and right-to-left<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">A complete Arabic interface, which is the default, and a complete English interface.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Switching language flips the entire layout at once: navigation, menus, drawers, spacing and alignment.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Direction-sensitive icons, such as back arrows, pagination arrows and undo, are mirrored in Arabic.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Proper Arabic plural forms for counts: one, two, a few and many each have their own wording.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Dates and relative times in the interface language, for example “3 hr. ago” and «منذ 3 ساعات».</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Western digits (0–9) in both languages, which read best next to code.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Usernames, email addresses and code are always shown left-to-right, even in Arabic sentences.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Error messages from the server arrive in your language.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The page's language and direction are set before it first appears, so there is no flicker on load.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">All interface text lives in two translation files, so nothing is hard-coded in one language.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">The language switch is now available on phones before signing in.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== design -->
+  <section class="area" id="v100-design" aria-labelledby="v100-design-title">
+    <h3 id="v100-design-title">Design and dark mode<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">The ArabDev identity: “Arab” in red and “Dev” in black (white in dark mode), set in Anton.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Alexandria for headings, Tajawal for body text and Anton for the logo and statistics, all hosted by ArabDev itself.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A red and white visual identity with a carefully tuned dark mode.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Dark mode that follows your device by default, with a manual choice in Settings and the account menu.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">No flash of the wrong theme while pages load.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A three-column layout on wide screens, an icon rail on tablets and a bottom navigation bar on phones.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A red Create button in the middle of the phone navigation bar.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">An ArabDev favicon.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">The phone header no longer wraps onto two lines.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== accessibility -->
+  <section class="area" id="v100-accessibility" aria-labelledby="v100-accessibility-title">
+    <h3 id="v100-accessibility-title">Accessibility<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">A “Skip to content” link on the first press of <kbd>Tab</kbd>.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Every control can be reached and used with the keyboard, with a clear red focus outline.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Icon-only buttons have spoken names, and toggles announce whether they are on.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Search suggestions follow the standard combobox pattern for screen readers.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Dialogs keep focus inside them until they are closed.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Loading areas are marked as busy, and messages such as “Link copied” are announced.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">State is never shown by color alone: unread notifications have a “New” label and selected interests a check mark.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Contrast that meets common guidelines in both light and dark mode.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Animations are turned off when your device asks for reduced motion.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Pages zoom without losing content, from small phones to wide screens.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Every page has a meaningful title, such as the post title or the person's name.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== performance -->
+  <section class="area" id="v100-performance" aria-labelledby="v100-performance-title">
+    <h3 id="v100-performance-title">Performance<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">The server sends at most 20 posts at a time, and each page is fetched with a fixed number of database queries, however many posts it contains.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The editor is loaded only when you open it, so reading ArabDev stays fast.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The interface library and the editor are split into separate, cacheable bundles.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Recently viewed data is reused instantly and refreshed quietly in the background.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Popular tags and the interests list are cached on the server.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Uploaded images are served with long-lived cache headers because their names never change.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Large API responses are compressed.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Fonts are self-hosted as WOFF2 and shown with <code>font-display: swap</code>, so text is readable immediately.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Search suggestions wait for you to pause typing, instead of querying on every keystroke.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">SQLite runs in write-ahead-log mode so reading and writing do not block each other.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== security -->
+  <section class="area" id="v100-security" aria-labelledby="v100-security-title">
+    <h3 id="v100-security-title">Security<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Passwords are hashed with Argon2id and upgraded automatically if hashing settings get stronger.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Short-lived access tokens (15 minutes) kept only in the page's memory, never in browser storage.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Long-lived sign-in tokens are random, stored only as SHA-256 hashes, and delivered in an HttpOnly cookie limited to the sign-in endpoints.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Sign-in tokens rotate on every use; reuse of an old token ends the whole session family.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Changing or resetting your password immediately invalidates every outstanding access token.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Session renewal and sign-out require a custom header that other websites cannot send, blocking cross-site request forgery.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Password reset links are single-use, expire after 30 minutes and are stored only as hashes.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Rate limits on sign-in, registration, password reset, publishing, commenting, interactions, follows, uploads and search.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Rate limits are shared between server processes through Redis when it is configured.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Posts are sanitised on the server with a strict allow-list of tags, attributes, fonts, sizes, colors and link schemes.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Posts are sanitised again in the browser before being displayed, as a second line of defence.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Links in posts only allow <code>http</code>, <code>https</code> and <code>mailto</code>, and are marked <code>noopener noreferrer nofollow ugc</code>.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Uploads are decoded as real images and re-encoded; anything else is refused.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Upload size is limited to 5 MB, and extreme image dimensions are rejected.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Security headers stop other sites from framing ArabDev and stop browsers from guessing file types.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Every permission is checked on the server: only authors can edit their posts, and only the right people can delete comments.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Changing your email address or deleting your account requires your current password.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Images can only be attached by the account that uploaded them.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">The API refuses to start in production without a real secret key.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Browser access to the API is limited to configured origins.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Ended sign-in sessions and old password reset links are deleted automatically every six hours.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Two tabs renewing the session at the same moment no longer sign you out: a 20-second grace period tells this apart from real token theft.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== limits -->
+  <section class="area" id="v100-limits" aria-labelledby="v100-limits-title">
+    <h3 id="v100-limits-title">Limits that keep ArabDev fair<span class="area-count"></span></h3>
+    <p>Normal use never comes close to these limits. They exist to stop automated abuse.</p>
+    <ul class="changes">
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Sign in: 10 attempts per minute per network.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Create account: 10 per hour per network.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Forgot password: 5 requests per 15 minutes.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Reset password and change password: 10 each per 15 minutes.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Username and email availability checks: 60 per minute.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Session renewal: 60 per minute.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Publishing posts: 30 per hour.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Comments: 60 per 10 minutes.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Likes, saves and reposts: 300 per hour.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Follows: 120 per hour.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Image uploads: 30 per 10 minutes.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Search: 120 per minute.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Ad click counting: 60 per minute, so totals cannot be inflated.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Posts: up to 5 tags of 30 characters each, a 200-character title, and one attached link of up to 500 characters.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A single post notifies at most 10 mentioned people.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== privacy -->
+  <section class="area" id="v100-privacy" aria-labelledby="v100-privacy-title">
+    <h3 id="v100-privacy-title">Privacy<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">A full Privacy Policy in Arabic and English, organised by topic, with a promise that ArabDev never sells user information.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">No third-party analytics, trackers, advertising pixels or social widgets.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Only one cookie, which keeps you signed in. No cookie banner is needed because nothing tracks you.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Location and camera metadata are removed from every uploaded image.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Ads never use personal information, and advertisers receive nothing about users.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Bookmarks and drafts are private, and authors are never told who saved their posts.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Turn off discoverability to leave suggestions and people search.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Hide your followers and following lists.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Account deletion removes your content, interactions, uploads and sessions immediately, and recalculates counts on other posts.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Email addresses are never shown to other users.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Search terms are not stored.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== api -->
+  <section class="area" id="v100-api" aria-labelledby="v100-api-title">
+    <h3 id="v100-api-title">API and developers<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">A versioned REST API under <code>/api/v1</code> covering everything the app does.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Interactive documentation at <code>/api/docs</code> and <code>/api/redoc</code>, and an OpenAPI description at <code>/api/v1/openapi.json</code>.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Every list endpoint uses the same pagination: <code>page</code> and <code>limit</code> in, <code>{items, page, limit, total, pages}</code> out.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Consistent errors: a readable <code>detail</code>, a stable <code>code</code>, and <code>field</code> or <code>errors</code> for validation problems.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Error messages are translated using the <code>Accept-Language</code> header.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Rate-limited responses return HTTP 429 with a <code>Retry-After</code> header.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Authentication endpoints: register, login, refresh, logout, availability, forgot-password and reset-password.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Account endpoints for profile, username, email, password, interests, settings, onboarding, avatar, bookmarks and deletion.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Feed endpoint with <code>tab=for_you|following|latest</code> and an optional <code>tag</code> filter, plus a trending endpoint.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Post, draft, comment, like, bookmark, repost and follow endpoints.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Search with <code>type=all|posts|users|tags</code>, popular tags, tag details and the interests list.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Notification endpoints with an unread count, mark-one and mark-all.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Media upload and deletion of unused uploads.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Ad serving and click counting, plus administrator endpoints to create, update and delete ads.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">A health endpoint that reports database and Redis status.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">A layered backend: routes, services and repositories, with Pydantic schemas for every request and response.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">A typed SQLAlchemy 2 data model with 19 tables and Alembic migrations.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">A storage abstraction for uploads, with a local-disk backend ready to be swapped for object storage.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">An email abstraction; without a provider, emails are written to the server log.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">A typed frontend API client with automatic, single-flight session renewal.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Query keys and cache updates organised so one change updates every list that shows the same post or person.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== datamodel -->
+  <section class="area" id="v100-datamodel" aria-labelledby="v100-datamodel-title">
+    <h3 id="v100-datamodel-title">Data model<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>users</code>, <code>profiles</code> and <code>user_settings</code>: accounts, public profile details and preferences, one row each per person.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>interests</code> and <code>user_interests</code>: the 25 topics and who chose them.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>posts</code>, <code>tags</code> and <code>post_tags</code>: published posts and their tags, with tag names normalised.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>drafts</code>: unpublished posts, private to their author.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>comments</code>: comments and replies, each linked to its post and, for replies, to the comment it answers.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>likes</code>, <code>bookmarks</code>, <code>reposts</code> and <code>follows</code>: one row per interaction, with composite keys that make duplicates impossible.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>notifications</code>: who did what to whom, and whether it has been read.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>media</code>: uploaded images with owner, kind, size and dimensions.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>ads</code>: ad content, placement, language, schedule and aggregate counters.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>refresh_tokens</code> and <code>password_reset_tokens</code>: hashed tokens only, never the raw values.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Post counters (likes, comments, reposts) are stored on the post and recalculated when accounts or comments are deleted, so lists never need expensive counting.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Deleting an account or a post removes every dependent row through database-level cascades.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">All timestamps are stored in UTC and returned with a time zone.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== backend -->
+  <section class="area" id="v100-backend" aria-labelledby="v100-backend-title">
+    <h3 id="v100-backend-title">Backend architecture<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Routes stay thin: they validate input, check permissions and call a service.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Services hold the business rules: authentication, users, posts, interactions, comments, notifications, discovery, ads and media.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Repositories hold the database queries, including the For you ranking, the following feed and trending.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Presenters build API responses for a whole page at once, loading authors, tags and your interaction state in a few batched queries.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Validation errors carry stable codes that the frontend translates, instead of English sentences.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Settings are typed and loaded from the environment, with safe development defaults.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">A cache layer that uses Redis when available and memory otherwise.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Images are processed with Pillow: decoded, checked, resized, stripped of metadata and saved as WebP.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The HTML sanitiser allows only the markup the editor produces, including its fonts, sizes, theme colors, alignment and text direction.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Seed data: 25 interests and 6 house ads, inserted idempotently.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Demo data: ten fictional developers with posts, follows, likes and comments, for trying ArabDev locally.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">A periodic background task deletes ended sessions and old reset links every six hours.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== frontend -->
+  <section class="area" id="v100-frontend" aria-labelledby="v100-frontend-title">
+    <h3 id="v100-frontend-title">Frontend architecture<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Organised by feature: auth, onboarding, posts, editor, comments, discovery, search, notifications, profile, users, ads and preferences.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Every page is a lazily loaded route, with guards for signed-in only and signed-out only pages.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Server data is cached for 30 seconds and kept for 5 minutes; client errors are not retried, and server errors are retried twice.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Optimistic updates for likes, saves, reposts, follows and settings, rolled back on failure.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">A single API client adds the access token and language to every request and renews the session once when several requests fail together.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Theme built on CSS variables for light and dark schemes, so switching theme does not re-render the app.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">A right-to-left style cache that mirrors layout styles automatically for Arabic.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Post content uses logical CSS properties, so content keeps its own direction regardless of the interface language.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">All text comes from <code>ar.json</code> and <code>en.json</code>, with Arabic plural rules.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">A small, shared set of building blocks: empty states, error states, skeletons, pagination, confirmation dialogs and notifications.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Page titles and language attributes are managed centrally.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== deployment -->
+  <section class="area" id="v100-deployment" aria-labelledby="v100-deployment-title">
+    <h3 id="v100-deployment-title">Running and deployment<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">SQLite as the database, with write-ahead logging, foreign keys and a busy timeout enabled.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Configuration through environment variables and <code>.env</code> files, with documented examples.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Redis is optional: without it, rate limiting and caching fall back to memory.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>python -m app.cli seed</code> adds the 25 interests and house ads, and is safe to run repeatedly.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>python -m app.cli seed --demo</code> adds ten fictional developers and their posts for local testing.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>python -m app.cli make-admin USERNAME</code> grants administrator rights.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>python -m app.cli purge-tokens</code> deletes ended sessions and old reset links on demand.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Docker Compose setup with Redis, the API and an nginx container serving the app on port 8080.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The API container applies migrations and seeds reference data when it starts.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Persistent volumes for the database file and uploaded media.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The frontend builds to a static site, ready for Cloudflare Pages or any static host.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The development server proxies <code>/api</code> and <code>/media</code> to the API.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The wiki, privacy policy and patch notes are self-contained static sites, with their own fonts and icon, deployed without a build step to <code>wiki.arabdev.site</code>, <code>privacy.arabdev.site</code> and <code>patch.arabdev.site</code>.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The development server serves those sites locally at <code>/wiki/</code>, <code>/privacy/</code> and <code>/patch-notes/</code>, and links between them stay local on your machine.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The app build publishes the license at <code>arabdev.site/LICENSE.txt</code>.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>VITE_API_ORIGIN</code> lets the app on Cloudflare Pages reach an API hosted on another address; the documentation addresses can be overridden the same way.</span></li>
+      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">ArabDev now runs on SQLite only. MySQL support was removed to keep the stack light and simple to deploy.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== docs -->
+  <section class="area" id="v100-docs" aria-labelledby="v100-docs-title">
+    <h3 id="v100-docs-title">Documentation<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="new"><span class="tag new">New</span><span class="text">The ArabDev Wiki: 25 articles in Arabic and English covering every feature, safety, troubleshooting and development.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Wiki search that runs in your browser, with Arabic-aware matching and a <kbd>/</kbd> shortcut.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Generated contents boxes, section links and previous/next navigation in every wiki article.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A 28-section Privacy Policy with plain-language summaries, a contents list that follows your reading, and print support.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">These patch notes, with type filters, live counts and search.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Wiki articles for newcomers: Getting started, a Frequently asked questions page and a Glossary of ArabDev and developer terms.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Wiki guides for every feature: profiles, the home feed, writing posts, a formatting reference, tags and interests, comments, following, search, notifications and settings.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Wiki articles on trust and safety: privacy and safety, account security, ads and community guidelines.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A Troubleshooting article that explains every common message and what to do about it.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Developer articles: an architecture overview, running and self-hosting, a full API reference, and contributing and license.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Wiki pages show one article at a time with a sidebar of every article, and keep working as one long page without JavaScript.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The privacy policy has an “In short” summary for every section, tables of cookies, storage keys and retention periods, and a list of the data protection laws of nine Arab countries.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The privacy policy highlights the section you are reading and shows your reading progress.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">All documentation sites work on phones, print cleanly, support dark mode and have skip links for keyboard users.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The app opens each documentation site in your language, and switching language on them keeps your place.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A Contact and support article in the wiki: <code>support@arabdev.site</code> for help, bugs, reports, privacy and security, and <code>hi@arabdev.site</code> for sponsorship, contributions, partnerships and questions.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">Links to the wiki, privacy policy, patch notes and license in the app's side column, account menu and sign-in pages, opening in a new tab.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">ArabDev is free software under the GNU General Public License v3, with the full license published at <code>/LICENSE.txt</code>.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">A README covering features, architecture, setup, configuration, deployment and backups.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== quality -->
+  <section class="area" id="v100-quality" aria-labelledby="v100-quality-title">
+    <h3 id="v100-quality-title">Tests and code quality<span class="area-count"></span></h3>
+    <ul class="changes">
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">47 automated backend tests covering authentication, sessions, posts, feeds, comments, interactions, notifications, uploads, search and account deletion.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Every test runs against a fresh in-memory database.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Strict TypeScript across the frontend, checked with <code>npm run typecheck</code>.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Consistent formatting with Prettier (<code>npm run format</code>).</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Built on current major versions: React 19, Material UI 9, React Router 8, TanStack Query 5, TipTap 3, Vite 8 and TypeScript 7.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">On the server: FastAPI, Pydantic 2, SQLAlchemy 2 and Alembic.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Several icons that were renamed in Material UI 9 now load correctly.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Styling that relied on features removed in Material UI 9 was rewritten, which also removed a console warning.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== pre-release -->
+  <section class="area" id="v100-prerelease" aria-labelledby="v100-prerelease-title">
+    <h3 id="v100-prerelease-title">Changed during pre-release testing<span class="area-count"></span></h3>
+    <p>Before launch, ArabDev was tested page by page, in both languages, on wide and narrow screens. These are the changes that testing produced; most also appear under their area above.</p>
+    <ul class="changes">
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Profile tabs stopped sticking to the top of the screen after the page was scrolled.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">The follow button on a post page always said “Follow”, even when you already followed the author.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">In a comment with several mentions, some mentions were not turned into links.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Arabic tags were shown in the wrong direction.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">The ad label was displayed in capital letters.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">The phone header wrapped onto two lines on narrow screens.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">There was no language switch on phones before signing in.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Profile pictures used as links showed an underline.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">English usernames inside Arabic comments could appear at the wrong end of the sentence.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">The unsaved-changes dialog repeated its text.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">The font size menu in the editor was cut off.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Visitors who had never signed in triggered a failed session request on every page load.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">A styling rule caused a warning in the browser console.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Profile tabs and other lists requested ads they never displayed.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Opening ArabDev in two tabs could sign you out when both renewed the session at once.</span></li>
+      <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Some icons were missing after upgrading the interface library.</span></li>
+      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">The number of posts on a tag page now uses proper plural wording in both languages.</span></li>
+      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">Following-feed and repost queries were reworked to be stricter and faster.</span></li>
+      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">Following yourself is prevented by the server with a clear error, instead of relying on the database.</span></li>
+      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">The database layer was simplified to SQLite only, ahead of deploying the frontend to Cloudflare Pages.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Expired and ended sessions and old password reset links are now cleaned up automatically, as described in the privacy policy.</span></li>
+      <li data-type="new"><span class="tag new">New</span><span class="text">The GNU GPL v3 license, the wiki, the privacy policy and these patch notes were added before launch.</span></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== numbers -->
+  <section class="info-block" id="v100-numbers" data-hide-when-filtered aria-labelledby="v100-numbers-title">
+    <h3 id="v100-numbers-title">1.0.0 by the numbers</h3>
+    <ul>
+      <li><strong>2</strong> complete interface languages, Arabic and English, with right-to-left and left-to-right layouts.</li>
+      <li><strong>3</strong> feed tabs and <strong>20</strong> posts per page.</li>
+      <li><strong>5</strong> kinds of notifications, each with its own switch.</li>
+      <li><strong>25</strong> interests linked to tags.</li>
+      <li><strong>3</strong> fonts, <strong>6</strong> sizes and <strong>5</strong> theme-aware colors in the editor.</li>
+      <li><strong>19</strong> database tables and <strong>49</strong> API paths.</li>
+      <li><strong>47</strong> automated backend tests.</li>
+      <li><strong>25</strong> wiki articles, a <strong>28</strong>-section privacy policy, and these patch notes, each in both languages.</li>
+      <li><strong>1</strong> cookie, and <strong>0</strong> trackers.</li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== interests -->
+  <section class="info-block" id="v100-interests" data-hide-when-filtered aria-labelledby="v100-interests-title">
+    <h3 id="v100-interests-title">The 25 interests at launch</h3>
+    <p>Chosen during setup or in Settings, and matched to the tag shown after each name.</p>
+    <ul class="credits">
+      <li>JavaScript <small><code>javascript</code></small></li>
+      <li>TypeScript <small><code>typescript</code></small></li>
+      <li>Python <small><code>python</code></small></li>
+      <li>C++ <small><code>cpp</code></small></li>
+      <li>Rust <small><code>rust</code></small></li>
+      <li>Go <small><code>go</code></small></li>
+      <li>Java <small><code>java</code></small></li>
+      <li>C# <small><code>csharp</code></small></li>
+      <li>React <small><code>react</code></small></li>
+      <li>Vue <small><code>vue</code></small></li>
+      <li>Angular <small><code>angular</code></small></li>
+      <li>Node.js <small><code>nodejs</code></small></li>
+      <li>FastAPI <small><code>fastapi</code></small></li>
+      <li>Django <small><code>django</code></small></li>
+      <li>AI <small><code>ai</code></small></li>
+      <li>Machine Learning <small><code>machine-learning</code></small></li>
+      <li>Cybersecurity <small><code>cybersecurity</code></small></li>
+      <li>Linux <small><code>linux</code></small></li>
+      <li>DevOps <small><code>devops</code></small></li>
+      <li>Cloud <small><code>cloud</code></small></li>
+      <li>Databases <small><code>databases</code></small></li>
+      <li>Game Development <small><code>game-development</code></small></li>
+      <li>Mobile Development <small><code>mobile-development</code></small></li>
+      <li>UI/UX <small><code>ui-ux</code></small></li>
+      <li>Open Source <small><code>open-source</code></small></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== quick start -->
+  <section class="info-block" id="v100-quickstart" data-hide-when-filtered aria-labelledby="v100-quickstart-title">
+    <h3 id="v100-quickstart-title">Try 1.0.0 locally</h3>
+    <p>The quickest way to run the whole stack is Docker Compose from the project folder:</p>
+    <pre dir="ltr"><code>cp .env.example .env        # set SECRET_KEY
+docker compose up --build   # then open http://localhost:8080</code></pre>
+    <p>To work on the code, run the API and the frontend separately:</p>
+    <pre dir="ltr"><code>cd backend
+python -m venv .venv
+.venv/Scripts/activate      # macOS/Linux: source .venv/bin/activate
+pip install -e ".[dev]"
+alembic upgrade head
+python -m app.cli seed --demo
+uvicorn app.main:app --reload --port 8000
+
+cd ../frontend
+npm install
+npm run dev                 # http://localhost:5173</code></pre>
+    <p>The <a href="https://wiki.arabdev.site/en/#self-hosting" target="_blank" rel="noopener">Running and self-hosting</a> article in the wiki covers configuration, deployment and backups in detail.</p>
+  </section>
+
+  <!-- ====================================================== help -->
+  <section class="info-block" id="v100-help" data-hide-when-filtered aria-labelledby="v100-help-title">
+    <h3 id="v100-help-title">Where to get help</h3>
+    <ul>
+      <li>Start with the <a href="https://wiki.arabdev.site/en/#getting-started" target="_blank" rel="noopener">Getting started</a> and <a href="https://wiki.arabdev.site/en/#faq" target="_blank" rel="noopener">FAQ</a> articles in the wiki.</li>
+      <li>If something shows an error, the <a href="https://wiki.arabdev.site/en/#troubleshooting" target="_blank" rel="noopener">Troubleshooting</a> article explains each message.</li>
+      <li>Account problems, bugs, content reports and privacy requests: write to <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a>. The <a href="https://wiki.arabdev.site/en/#contact" target="_blank" rel="noopener">Contact and support</a> article explains what to include.</li>
+      <li>Found a security problem? Report it privately to <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a> with the subject “Security”, not in a public post.</li>
+      <li>Sponsorship, contributions, partnerships and other questions: write to <a href="mailto:hi@arabdev.site" dir="ltr">hi@arabdev.site</a>.</li>
+      <li>Developers can explore the live API documentation at <code>/api/docs</code>.</li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== limitations -->
+  <section class="info-block" id="v100-limitations" data-hide-when-filtered aria-labelledby="v100-limitations-title">
+    <h3 id="v100-limitations-title">Known limitations</h3>
+    <p>Things ArabDev 1.0.0 does not do yet. None of them are promises of a date, but they are the first areas we are looking at.</p>
+    <ul>
+      <li>There are no private messages between members.</li>
+      <li>No email provider is connected, so password reset links are written to the server log instead of being emailed. Self-hosters can connect one in <code>email_service.py</code>.</li>
+      <li>There is no report button for posts, comments or profiles yet; send reports to <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a>.</li>
+      <li>Ads can only be managed through the API; there is no administration screen.</li>
+      <li>Posts can have one image each.</li>
+      <li>Comments are plain text; they do not support formatting or images.</li>
+      <li>There is no self-service data download yet; copies of your data are available on request.</li>
+      <li>Notifications appear inside ArabDev only; there are no email or push notifications.</li>
+      <li>The API is designed to run as a single process with SQLite.</li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== requirements -->
+  <section class="info-block" id="v100-requirements" data-hide-when-filtered aria-labelledby="v100-requirements-title">
+    <h3 id="v100-requirements-title">Requirements and upgrade notes</h3>
+    <ul>
+      <li>Browsers: current versions of Chrome, Edge, Firefox and Safari, on desktop and mobile.</li>
+      <li>To run the API: Python 3.11 or newer. To build the frontend: Node.js 20.19 or newer (or 22.12 and later).</li>
+      <li>This is the first release, so there is nothing to upgrade from. New installations run <code>alembic upgrade head</code> to create the database.</li>
+      <li>Set <code>SECRET_KEY</code>, and in production also <code>ENVIRONMENT=production</code> and <code>COOKIE_SECURE=true</code> behind HTTPS.</li>
+      <li>Back up <code>arabdev.db</code> and the media folder regularly.</li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== credits -->
+  <section class="info-block" id="v100-credits" data-hide-when-filtered aria-labelledby="v100-credits-title">
+    <h3 id="v100-credits-title">Credits</h3>
+    <p>ArabDev stands on the shoulders of excellent open-source work. Thank you to everyone behind:</p>
+    <ul class="credits">
+      <li>Alexandria <small>typeface · SIL Open Font License</small></li>
+      <li>Tajawal <small>typeface · SIL Open Font License</small></li>
+      <li>Anton <small>typeface · SIL Open Font License</small></li>
+      <li>React <small>user interface</small></li>
+      <li>Material UI and Emotion <small>components and styling</small></li>
+      <li>stylis-plugin-rtl <small>right-to-left styles</small></li>
+      <li>React Router <small>routing</small></li>
+      <li>TanStack Query <small>data fetching and caching</small></li>
+      <li>TipTap and ProseMirror <small>the post editor</small></li>
+      <li>i18next <small>translations</small></li>
+      <li>DOMPurify <small>browser-side sanitising</small></li>
+      <li>Axios <small>HTTP client</small></li>
+      <li>Vite and TypeScript <small>build tooling</small></li>
+      <li>FastAPI and Starlette <small>the API</small></li>
+      <li>Pydantic <small>validation</small></li>
+      <li>SQLAlchemy and Alembic <small>database and migrations</small></li>
+      <li>SQLite <small>the database</small></li>
+      <li>argon2-cffi <small>password hashing</small></li>
+      <li>PyJWT <small>access tokens</small></li>
+      <li>nh3 <small>server-side sanitising</small></li>
+      <li>Pillow <small>image processing</small></li>
+      <li>Redis <small>optional shared limits and caching</small></li>
+      <li>pytest <small>testing</small></li>
+    </ul>
+  </section>
+</article>
+</main>
+</div>
+
+<footer class="site-footer">
+  <nav aria-label="Related pages">
+    <a href="https://arabdev.site/dashboard">ArabDev</a>
+    <a href="https://wiki.arabdev.site/en/" target="_blank" rel="noopener">Wiki</a>
+    <a href="https://privacy.arabdev.site/en/" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="https://arabdev.site/LICENSE.txt" target="_blank" rel="noopener">License (GNU GPL v3)</a>
+  </nav>
+  <p>ArabDev is free software released under the GNU General Public License v3. Support: <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a> · Contact: <a href="mailto:hi@arabdev.site" dir="ltr">hi@arabdev.site</a></p>
+</footer>
+<script src="../assets/patch-notes.js"></script>
+</body>
+</html>

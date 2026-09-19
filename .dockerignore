@@ -1,0 +1,17 @@
+# Used by builds whose context is the project root (the frontend image).
+# The backend image is built from backend/ and uses backend/.dockerignore.
+**/node_modules
+**/.env
+**/.env.*
+!**/.env.example
+frontend/dist
+backend
+wiki
+privacy
+patch-notes
+Alexandria,Anton,Tajawal
+.claude
+Readme.txt
+*.db
+*.db-wal
+*.db-shm

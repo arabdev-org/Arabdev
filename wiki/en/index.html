@@ -1,0 +1,1645 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ArabDev Wiki</title>
+<meta name="description" content="The ArabDev Wiki: how to use ArabDev, write technical posts, stay safe, and run or build on the platform.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script>
+  (function () {
+    try {
+      var mode = localStorage.getItem('arabdev.mode') || 'system';
+      var dark = mode === 'dark' || (mode === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    } catch (e) {}
+  })();
+</script>
+<link rel="stylesheet" href="../assets/wiki.css">
+</head>
+<body data-site-name="ArabDev Wiki">
+<a class="skip" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <button class="btn icon-btn menu-btn" type="button" data-menu aria-label="Open navigation" aria-expanded="false">☰</button>
+  <a class="brand" href="#main-page" aria-label="ArabDev Wiki, main page">
+    <span class="brand-word" dir="ltr"><span class="arab">Arab</span>Dev</span>
+    <span class="brand-label">Wiki</span>
+  </a>
+  <div class="search" role="search">
+    <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14"/></svg>
+    <input type="search" data-search placeholder="Search the wiki (press /)" aria-label="Search the wiki" autocomplete="off" aria-controls="search-results">
+    <div class="search-results" id="search-results" role="listbox" data-search-results hidden></div>
+  </div>
+  <div class="header-actions">
+    <a class="btn" href="../ar/" data-lang-switch data-base="../ar/" lang="ar" hreflang="ar">العربية</a>
+    <button class="btn icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark mode">◐</button>
+    <a class="btn btn-primary" href="https://arabdev.site/dashboard"><span aria-hidden="true">↩</span><span class="open-app-label">Open ArabDev</span></a>
+  </div>
+</header>
+
+<div class="layout">
+<nav class="sidebar" aria-label="Wiki navigation">
+  <div class="nav-group">
+    <h2>Start here</h2>
+    <ul>
+      <li><a href="#main-page">Main Page</a></li>
+      <li><a href="#getting-started">Getting started</a></li>
+      <li><a href="#faq">Frequently asked questions</a></li>
+      <li><a href="#glossary">Glossary</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h2>Using ArabDev</h2>
+    <ul>
+      <li><a href="#profiles">Profiles</a></li>
+      <li><a href="#home-feed">The home feed</a></li>
+      <li><a href="#writing-posts">Writing posts</a></li>
+      <li><a href="#formatting-reference">Formatting reference</a></li>
+      <li><a href="#tags-and-interests">Tags and interests</a></li>
+      <li><a href="#comments-and-interactions">Comments and interactions</a></li>
+      <li><a href="#following-and-discovery">Following and discovery</a></li>
+      <li><a href="#search">Search</a></li>
+      <li><a href="#notifications">Notifications</a></li>
+      <li><a href="#settings">Settings</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h2>Trust and safety</h2>
+    <ul>
+      <li><a href="#privacy-and-safety">Privacy and safety</a></li>
+      <li><a href="#account-security">Account security</a></li>
+      <li><a href="#ads">Ads on ArabDev</a></li>
+      <li><a href="#community-guidelines">Community guidelines</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h2>Help</h2>
+    <ul>
+      <li><a href="#accessibility-and-languages">Accessibility and languages</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+      <li><a href="#contact">Contact and support</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h2>For developers</h2>
+    <ul>
+      <li><a href="#developers-overview">Architecture overview</a></li>
+      <li><a href="#self-hosting">Running and self-hosting</a></li>
+      <li><a href="#api-reference">API reference</a></li>
+      <li><a href="#contributing-and-license">Contributing and license</a></li>
+    </ul>
+  </div>
+  <div class="nav-group nav-external">
+    <h2>Elsewhere</h2>
+    <ul>
+      <li><a href="https://privacy.arabdev.site/en/" target="_blank" rel="noopener">Privacy Policy</a></li>
+      <li><a href="https://patch.arabdev.site/en/" target="_blank" rel="noopener">Patch notes</a></li>
+      <li><a href="https://arabdev.site/LICENSE.txt" target="_blank" rel="noopener">GNU GPL v3 license</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="content" id="content" tabindex="-1">
+
+<!-- ================================================================== MAIN PAGE -->
+<article class="wiki-article" id="main-page" data-title="Main Page">
+<h1 class="article-title">Welcome to the ArabDev Wiki</h1>
+<p class="article-tagline">The community's guide to ArabDev: using it, staying safe on it, and building on it.</p>
+<aside class="infobox" aria-label="ArabDev at a glance">
+  <div class="infobox-title">
+    <span class="brand-word" dir="ltr"><span class="arab">Arab</span>Dev</span>
+    <span class="infobox-caption">A social platform for developers</span>
+  </div>
+  <table>
+    <tr><th scope="row">Type</th><td>Developer community and publishing platform</td></tr>
+    <tr><th scope="row">Audience</th><td>Developers, especially Arabic speakers</td></tr>
+    <tr><th scope="row">Languages</th><td>Arabic (right-to-left) and English (left-to-right)</td></tr>
+    <tr><th scope="row">First release</th><td>Version 1.0.0, 19 September 2026</td></tr>
+    <tr><th scope="row">License</th><td>GNU General Public License v3.0 or later</td></tr>
+    <tr><th scope="row">Frontend</th><td>React, TypeScript, Material UI</td></tr>
+    <tr><th scope="row">Backend</th><td>Python, FastAPI, SQLite</td></tr>
+    <tr><th scope="row">Website</th><td><a href="https://arabdev.site/dashboard" dir="ltr">arabdev.site</a></td></tr>
+    <tr><th scope="row">Support</th><td><a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a></td></tr>
+    <tr><th scope="row">Contact</th><td><a href="mailto:hi@arabdev.site" dir="ltr">hi@arabdev.site</a></td></tr>
+    <tr><th scope="row">Data</th><td>Never sold. See the <a href="https://privacy.arabdev.site/en/" target="_blank" rel="noopener">Privacy Policy</a>.</td></tr>
+  </table>
+</aside>
+<p><strong>ArabDev</strong> is a social and professional platform where developers publish technical posts, follow each other's work, discuss code in comments, and discover projects through tags, trending posts and search.</p>
+<p>It was built first for the Arabic-speaking developer community. The whole interface works in Arabic from right to left and in English from left to right, and a single post can mix both languages: every paragraph picks its own direction.</p>
+<p>This wiki explains how every part of ArabDev works. It is written for three kinds of readers: people using ArabDev, people who want to understand how their data and account are protected, and developers who run the platform or build on its API.</p>
+<p>The wiki opens in its own browser tab so you can keep it next to ArabDev while you work. Use the search box at the top (or press <kbd>/</kbd>) to jump to any topic.</p>
+
+<h2 id="main-page-start">Start with these</h2>
+<div class="portal-grid">
+  <a class="portal-card" href="#getting-started"><strong>Getting started</strong><span>Create an account, set up your profile and find people to follow.</span></a>
+  <a class="portal-card" href="#writing-posts"><strong>Writing posts</strong><span>Titles, code, tables, links, images, tags, drafts and preview.</span></a>
+  <a class="portal-card" href="#home-feed"><strong>The home feed</strong><span>How For you, Following and Latest decide what you see.</span></a>
+  <a class="portal-card" href="#privacy-and-safety"><strong>Privacy and safety</strong><span>What is public, what is private, and the controls you have.</span></a>
+  <a class="portal-card" href="#formatting-reference"><strong>Formatting reference</strong><span>Every toolbar button, shortcut and Markdown-style trick.</span></a>
+  <a class="portal-card" href="#faq"><strong>FAQ</strong><span>Short answers to the questions people ask most.</span></a>
+  <a class="portal-card" href="#contact"><strong>Contact and support</strong><span>support@arabdev.site for help, hi@arabdev.site for everything else.</span></a>
+</div>
+
+<h2 id="main-page-featured">Featured article: writing for two languages</h2>
+<p>Many ArabDev posts explain an idea in Arabic and show the code in English. The editor handles this without any extra steps. Each paragraph, heading, list item and table cell is marked with an automatic direction, so an Arabic paragraph lines up on the right and an English one on the left inside the same post.</p>
+<p>Code blocks are always shown left-to-right, whatever language surrounds them. Hashtags and @mentions are isolated from the surrounding text, so <code>@layla_dev</code> stays readable even in the middle of an Arabic sentence.</p>
+<p class="hatnote">Main article: <a href="#writing-posts">Writing posts</a>. See also: <a href="#accessibility-and-languages">Accessibility and languages</a>.</p>
+
+<h2 id="main-page-did-you-know">Did you know…</h2>
+<ul>
+  <li>…that the home feed shows exactly 20 posts per page, with numbered pages instead of endless scrolling? (<a href="#home-feed">The home feed</a>)</li>
+  <li>…that an ad appears only after every 8 posts, and ads are chosen by page and language only, never by your personal data? (<a href="#ads">Ads on ArabDev</a>)</li>
+  <li>…that every uploaded image is re-encoded, which removes hidden photo metadata such as GPS location? (<a href="#privacy-and-safety">Privacy and safety</a>)</li>
+  <li>…that typing <code>##</code> followed by a space in the editor turns the line into a heading? (<a href="#formatting-reference">Formatting reference</a>)</li>
+  <li>…that <code>#js</code>, <code>#JavaScript</code> and <code>#javascript</code> all end up in the same tag? (<a href="#tags-and-interests">Tags and interests</a>)</li>
+  <li>…that you can hide yourself from search and suggestions while keeping your profile reachable by direct link? (<a href="#settings">Settings</a>)</li>
+  <li>…that ArabDev is free software under the GNU GPL, so anyone can read exactly how it handles data? (<a href="#contributing-and-license">Contributing and license</a>)</li>
+</ul>
+
+<h2 id="main-page-sections">Browse by section</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Section</th><th scope="col">Articles</th></tr></thead>
+  <tbody>
+    <tr><td>Start here</td><td><a href="#getting-started">Getting started</a> · <a href="#faq">FAQ</a> · <a href="#glossary">Glossary</a></td></tr>
+    <tr><td>Using ArabDev</td><td><a href="#profiles">Profiles</a> · <a href="#home-feed">Home feed</a> · <a href="#writing-posts">Writing posts</a> · <a href="#formatting-reference">Formatting</a> · <a href="#tags-and-interests">Tags and interests</a> · <a href="#comments-and-interactions">Comments and interactions</a> · <a href="#following-and-discovery">Following and discovery</a> · <a href="#search">Search</a> · <a href="#notifications">Notifications</a> · <a href="#settings">Settings</a></td></tr>
+    <tr><td>Trust and safety</td><td><a href="#privacy-and-safety">Privacy and safety</a> · <a href="#account-security">Account security</a> · <a href="#ads">Ads</a> · <a href="#community-guidelines">Community guidelines</a></td></tr>
+    <tr><td>Help</td><td><a href="#accessibility-and-languages">Accessibility and languages</a> · <a href="#troubleshooting">Troubleshooting</a></td></tr>
+    <tr><td>For developers</td><td><a href="#developers-overview">Architecture</a> · <a href="#self-hosting">Self-hosting</a> · <a href="#api-reference">API reference</a> · <a href="#contributing-and-license">Contributing and license</a></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="main-page-about">About this wiki</h2>
+<p>This wiki documents ArabDev version 1.0.0. When a new version changes how something works, the matching article is updated and the change is listed in the <a href="https://patch.arabdev.site/en/" target="_blank" rel="noopener">patch notes</a>.</p>
+<p>The wiki is a set of static pages. It has no accounts, no comments, no analytics and no tracking. The only thing it remembers is your light or dark mode choice, which it shares with ArabDev in your browser's local storage.</p>
+<div class="categories">Categories: <a href="#main-page">Wiki</a><a href="#getting-started">Start here</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== GETTING STARTED -->
+<article class="wiki-article" id="getting-started" data-title="Getting started">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Start here</div>
+<h1 class="article-title">Getting started</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>This article walks you through your first ten minutes on ArabDev: creating an account, signing in, the four-step setup that runs on your first visit, and what to do next.</p>
+
+<h2 id="getting-started-account">Creating an account</h2>
+<p>Open <a href="https://arabdev.site/" dir="ltr">arabdev.site</a> and choose <strong>Create account</strong>. You need four things:</p>
+<ol>
+  <li><strong>Username</strong>, the unique handle people use to mention you (for example <code>@layla_dev</code>).</li>
+  <li><strong>Email address</strong>, used to sign in and to reset your password. It is never shown on your profile.</li>
+  <li><strong>Password</strong>, entered twice to make sure there is no typo.</li>
+  <li>The interface language you are using when you sign up is saved as your starting preference. You can change it at any time.</li>
+</ol>
+<p>As you type a username, ArabDev checks whether it is free and shows a green check mark or a message such as "This username is already taken". When you leave the email field it also checks that no account already uses that address.</p>
+
+<h3 id="getting-started-username-rules">Username rules</h3>
+<ul>
+  <li>3 to 20 characters long.</li>
+  <li>English letters (a–z), numbers (0–9) and the underscore (<code>_</code>) only.</li>
+  <li>Must start with a letter.</li>
+  <li>Not case-sensitive: <code>Layla_Dev</code> is saved as <code>layla_dev</code>.</li>
+  <li>A few names are reserved because they are used by the site itself, for example <code>admin</code>, <code>api</code>, <code>settings</code>, <code>explore</code>, <code>search</code>, <code>notifications</code>, <code>privacy</code>, <code>support</code> and <code>arabdev</code>.</li>
+</ul>
+<p class="hatnote">Your display name is separate and can be written in any script, including Arabic. See <a href="#profiles">Profiles</a>.</p>
+
+<h3 id="getting-started-password-rules">Password rules</h3>
+<ul>
+  <li>At least 8 characters and at most 128.</li>
+  <li>Must contain at least one letter and at least one number.</li>
+  <li>Must not be too repetitive (a password made of three or fewer distinct characters is refused).</li>
+</ul>
+<p>A strength bar under the password field rates your choice as weak, fair, good or strong while you type. It gives the best rating to longer passwords that mix upper- and lower-case letters, numbers and symbols. The server applies the rules above no matter what the bar shows.</p>
+<div class="callout tip"><span class="callout-title">Tip</span><p>A long passphrase of four or five unrelated words plus a number is both strong and easy to remember. A password manager is even better.</p></div>
+
+<h2 id="getting-started-sign-in">Signing in</h2>
+<p>Sign in with your email address and password. Creating an account signs you in automatically, so you only need this page when you come back.</p>
+<ul>
+  <li><strong>Keep me signed in</strong> (checked by default) keeps you signed in on this browser for up to 30 days.</li>
+  <li>If you uncheck it, your session ends when you close the browser, and in any case after 12 hours.</li>
+  <li>If you type the wrong email or password, ArabDev says only "Email or password is incorrect". It never reveals whether an email address has an account.</li>
+  <li>After 10 attempts in one minute from the same network, sign-in pauses briefly. Wait a moment and try again.</li>
+</ul>
+<p class="hatnote">Forgot your password? See <a href="#account-security-reset">Resetting a forgotten password</a>.</p>
+
+<h2 id="getting-started-onboarding">First visit: setting up your profile</h2>
+<p>The first time you arrive after creating an account, ArabDev opens a short setup window. It has four steps, a progress bar and a counter such as "Step 2 of 4". Every step has a <strong>Skip</strong> button, and the <strong>×</strong> button in the corner closes the window for good. You can finish anything you skipped later from <a href="#settings">Settings</a>.</p>
+<h3 id="getting-started-step-photo">Step 1: profile picture</h3>
+<p>Choose <strong>Upload photo</strong> and pick an image. A circular preview appears straight away while the image uploads. You can replace it or remove it before moving on. Accepted formats are JPEG, PNG, WebP and GIF, up to 5 MB and at least 96×96 pixels.</p>
+<h3 id="getting-started-step-name">Step 2: username, display name and bio</h3>
+<p>Adjust your username if you like (the same availability check runs), set a display name of up to 50 characters, and optionally write a short bio of up to 280 characters. A counter under the bio shows how many characters you have used.</p>
+<h3 id="getting-started-step-interests">Step 3: interests</h3>
+<p>Pick the topics you work with, such as Python, React, DevOps or UI/UX. You can choose as many as you like; picking at least three gives better suggestions. Selected topics show a check mark and a tinted background.</p>
+<h3 id="getting-started-step-people">Step 4: developers to follow</h3>
+<p>ArabDev suggests up to eight developers based on the interests you just chose. Each card shows their picture, name, username, bio and interests with a <strong>Follow</strong> button. Follow as many as you like, then choose <strong>Go to my feed</strong>.</p>
+
+<h2 id="getting-started-next">What to do next</h2>
+<ol>
+  <li>Read your <a href="#home-feed">home feed</a> and switch between the For you, Following and Latest tabs.</li>
+  <li>Write your first post: choose <strong>Create post</strong> in the navigation. See <a href="#writing-posts">Writing posts</a>.</li>
+  <li>Visit <strong>Explore</strong> to find trending posts, popular tags and more people to follow.</li>
+  <li>Review your <a href="#settings-privacy">privacy settings</a> and <a href="#settings-notifications">notification preferences</a>.</li>
+  <li>Pick light or dark mode and your preferred language under <a href="#settings-appearance">Settings → Appearance</a>.</li>
+</ol>
+
+<h2 id="getting-started-navigation">Finding your way around</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Screen size</th><th scope="col">Navigation</th></tr></thead>
+  <tbody>
+    <tr><td>Large screens (1200 px and wider)</td><td>A navigation column with labels (Home, Explore, Notifications, Bookmarks, Profile, Settings and a Create post button), the main column, and a side column with suggested developers, one ad and popular tags.</td></tr>
+    <tr><td>Tablets (900–1199 px)</td><td>A narrow column of icons with tooltips, plus the main column. The side column is hidden.</td></tr>
+    <tr><td>Phones (under 900 px)</td><td>A bar along the bottom with Home, Explore, a red Create button, Notifications and Profile. Search is the magnifying glass at the top.</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Your picture in the top corner opens the account menu, with links to Edit profile, Drafts, Bookmarks and Settings, quick theme and language switches, links to this wiki, the privacy policy and the patch notes, and Sign out.</p>
+<div class="categories">Categories: <a href="#main-page">Start here</a><a href="#profiles">Accounts</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== PROFILES -->
+<article class="wiki-article" id="profiles" data-title="Profiles">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Using ArabDev</div>
+<h1 class="article-title">Profiles</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>Every member has a public profile at <code>/u/username</code>, for example <code>/u/layla_dev</code>. A profile shows who someone is, what they work on and what they have written.</p>
+
+<h2 id="profiles-anatomy">What a profile shows</h2>
+<ul>
+  <li><strong>Profile picture</strong>, or the initials of the display name if there is no picture.</li>
+  <li><strong>Display name</strong> and <strong>@username</strong>.</li>
+  <li>A <strong>Follows you</strong> badge when that person follows you.</li>
+  <li><strong>Bio</strong>, <strong>location</strong> and <strong>website</strong>, if filled in.</li>
+  <li><strong>Joined</strong> month and year.</li>
+  <li>Counts of <strong>Following</strong>, <strong>Followers</strong> and <strong>Posts</strong>. The first two open the full lists, unless the person keeps them private.</li>
+  <li><strong>Interests</strong> as chips. Each chip opens the matching tag page.</li>
+  <li>A <strong>Follow</strong> button on other people's profiles, or <strong>Edit profile</strong> on your own.</li>
+</ul>
+
+<h2 id="profiles-tabs">Profile tabs</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Tab</th><th scope="col">Contents</th><th scope="col">Who can see it</th></tr></thead>
+  <tbody>
+    <tr><td>Posts</td><td>Posts the person wrote and posts they reposted, newest activity first. Reposts carry a "reposted" label.</td><td>Everyone</td></tr>
+    <tr><td>Replies</td><td>Comments the person wrote, each with a link to the post it was written on.</td><td>Everyone</td></tr>
+    <tr><td>Saved</td><td>Posts you bookmarked.</td><td>Only you, on your own profile</td></tr>
+  </tbody>
+</table>
+</div>
+<p>All three tabs are split into pages of 20 with numbered page links at the bottom.</p>
+
+<h2 id="profiles-editing">Editing your profile</h2>
+<p>Open <strong>Edit profile</strong> from your profile or the account menu. The same editor is also under <a href="#settings-profile">Settings → Profile</a>.</p>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Field</th><th scope="col">Limits</th><th scope="col">Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Display name</td><td>1–50 characters</td><td>Any language. Leading and trailing spaces are removed.</td></tr>
+    <tr><td>Username</td><td>3–20 characters</td><td>Same rules as at sign-up. Changing it changes your profile link.</td></tr>
+    <tr><td>Bio</td><td>Up to 280 characters</td><td>Optional. Line breaks are kept.</td></tr>
+    <tr><td>Location</td><td>Up to 60 characters</td><td>Optional. Free text; ArabDev never uses it for anything else.</td></tr>
+    <tr><td>Website</td><td>Up to 200 characters</td><td>Optional. If you leave out <code>https://</code> it is added for you.</td></tr>
+    <tr><td>Interests</td><td>Any of the 25 topics</td><td>Used for your feed and suggestions. See <a href="#tags-and-interests">Tags and interests</a>.</td></tr>
+  </tbody>
+</table>
+</div>
+<p>The <strong>Save</strong> button stays disabled until you change something. If a field has a problem, such as a taken username, the message appears under that field.</p>
+<div class="callout warning"><span class="callout-title">Changing your username</span><p>Your old profile link stops working and the old name becomes available to others. Links other people shared and @mentions in old posts still use the old name.</p></div>
+
+<h2 id="profiles-picture">Profile pictures</h2>
+<ul>
+  <li>Formats: JPEG, PNG, WebP or GIF.</li>
+  <li>Size: up to 5 MB.</li>
+  <li>Dimensions: at least 96×96 pixels, at most 8000 pixels on any side.</li>
+  <li>ArabDev crops the image to a centered square, resizes it to 400×400 pixels and saves it as WebP. Animated GIFs become still images.</li>
+  <li>Re-encoding removes hidden metadata such as the camera model and GPS location.</li>
+  <li>When you replace or remove a picture, the previous file is deleted from storage.</li>
+</ul>
+
+<h2 id="profiles-lists">Followers and following lists</h2>
+<p>Open the lists from the counts on a profile, or go to <code>/u/username/followers</code> and <code>/u/username/following</code>. Each person is shown as a card with their bio, interests and a follow button. If someone has turned off <strong>Show my followers and following lists</strong>, other people see "This account keeps its connections private" instead. The owner can always see their own lists.</p>
+<div class="categories">Categories: <a href="#profiles">Accounts</a><a href="#following-and-discovery">Community</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== HOME FEED -->
+<article class="wiki-article" id="home-feed" data-title="The home feed">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Using ArabDev</div>
+<h1 class="article-title">The home feed</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>The home feed is the first page you see after signing in. It has three tabs, a quick way to start a post, and numbered pages rather than an endless scroll.</p>
+
+<h2 id="home-feed-tabs">The three tabs</h2>
+<h3 id="home-feed-for-you">For you</h3>
+<p>The default tab. It shows every post on ArabDev, arranged like this:</p>
+<ol>
+  <li>Posts are grouped by the day they were published (in Coordinated Universal Time), newest day first.</li>
+  <li>Within the same day, posts from people you follow come first, then posts tagged with one of your interests, then everything else.</li>
+  <li>Within each of those groups, the newest post comes first.</li>
+</ol>
+<p>This keeps the feed fresh while making sure that people and topics you chose are not buried under the day's other posts. No post is hidden; For you only changes the order.</p>
+<h3 id="home-feed-following">Following</h3>
+<p>Only posts from you and the people you follow, plus the posts those people reposted. If several people you follow repost the same post, it appears once, at the time of the most recent repost, with a label such as "Omar Khatib reposted".</p>
+<h3 id="home-feed-latest">Latest</h3>
+<p>Every post, strictly newest first, with no ranking at all.</p>
+<p>The tab you pick is kept in the address bar (for example <code>/dashboard?tab=following</code>), so reloading the page or sharing the link keeps the same view.</p>
+
+<h2 id="home-feed-pagination">Pages instead of infinite scroll</h2>
+<p>ArabDev deliberately does not load posts endlessly as you scroll. The feed shows at most 20 posts per page. At the bottom you find:</p>
+<ul>
+  <li><strong>Previous</strong> and <strong>Next</strong> buttons.</li>
+  <li>Numbered page links such as 1 2 3 … 20 on larger screens, or "Page 2 of 5" on phones.</li>
+</ul>
+<p>The page number is part of the address (<code>?page=2</code>), so you can come back to exactly where you were. When you change page, the view returns to the top, and the previous page stays visible, slightly faded, until the next one arrives, so the screen never flashes blank.</p>
+<div class="callout note"><span class="callout-title">Why pages?</span><p>Pages give the feed a natural end, make it easy to find a post again, and keep the app light: the server only ever sends 20 posts at a time.</p></div>
+
+<h2 id="home-feed-post-cards">What a post looks like in the feed</h2>
+<ul>
+  <li>The author's picture, display name, @username and how long ago the post was published (hover to see the exact date and time). An "edited" note appears if the author changed it.</li>
+  <li>The title, or "by" and the author's name if the post has no title.</li>
+  <li>The beginning of the post. Long posts are cut at about 300 pixels with a gentle fade and a <strong>Read more</strong> link.</li>
+  <li>The attached image and link, if any, and the post's tags.</li>
+  <li>The action row: comment, repost, like, save and share, each with its count when it is above zero.</li>
+</ul>
+<p>Clicking anywhere on a post opens it, except on links, buttons and text you are selecting.</p>
+
+<h2 id="home-feed-composer">Starting a post from the feed</h2>
+<p>The box at the top of the feed ("What are you working on?") and the <strong>Write a post</strong> button both open the full post editor. See <a href="#writing-posts">Writing posts</a>.</p>
+
+<h2 id="home-feed-ads">Ads in the feed</h2>
+<p>An ad appears after every 8 posts: after the 8th and the 16th post of each page, so at most two per page. Ads are clearly labelled and never look like posts.</p>
+<p class="hatnote">Main article: <a href="#ads">Ads on ArabDev</a>.</p>
+
+<h2 id="home-feed-empty">When the feed is empty</h2>
+<ul>
+  <li>If nobody has posted yet, you see "No posts yet" and a <strong>Create your first post</strong> button.</li>
+  <li>If the Following tab is empty, you see "Nothing from people you follow" and a button that takes you to Explore to find developers.</li>
+</ul>
+<div class="categories">Categories: <a href="#home-feed">Feed</a><a href="#following-and-discovery">Discovery</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== WRITING POSTS -->
+<article class="wiki-article" id="writing-posts" data-title="Writing posts">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Using ArabDev</div>
+<h1 class="article-title">Writing posts</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>Posts are the heart of ArabDev: tutorials, questions, project announcements, tips and write-ups. The editor gives you everything a technical post needs, such as headings, code, tables and links, without turning into a word processor.</p>
+<p class="hatnote">For every button and shortcut, see <a href="#formatting-reference">Formatting reference</a>.</p>
+
+<h2 id="writing-posts-open">Opening the editor</h2>
+<p>Choose <strong>Create post</strong> in the navigation (the red <strong>+</strong> on phones), the <strong>Write a post</strong> button on the home feed, or open one of your drafts. The editor has:</p>
+<ul>
+  <li>A <strong>title</strong> field at the top (optional, up to 200 characters).</li>
+  <li>The <strong>toolbar</strong>, which stays pinned under the top bar while you scroll a long post.</li>
+  <li>The <strong>body</strong>, where you write.</li>
+  <li><strong>Tags</strong>, an <strong>image</strong> and a <strong>link</strong> below the body.</li>
+  <li>A <strong>preview</strong>, next to the editor on large screens or behind a Preview tab on smaller ones.</li>
+  <li><strong>Save draft</strong> and <strong>Publish</strong> buttons at the top.</li>
+</ul>
+
+<h2 id="writing-posts-body">Writing the body</h2>
+<p>The body is required: a post needs at least some text. Everything else is optional. You can use:</p>
+<ul>
+  <li>Paragraphs, headings and subheadings.</li>
+  <li>Bold, italic, underline, strikethrough and <code>inline code</code>.</li>
+  <li>Bulleted and numbered lists, including lists inside lists.</li>
+  <li>Quotes.</li>
+  <li>Code blocks for multi-line code.</li>
+  <li>Links inside the text.</li>
+  <li>Tables with an optional header row.</li>
+  <li>Text alignment (start, center, end, justify).</li>
+  <li>A choice of three fonts, six sizes and five colors.</li>
+</ul>
+<p>The editor also accepts Markdown-style shortcuts as you type: <code>##</code> and a space starts a heading, <code>-</code> and a space starts a list, <code>```</code> and a space starts a code block, and <code>**bold**</code> becomes <strong>bold</strong>.</p>
+
+<h2 id="writing-posts-fonts">Fonts, sizes and colors</h2>
+<p>ArabDev offers a small, deliberate set of choices so posts stay readable and consistent:</p>
+<ul>
+  <li><strong>Fonts:</strong> Tajawal (the default body font), Alexandria (used for headings on ArabDev) and Anton (a tall display font, best for short emphasis).</li>
+  <li><strong>Sizes:</strong> 14, 16, 18, 20, 24 and 30.</li>
+  <li><strong>Colors:</strong> Red, Dark red, Ink, Graphite and Muted, plus the default text color.</li>
+</ul>
+<p>Colors are not fixed values: each one has a light and a dark version, so a red phrase written in light mode is still easy to read for someone using dark mode.</p>
+<div class="callout note"><span class="callout-title">Only these choices are kept</span><p>If you paste formatted text from another website, fonts, sizes and colors outside this set are removed when you publish. The words themselves are kept.</p></div>
+
+<h2 id="writing-posts-directions">Writing in Arabic and English together</h2>
+<p>Each paragraph, heading, list item and table cell decides its own direction from its first letters. An Arabic paragraph flows right-to-left and an English one left-to-right in the same post. Code blocks are always left-to-right. "Start" and "end" alignment follow each paragraph's own direction, so "start" means right for Arabic and left for English.</p>
+
+<h2 id="writing-posts-attachments">Image and link attachments</h2>
+<h3 id="writing-posts-image">Attaching an image</h3>
+<p>Choose <strong>Add image</strong> below the body. The image uploads immediately with a progress bar and then appears as a preview with a remove button. One image per post.</p>
+<ul>
+  <li>Formats: JPEG, PNG, WebP or GIF; up to 5 MB.</li>
+  <li>At least 64 pixels on the shorter side and at most 10,000 pixels on the longer side.</li>
+  <li>Large images are scaled down to fit within 1600×1600 pixels and saved as WebP. Animated GIFs become still images.</li>
+  <li>If you remove an image you just uploaded before saving, it is deleted from the server.</li>
+</ul>
+<h3 id="writing-posts-link">Attaching a link</h3>
+<p>The <strong>Attach a link</strong> field is for the one link your post is about, such as a repository, a demo or an article. It appears under the post as a card showing the site's name and the full address. It must start with <code>http://</code> or <code>https://</code> and be at most 500 characters. For links inside your text, use the link button in the toolbar instead.</p>
+
+<h2 id="writing-posts-tags">Tags</h2>
+<p>Add up to 5 tags to help people find your post. Type a tag and press <kbd>Enter</kbd>, pick a suggestion from the list, or paste several separated by commas. Each tag can be up to 30 characters.</p>
+<p class="hatnote">Main article: <a href="#tags-and-interests">Tags and interests</a>.</p>
+
+<h2 id="writing-posts-preview">Preview</h2>
+<p>The preview shows your post exactly as readers will see it: your picture and name, the title, the formatted body, the image, the link card and the tags. On screens 1200 pixels and wider it sits next to the editor and updates as you type. On smaller screens, switch between the <strong>Write</strong> and <strong>Preview</strong> tabs.</p>
+
+<h2 id="writing-posts-drafts">Drafts</h2>
+<ul>
+  <li><strong>Save draft</strong> stores everything, including the title, body, tags, image and link, without publishing.</li>
+  <li>After the first save, the address changes to the draft's own address (<code>/drafts/12</code>), so you can bookmark it or reload safely. Later saves update the same draft.</li>
+  <li>All your drafts are listed under <strong>Drafts</strong> in the account menu, most recently edited first, with a short excerpt and their tags.</li>
+  <li>Publishing from a draft turns it into a post and removes the draft.</li>
+  <li>Drafts are private. Nobody else can see or open them.</li>
+</ul>
+
+<h2 id="writing-posts-unsaved">Leaving with unsaved changes</h2>
+<p>If you try to leave the editor with changes you have not saved, ArabDev asks "Discard your changes?" You can stay and keep editing, or leave and lose the changes. The browser shows a similar warning if you try to close the tab.</p>
+
+<h2 id="writing-posts-publishing">Publishing</h2>
+<p>Choose <strong>Publish</strong>. If the body is empty you see "Write something before publishing"; if the attached link is not valid, the message appears under the link field. Once published, you are taken to your new post. You can publish up to 30 posts per hour.</p>
+
+<h2 id="writing-posts-editing">Editing and deleting posts</h2>
+<ul>
+  <li>Open the <strong>⋯</strong> menu on your post and choose <strong>Edit post</strong>. You can change everything: title, body, tags, image and link. The post then shows an "edited" note.</li>
+  <li>Choose <strong>Delete post</strong> from the same menu. ArabDev asks you to confirm, because deleting also removes the post's comments, likes, reposts and bookmarks. This cannot be undone.</li>
+  <li>If an image is no longer used by any post or draft after an edit or deletion, the file is deleted.</li>
+  <li><strong>Copy link</strong> in the same menu works on anyone's post.</li>
+</ul>
+
+<h2 id="writing-posts-mentions">Mentioning people</h2>
+<p>Write <code>@username</code> anywhere in a post to mention someone. They get a notification (unless their settings say otherwise). Up to 10 different people are notified per post.</p>
+
+<h2 id="writing-posts-safety">What happens to your post when you publish</h2>
+<p>The server checks and cleans every post before saving it. It keeps only the formatting the editor offers and removes anything else, including scripts, unknown tags, styles outside the allowed fonts, sizes and colors, and links that do not use <code>http</code>, <code>https</code> or <code>mailto</code>. Links in posts open in a new tab and are marked so search engines do not treat them as endorsements. The browser checks the post again before showing it. This double check keeps everyone who reads your post safe.</p>
+<div class="categories">Categories: <a href="#writing-posts">Posts</a><a href="#formatting-reference">Editor</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== FORMATTING REFERENCE -->
+<article class="wiki-article" id="formatting-reference" data-title="Formatting reference">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Using ArabDev › <a href="#writing-posts">Writing posts</a></div>
+<h1 class="article-title">Formatting reference</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>A complete list of the editor's toolbar buttons, keyboard shortcuts and Markdown-style shortcuts. On Mac, use <kbd>⌘</kbd> wherever this page says <kbd>Ctrl</kbd>.</p>
+
+<h2 id="formatting-reference-toolbar">Toolbar, from start to end</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Control</th><th scope="col">What it does</th></tr></thead>
+  <tbody>
+    <tr><td>Undo / Redo</td><td>Step backward or forward through your changes. Greyed out when there is nothing to undo or redo.</td></tr>
+    <tr><td>Text style</td><td>Paragraph, Heading or Subheading for the current block.</td></tr>
+    <tr><td>Font</td><td>Default font, Alexandria, Tajawal or Anton for the selected text. Each option is shown in its own font.</td></tr>
+    <tr><td>Size</td><td>Default, 14, 16, 18, 20, 24 or 30 for the selected text.</td></tr>
+    <tr><td>Bold</td><td>Makes the selected text bold.</td></tr>
+    <tr><td>Italic</td><td>Makes the selected text italic.</td></tr>
+    <tr><td>Underline</td><td>Underlines the selected text.</td></tr>
+    <tr><td>Strikethrough</td><td>Draws a line through the selected text.</td></tr>
+    <tr><td>Inline code</td><td>Formats a short piece of code inside a sentence, like <code>npm install</code>.</td></tr>
+    <tr><td>Text color</td><td>Opens a menu: Default, Red, Dark red, Ink, Graphite, Muted. Each option is shown in its color.</td></tr>
+    <tr><td>Align to start / Center / Align to end / Justify</td><td>Sets the alignment of the current paragraph or heading. Choosing the active alignment again removes it.</td></tr>
+    <tr><td>Bulleted list</td><td>Turns the paragraph into a bulleted list, or back.</td></tr>
+    <tr><td>Numbered list</td><td>Turns the paragraph into a numbered list, or back.</td></tr>
+    <tr><td>Quote</td><td>Turns the paragraph into a quote, shown with a red bar at its start.</td></tr>
+    <tr><td>Code block</td><td>Starts a block for multi-line code, shown on a dark background, always left-to-right.</td></tr>
+    <tr><td>Link</td><td>Opens a dialog to add, change or remove a link on the selected text. Addresses without <code>https://</code> get it added.</td></tr>
+    <tr><td>Table</td><td>Outside a table: insert a new table. Inside a table: add or delete rows and columns, or delete the table.</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Buttons for formatting that is active where your cursor is are highlighted, so you can always see which styles apply. On narrow screens the toolbar scrolls sideways instead of wrapping onto several lines.</p>
+
+<h2 id="formatting-reference-keyboard">Keyboard shortcuts</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Shortcut</th><th scope="col">Action</th></tr></thead>
+  <tbody>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>B</kbd></td><td>Bold</td></tr>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>I</kbd></td><td>Italic</td></tr>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>U</kbd></td><td>Underline</td></tr>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd></td><td>Strikethrough</td></tr>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>E</kbd></td><td>Inline code</td></tr>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>2</kbd> / <kbd>3</kbd></td><td>Heading / Subheading</td></tr>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>8</kbd></td><td>Bulleted list</td></tr>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>7</kbd></td><td>Numbered list</td></tr>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd></td><td>Quote</td></tr>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>C</kbd></td><td>Code block</td></tr>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>Z</kbd></td><td>Undo</td></tr>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> or <kbd>Ctrl</kbd> + <kbd>Y</kbd></td><td>Redo</td></tr>
+    <tr><td><kbd>Shift</kbd> + <kbd>Enter</kbd></td><td>Line break inside the same paragraph</td></tr>
+    <tr><td><kbd>Tab</kbd> / <kbd>Shift</kbd> + <kbd>Tab</kbd> in a list</td><td>Indent / outdent the list item</td></tr>
+    <tr><td><kbd>Tab</kbd> in a table</td><td>Move to the next cell; in the last cell, add a new row</td></tr>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>Enter</kbd> in a comment</td><td>Send the comment</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="formatting-reference-markdown">Markdown-style shortcuts</h2>
+<p>Type these at the start of an empty line (for blocks) or around text (for inline styles). They turn into formatting as you type.</p>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Type</th><th scope="col">Result</th></tr></thead>
+  <tbody>
+    <tr><td><code>##</code> then space</td><td>Heading</td></tr>
+    <tr><td><code>###</code> then space</td><td>Subheading</td></tr>
+    <tr><td><code>-</code>, <code>*</code> or <code>+</code> then space</td><td>Bulleted list</td></tr>
+    <tr><td><code>1.</code> then space</td><td>Numbered list (starting at that number)</td></tr>
+    <tr><td><code>&gt;</code> then space</td><td>Quote</td></tr>
+    <tr><td><code>```</code> then space</td><td>Code block (you can add a language name, for example <code>```python</code>)</td></tr>
+    <tr><td><code>---</code></td><td>Horizontal divider</td></tr>
+    <tr><td><code>**text**</code></td><td><strong>Bold</strong></td></tr>
+    <tr><td><code>*text*</code> or <code>_text_</code></td><td><em>Italic</em></td></tr>
+    <tr><td><code>~~text~~</code></td><td><s>Strikethrough</s></td></tr>
+    <tr><td><code>`text`</code></td><td><code>Inline code</code></td></tr>
+  </tbody>
+</table>
+</div>
+<p>Typing or pasting a web address followed by a space turns it into a link automatically. Pasting an address while text is selected links that text.</p>
+
+<h2 id="formatting-reference-tables">Working with tables</h2>
+<ol>
+  <li>Choose the table button while your cursor is outside a table.</li>
+  <li>Set the number of rows (1–20) and columns (1–8) and whether the first row is a header row.</li>
+  <li>Choose <strong>Insert table</strong>.</li>
+  <li>With the cursor inside the table, the same button opens a menu: <strong>Add row below</strong>, <strong>Add column after</strong>, <strong>Delete row</strong>, <strong>Delete column</strong> and <strong>Delete table</strong>.</li>
+</ol>
+<p>Wide tables scroll sideways on small screens instead of squeezing their content. Header cells are shown in bold on a tinted background.</p>
+
+<h2 id="formatting-reference-links">Link rules</h2>
+<ul>
+  <li>Allowed kinds of address: <code>https://</code>, <code>http://</code> and <code>mailto:</code>.</li>
+  <li>Anything else, such as <code>javascript:</code>, is refused by the editor and removed by the server.</li>
+  <li>To remove a link, place the cursor on it, open the link dialog and choose <strong>Remove link</strong>, or clear the address and save.</li>
+</ul>
+
+<h2 id="formatting-reference-colors">Color meanings</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Color</th><th scope="col">Suggested use</th></tr></thead>
+  <tbody>
+    <tr><td>Red</td><td>The ArabDev red: warnings, key terms, emphasis.</td></tr>
+    <tr><td>Dark red</td><td>A calmer emphasis for longer phrases.</td></tr>
+    <tr><td>Ink</td><td>Maximum contrast, for example to stand out inside muted text.</td></tr>
+    <tr><td>Graphite</td><td>Secondary information.</td></tr>
+    <tr><td>Muted</td><td>Asides, footnotes and "optional" remarks.</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Do not rely on color alone to carry meaning: some readers cannot tell colors apart. Pair color with words such as "Warning:".</p>
+<div class="categories">Categories: <a href="#formatting-reference">Editor</a><a href="#writing-posts">Posts</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== TAGS AND INTERESTS -->
+<article class="wiki-article" id="tags-and-interests" data-title="Tags and interests">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Using ArabDev</div>
+<h1 class="article-title">Tags and interests</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p><strong>Tags</strong> describe what a post is about. <strong>Interests</strong> describe what a person works with. ArabDev connects the two: when a post's tag matches one of the 25 interests, the post counts as being about that interest, which shapes the <a href="#home-feed-for-you">For you</a> feed and developer suggestions.</p>
+
+<h2 id="tags-and-interests-tag-rules">How tags are written</h2>
+<p>You can type tags however you like, and ArabDev turns each one into a tidy tag name:</p>
+<ul>
+  <li>A leading <code>#</code> is removed.</li>
+  <li>Letters become lower-case.</li>
+  <li>Spaces, underscores, dots and slashes become hyphens, and repeated hyphens are merged.</li>
+  <li><code>+</code> becomes <code>p</code> and <code>#</code> becomes <code>sharp</code>, so C-family languages stay distinct.</li>
+  <li>Arabic letters are kept, so <code>#برمجة</code> is a valid tag.</li>
+  <li>Well-known spellings are merged into one tag (see the table below).</li>
+  <li>Duplicate tags on the same post are kept once, and up to 5 tags are kept per post.</li>
+</ul>
+
+<h2 id="tags-and-interests-aliases">Spellings that are merged</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">You type</th><th scope="col">Tag</th></tr></thead>
+  <tbody>
+    <tr><td><code>js</code></td><td><code>javascript</code></td></tr>
+    <tr><td><code>ts</code></td><td><code>typescript</code></td></tr>
+    <tr><td><code>c++</code></td><td><code>cpp</code></td></tr>
+    <tr><td><code>c#</code></td><td><code>csharp</code></td></tr>
+    <tr><td><code>.net</code></td><td><code>dotnet</code></td></tr>
+    <tr><td><code>node</code>, <code>node.js</code></td><td><code>nodejs</code></td></tr>
+    <tr><td><code>golang</code></td><td><code>go</code></td></tr>
+    <tr><td><code>ml</code></td><td><code>machine-learning</code></td></tr>
+    <tr><td><code>security</code>, <code>infosec</code></td><td><code>cybersecurity</code></td></tr>
+    <tr><td><code>sql</code>, <code>database</code></td><td><code>databases</code></td></tr>
+    <tr><td><code>gamedev</code></td><td><code>game-development</code></td></tr>
+    <tr><td><code>mobile</code></td><td><code>mobile-development</code></td></tr>
+    <tr><td><code>ui</code>, <code>ux</code>, <code>uiux</code>, <code>ui/ux</code></td><td><code>ui-ux</code></td></tr>
+    <tr><td><code>opensource</code>, <code>oss</code></td><td><code>open-source</code></td></tr>
+    <tr><td><code>vuejs</code>, <code>vue.js</code></td><td><code>vue</code></td></tr>
+    <tr><td><code>reactjs</code>, <code>react.js</code></td><td><code>react</code></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="tags-and-interests-list">The 25 interests</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Interest</th><th scope="col">Tag</th><th scope="col">Arabic name</th></tr></thead>
+  <tbody>
+    <tr><td>JavaScript</td><td><code>javascript</code></td><td>JavaScript</td></tr>
+    <tr><td>TypeScript</td><td><code>typescript</code></td><td>TypeScript</td></tr>
+    <tr><td>Python</td><td><code>python</code></td><td>Python</td></tr>
+    <tr><td>C++</td><td><code>cpp</code></td><td>C++</td></tr>
+    <tr><td>Rust</td><td><code>rust</code></td><td>Rust</td></tr>
+    <tr><td>Go</td><td><code>go</code></td><td>Go</td></tr>
+    <tr><td>Java</td><td><code>java</code></td><td>Java</td></tr>
+    <tr><td>C#</td><td><code>csharp</code></td><td>C#</td></tr>
+    <tr><td>React</td><td><code>react</code></td><td>React</td></tr>
+    <tr><td>Vue</td><td><code>vue</code></td><td>Vue</td></tr>
+    <tr><td>Angular</td><td><code>angular</code></td><td>Angular</td></tr>
+    <tr><td>Node.js</td><td><code>nodejs</code></td><td>Node.js</td></tr>
+    <tr><td>FastAPI</td><td><code>fastapi</code></td><td>FastAPI</td></tr>
+    <tr><td>Django</td><td><code>django</code></td><td>Django</td></tr>
+    <tr><td>AI</td><td><code>ai</code></td><td>الذكاء الاصطناعي</td></tr>
+    <tr><td>Machine Learning</td><td><code>machine-learning</code></td><td>تعلّم الآلة</td></tr>
+    <tr><td>Cybersecurity</td><td><code>cybersecurity</code></td><td>الأمن السيبراني</td></tr>
+    <tr><td>Linux</td><td><code>linux</code></td><td>Linux</td></tr>
+    <tr><td>DevOps</td><td><code>devops</code></td><td>DevOps</td></tr>
+    <tr><td>Cloud</td><td><code>cloud</code></td><td>الحوسبة السحابية</td></tr>
+    <tr><td>Databases</td><td><code>databases</code></td><td>قواعد البيانات</td></tr>
+    <tr><td>Game Development</td><td><code>game-development</code></td><td>تطوير الألعاب</td></tr>
+    <tr><td>Mobile Development</td><td><code>mobile-development</code></td><td>تطوير تطبيقات الجوال</td></tr>
+    <tr><td>UI/UX</td><td><code>ui-ux</code></td><td>تصميم الواجهات UI/UX</td></tr>
+    <tr><td>Open Source</td><td><code>open-source</code></td><td>المصادر المفتوحة</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Programming languages and frameworks keep their original names in the Arabic interface, because that is how developers write them.</p>
+
+<h2 id="tags-and-interests-pages">Tag pages</h2>
+<p>Every tag has a page at <code>/tags/name</code> listing its posts, newest first, 20 per page, with how many posts use it. You reach tag pages by clicking a tag on a post, an interest chip on a profile, a popular tag, or a tag in search results.</p>
+
+<h2 id="tags-and-interests-popular">Popular tags</h2>
+<p>The Popular tags list (in the side column and on Explore) ranks tags by how many posts used them in the last 30 days. If no posts were tagged in that time, it falls back to the all-time ranking. The list is refreshed every two minutes. The top three ranks are shown in red.</p>
+<div class="categories">Categories: <a href="#tags-and-interests">Discovery</a><a href="#writing-posts">Posts</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== COMMENTS AND INTERACTIONS -->
+<article class="wiki-article" id="comments-and-interactions" data-title="Comments and interactions">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Using ArabDev</div>
+<h1 class="article-title">Comments and interactions</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>Under every post is an action row with five buttons: comment, repost, like, save and share. This article covers each of them.</p>
+
+<h2 id="comments-and-interactions-likes">Likes</h2>
+<p>The heart button likes a post; select it again to unlike. The heart fills in and turns red when you have liked a post, and the count updates immediately. The author gets a notification, and if you unlike before they read it, the notification is withdrawn.</p>
+
+<h2 id="comments-and-interactions-reposts">Reposts</h2>
+<ul>
+  <li>The repost button shares someone else's post with your followers. It appears in their Following feed with a label such as "Layla Hassan reposted" and on your profile's Posts tab.</li>
+  <li>Select it again to undo the repost.</li>
+  <li>You cannot repost your own posts, so the button is disabled on them.</li>
+  <li>The author gets a notification.</li>
+</ul>
+
+<h2 id="comments-and-interactions-bookmarks">Bookmarks (saved posts)</h2>
+<p>The bookmark button saves a post for later. Saved posts are listed on the <strong>Bookmarks</strong> page and on the <strong>Saved</strong> tab of your own profile, newest save first. Bookmarks are completely private: nobody, including the author, is told or can see who saved a post.</p>
+
+<h2 id="comments-and-interactions-share">Sharing</h2>
+<p>The share button opens your device's share sheet where available (most phones). Otherwise it copies the post's link and shows "Link copied".</p>
+
+<h2 id="comments-and-interactions-comments">Comments</h2>
+<p>Comments appear on the post's page under <strong>Discussion</strong>, oldest first, so conversations read from top to bottom. Twenty comments are shown per page.</p>
+<h3 id="comments-and-interactions-writing">Writing a comment</h3>
+<ul>
+  <li>Type in the box under the post and choose <strong>Comment</strong>, or press <kbd>Ctrl</kbd> + <kbd>Enter</kbd>.</li>
+  <li>Comments are plain text of 1 to 2000 characters. Line breaks are kept. A counter shows how much you have written.</li>
+  <li>Arabic and English comments each align correctly on their own.</li>
+  <li>After posting, the list jumps to the page with your new comment.</li>
+</ul>
+<h3 id="comments-and-interactions-replies">Replying</h3>
+<p>Choose <strong>Reply</strong> on a comment. A "Replying to @username" chip appears above the box; remove it to cancel the reply. Replies are shown in order with a "Replying to @username" note. The person you reply to is notified.</p>
+<h3 id="comments-and-interactions-mentions">Mentions in comments</h3>
+<p>Write <code>@username</code> to mention someone. Mentions become links to their profiles and stay readable inside Arabic sentences. Mentioned people are notified, except those already notified about the same comment (for example the post's author).</p>
+<h3 id="comments-and-interactions-deleting">Deleting comments</h3>
+<p>A comment can be deleted by its author, by the author of the post it is on, and by ArabDev administrators. Deleting a comment also deletes the replies to it, and the post's comment count is recalculated.</p>
+
+<h2 id="comments-and-interactions-guests">Without an account</h2>
+<p>Anyone can read public posts and comments. If you are not signed in and select like, repost or save, ArabDev asks you to sign in and brings you back to the post afterwards.</p>
+
+<h2 id="comments-and-interactions-limits">Limits</h2>
+<p>To prevent abuse, each network can make up to 300 likes, saves and reposts per hour, and up to 60 comments per 10 minutes. Normal use never comes close.</p>
+<div class="categories">Categories: <a href="#comments-and-interactions">Community</a><a href="#notifications">Notifications</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== FOLLOWING AND DISCOVERY -->
+<article class="wiki-article" id="following-and-discovery" data-title="Following and discovery">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Using ArabDev</div>
+<h1 class="article-title">Following and discovery</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>Following someone puts their posts and reposts in your Following feed and ranks them higher in For you. This article explains following, how ArabDev suggests people, and the Explore page.</p>
+
+<h2 id="following-and-discovery-following">Following and unfollowing</h2>
+<ul>
+  <li>Select <strong>Follow</strong> on a profile, a suggestion card or a post page.</li>
+  <li>The button changes to <strong>Following</strong>. Hovering over it (or focusing it with the keyboard) changes the label to <strong>Unfollow</strong> in red, and selecting it then unfollows. The label changes as well as the color.</li>
+  <li>The person gets a "started following you" notification. If you unfollow before they read it, it is withdrawn.</li>
+  <li>You cannot follow yourself.</li>
+  <li>Following is public: it is shown in both people's lists unless they have made their lists private.</li>
+</ul>
+
+<h2 id="following-and-discovery-suggestions">How suggestions work</h2>
+<p>"Developers to follow" appears in the side column, on Explore and in the last step of setup. Each candidate gets a score:</p>
+<ul>
+  <li>3 points for each interest you share with them.</li>
+  <li>2 points for each person you follow who also follows them.</li>
+</ul>
+<p>Candidates with the same score are ordered by how many followers they have, then by who joined most recently. ArabDev never suggests you to yourself, people you already follow, deactivated accounts, or anyone who turned off <strong>Show me in search and suggestions</strong>. Visitors who are not signed in see the most-followed developers.</p>
+
+<h2 id="following-and-discovery-explore">The Explore page</h2>
+<p>Explore is open to everyone, signed in or not. It contains:</p>
+<ul>
+  <li>A <strong>search</strong> box. See <a href="#search">Search</a>.</li>
+  <li><strong>Trending this week</strong>: posts from the last 7 days ranked by likes plus twice their comments plus twice their reposts, so posts that start conversations rank highest. If nothing was posted that week, the all-time ranking is shown. Trending posts are paginated, 20 per page.</li>
+  <li><strong>Popular tags</strong> and <strong>developers to follow</strong>. On large screens these live in the side column; on smaller screens they appear at the top of Explore.</li>
+</ul>
+<div class="categories">Categories: <a href="#following-and-discovery">Discovery</a><a href="#profiles">Community</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== SEARCH -->
+<article class="wiki-article" id="search" data-title="Search">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Using ArabDev</div>
+<h1 class="article-title">Search</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>ArabDev searches posts, developers and tags from one box: in the top bar on large screens, behind the magnifying glass on phones, and on the Explore and Search pages.</p>
+
+<h2 id="search-live">Live suggestions</h2>
+<p>After you type two characters, ArabDev waits a moment (300 milliseconds) for you to stop typing, then shows suggestions grouped into Developers, Tags and Posts, up to five of each, and a final "See all results" line.</p>
+<ul>
+  <li><kbd>↓</kbd> and <kbd>↑</kbd> move through the suggestions.</li>
+  <li><kbd>Enter</kbd> opens the highlighted suggestion, or runs a full search if none is highlighted.</li>
+  <li><kbd>Esc</kbd> closes the list.</li>
+  <li>The <strong>×</strong> button clears the box.</li>
+</ul>
+
+<h2 id="search-what">What is searched</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Group</th><th scope="col">Matches</th><th scope="col">Order</th></tr></thead>
+  <tbody>
+    <tr><td>Posts</td><td>The title and the text of the body</td><td>Newest first</td></tr>
+    <tr><td>Developers</td><td>Username and display name</td><td>Exact username match first, then newest members</td></tr>
+    <tr><td>Tags</td><td>Tag name</td><td>Most-used first</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Developers who turned off <strong>Show me in search and suggestions</strong> are left out of developer results, unless you type their exact username.</p>
+
+<h2 id="search-syntax">Search tips</h2>
+<ul>
+  <li>Start with <code>@</code> to look for people: <code>@layla</code>.</li>
+  <li>Start with <code>#</code> to look for tags: <code>#rust</code>.</li>
+  <li>Search is not case-sensitive, and characters such as <code>%</code> and <code>_</code> are searched literally, so <code>100%</code> finds exactly that.</li>
+  <li>Searches can be up to 100 characters long.</li>
+</ul>
+
+<h2 id="search-results-page">The results page</h2>
+<p>Pressing <kbd>Enter</kbd> or choosing "See all results" opens <code>/search?q=…</code>. Its tabs are All, Posts, Developers and Tags. <strong>All</strong> shows a short preview of each group with a "View all" button, and the other tabs show the complete list, 20 per page. If nothing matches, ArabDev suggests checking the spelling, trying a shorter phrase or searching for a tag.</p>
+<div class="categories">Categories: <a href="#search">Discovery</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== NOTIFICATIONS -->
+<article class="wiki-article" id="notifications" data-title="Notifications">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Using ArabDev</div>
+<h1 class="article-title">Notifications</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>Notifications tell you when people interact with you. They appear on the Notifications page, and a red badge with the number of unread notifications appears on the Notifications item in the navigation.</p>
+
+<h2 id="notifications-types">Kinds of notifications</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Kind</th><th scope="col">You are notified when…</th></tr></thead>
+  <tbody>
+    <tr><td>Like</td><td>someone likes your post.</td></tr>
+    <tr><td>Comment</td><td>someone comments on your post, or replies to your comment on someone else's post.</td></tr>
+    <tr><td>Follow</td><td>someone starts following you.</td></tr>
+    <tr><td>Repost</td><td>someone reposts your post.</td></tr>
+    <tr><td>Mention</td><td>someone writes your <code>@username</code> in a post or comment.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="notifications-rules">How notifications behave</h2>
+<ul>
+  <li>You are never notified about your own actions.</li>
+  <li>Liking, following or reposting the same thing again does not create duplicate notifications.</li>
+  <li>If someone undoes a like, follow or repost before you have read the notification, it disappears.</li>
+  <li>If one comment both replies to you and mentions you, you get one notification, not two.</li>
+  <li>The unread badge refreshes every 30 seconds while ArabDev is open; the Notifications page refreshes every minute.</li>
+</ul>
+
+<h2 id="notifications-reading">Reading notifications</h2>
+<p>Unread notifications have a tinted background, a bold name and a red dot with the word <strong>New</strong>, so they stand out without relying on color alone. Each shows who acted, what they did, the post title and, for comments, the comment itself. Selecting a notification marks it as read and opens the post or profile. <strong>Mark all as read</strong> clears every unread notification at once. Notifications are listed newest first, 20 per page.</p>
+
+<h2 id="notifications-controls">Choosing what you are notified about</h2>
+<p>Go to <a href="#settings-notifications">Settings → Notifications</a> to turn each kind on or off. Turning a kind off stops new notifications of that kind; ones you already have stay. To control who can notify you with a mention, see <a href="#settings-privacy">Settings → Privacy</a>.</p>
+<div class="callout note"><span class="callout-title">No email notifications</span><p>ArabDev does not send notifications by email. The only emails it sends are password reset links you ask for.</p></div>
+<div class="categories">Categories: <a href="#notifications">Notifications</a><a href="#settings">Settings</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== SETTINGS -->
+<article class="wiki-article" id="settings" data-title="Settings">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Using ArabDev</div>
+<h1 class="article-title">Settings</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>Settings are grouped into five sections: Account, Profile, Appearance, Privacy and Notifications. On large screens the sections are listed on the side; on phones they are tabs across the top. Switches save as soon as you change them and show "Settings saved"; if saving fails, the switch returns to its previous position and an error explains why.</p>
+
+<h2 id="settings-account">Account</h2>
+<h3 id="settings-account-username">Username</h3>
+<p>Shows your current username. The <strong>Edit</strong> link takes you to the Profile section, where you can change it.</p>
+<h3 id="settings-account-email">Email</h3>
+<p>Enter a new email address and your current password, then choose <strong>Update email</strong>. The password is required so that someone using your unlocked device cannot take over your account. The new address must not belong to another account.</p>
+<h3 id="settings-account-password">Password</h3>
+<p>Enter your current password, a new one and the new one again. The new password must follow the <a href="#getting-started-password-rules">password rules</a> and differ from the current one. Changing your password signs you out everywhere else; you stay signed in on the device you used.</p>
+<h3 id="settings-account-delete">Deleting your account</h3>
+<p><strong>Delete my account</strong> permanently removes your account after you confirm with your password. Your posts, comments, replies, likes, reposts, bookmarks, follows, drafts, notifications and uploaded files are all deleted, and the counts on other people's posts are updated. This cannot be undone.</p>
+
+<h2 id="settings-profile">Profile</h2>
+<p>The same editor as <strong>Edit profile</strong>: picture, display name, username, bio, location, website and interests. See <a href="#profiles-editing">Editing your profile</a>.</p>
+
+<h2 id="settings-appearance">Appearance</h2>
+<ul>
+  <li><strong>Theme:</strong> Light, Dark or System. System follows your device and switches automatically when your device does.</li>
+  <li><strong>Language:</strong> العربية or English. The whole layout changes direction with the language: right-to-left for Arabic, left-to-right for English.</li>
+</ul>
+<p>When you are signed in, your theme and language are saved to your account and applied when you sign in on another device. The same switches are in the account menu.</p>
+
+<h2 id="settings-privacy">Privacy</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Setting</th><th scope="col">When on (default)</th><th scope="col">When off</th></tr></thead>
+  <tbody>
+    <tr><td>Show me in search and suggestions</td><td>You can appear in developer search and "Developers to follow".</td><td>You are left out of both. People can still open your profile from a direct link, your posts, or by typing your exact username.</td></tr>
+    <tr><td>Show my followers and following lists</td><td>Anyone can open your lists.</td><td>Only you can see your lists. The counts stay visible.</td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Who can notify you with a mention</strong> has three choices: <strong>Everyone</strong> (default), <strong>People you follow</strong> and <strong>No one</strong>. It controls mention notifications only; it does not stop people from writing your name.</p>
+
+<h2 id="settings-notifications">Notifications</h2>
+<p>Five switches, all on by default: likes on your posts, comments and replies, new followers, reposts of your posts, and mentions.</p>
+<div class="categories">Categories: <a href="#settings">Settings</a><a href="#privacy-and-safety">Privacy</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== PRIVACY AND SAFETY -->
+<article class="wiki-article" id="privacy-and-safety" data-title="Privacy and safety">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Trust and safety</div>
+<h1 class="article-title">Privacy and safety</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>This article is a practical summary. The full, binding text is the <a href="https://privacy.arabdev.site/en/" target="_blank" rel="noopener">ArabDev Privacy Policy</a>.</p>
+<div class="callout important"><span class="callout-title">Our promise</span><p>ArabDev does not sell, rent or trade your personal information, and it does not use it to target ads. There are no third-party trackers, analytics scripts or advertising pixels on ArabDev.</p></div>
+
+<h2 id="privacy-and-safety-public">What is public and what is private</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Information</th><th scope="col">Who can see it</th></tr></thead>
+  <tbody>
+    <tr><td>Username, display name, picture, bio, location, website, interests, join date</td><td>Everyone, including people without an account</td></tr>
+    <tr><td>Posts, comments and reposts</td><td>Everyone</td></tr>
+    <tr><td>Follower and following lists</td><td>Everyone, unless you turn them off (then only you)</td></tr>
+    <tr><td>Like, comment and repost counts</td><td>Everyone</td></tr>
+    <tr><td>Which posts you liked</td><td>You, and the post's author through notifications</td></tr>
+    <tr><td>Email address</td><td>Only you</td></tr>
+    <tr><td>Bookmarks</td><td>Only you</td></tr>
+    <tr><td>Drafts</td><td>Only you</td></tr>
+    <tr><td>Notifications and settings</td><td>Only you</td></tr>
+    <tr><td>Password</td><td>Nobody. It is stored only as a one-way hash.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="privacy-and-safety-browser">What ArabDev keeps in your browser</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Name</th><th scope="col">Kind</th><th scope="col">Purpose</th></tr></thead>
+  <tbody>
+    <tr><td><code>arabdev_refresh</code></td><td>Cookie (HttpOnly)</td><td>Keeps you signed in. Scripts cannot read it, and it is only sent to the sign-in endpoints.</td></tr>
+    <tr><td><code>arabdev.lang</code></td><td>Local storage</td><td>Your interface language.</td></tr>
+    <tr><td><code>arabdev.mode</code></td><td>Local storage</td><td>Light, dark or system theme.</td></tr>
+    <tr><td><code>arabdev.session</code></td><td>Local storage</td><td>A yes/no hint that this browser has signed in, so visitors are not sent an unnecessary sign-in check.</td></tr>
+    <tr><td><code>mui-color-scheme-light</code>, <code>mui-color-scheme-dark</code></td><td>Local storage</td><td>Written by the interface library to remember which palette belongs to light and dark mode.</td></tr>
+    <tr><td><code>react-router-scroll-positions</code></td><td>Session storage</td><td>Remembers your scroll position when you go back. Cleared when the tab closes.</td></tr>
+  </tbody>
+</table>
+</div>
+<p>That is the complete list. There are no advertising or analytics cookies.</p>
+
+<h2 id="privacy-and-safety-images">Images and hidden metadata</h2>
+<p>Photos taken on phones often carry hidden information such as the date, the camera and the GPS location. ArabDev re-encodes every uploaded image into a new file, which leaves that information behind. Only the picture itself is stored and shown.</p>
+
+<h2 id="privacy-and-safety-controls">Your controls</h2>
+<ul>
+  <li>Hide yourself from search and suggestions. See <a href="#settings-privacy">Settings → Privacy</a>.</li>
+  <li>Make your follower and following lists private.</li>
+  <li>Choose who can notify you with mentions.</li>
+  <li>Turn off any kind of notification.</li>
+  <li>Edit or delete any post or comment you wrote.</li>
+  <li>Delete your account and everything in it. See <a href="#settings-account-delete">Deleting your account</a>.</li>
+</ul>
+
+<h2 id="privacy-and-safety-staying-safe">Staying safe</h2>
+<ul>
+  <li>Never share your password. ArabDev staff will never ask for it.</li>
+  <li>Think before posting anything personal. Posts are public and can be read by anyone.</li>
+  <li>Do not post API keys, tokens or passwords in code samples. Replace them with placeholders.</li>
+  <li>Links in posts lead to other websites that have their own privacy practices.</li>
+</ul>
+<div class="categories">Categories: <a href="#privacy-and-safety">Privacy</a><a href="#account-security">Security</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== ACCOUNT SECURITY -->
+<article class="wiki-article" id="account-security" data-title="Account security">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Trust and safety</div>
+<h1 class="article-title">Account security</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>How ArabDev protects your account, and what you can do to help.</p>
+
+<h2 id="account-security-passwords">How passwords are stored</h2>
+<p>ArabDev never stores your password. It stores a one-way hash made with Argon2id, a method designed to be slow and memory-hungry for anyone trying to guess passwords. Even the people running ArabDev cannot see your password. When you sign in, ArabDev hashes what you typed and compares the results.</p>
+
+<h2 id="account-security-sessions">How sessions work</h2>
+<ul>
+  <li>When you sign in, your browser receives a short-lived access pass that lasts 15 minutes and is kept only in the page's memory, never in storage.</li>
+  <li>A longer-lived sign-in cookie renews that pass automatically. The cookie is HttpOnly, so scripts on the page cannot read it, and it is only sent to ArabDev's sign-in endpoints.</li>
+  <li>Every renewal replaces the cookie with a new one. If an old cookie is ever used again, which is a sign it was copied, ArabDev ends that whole session. A short grace period prevents this from happening by mistake when two tabs renew at the same moment.</li>
+  <li>The server stores only a hash of each sign-in cookie, the browser description, and when it was created and when it expires.</li>
+</ul>
+
+<h2 id="account-security-signout">Signing out</h2>
+<p>Choose <strong>Sign out</strong> from the account menu. This ends the session on that browser and removes the sign-in cookie. Changing your password or resetting a forgotten password signs you out of every other browser too.</p>
+
+<h2 id="account-security-reset">Resetting a forgotten password</h2>
+<ol>
+  <li>On the sign-in page choose <strong>Forgot password?</strong></li>
+  <li>Enter the email address you signed up with and choose <strong>Send reset link</strong>.</li>
+  <li>ArabDev always answers the same way, whether or not the address has an account, so nobody can use this form to find out who is registered.</li>
+  <li>Open the link in the email within 30 minutes. It works only once.</li>
+  <li>Choose a new password. All your existing sessions are signed out, and you can sign in with the new password.</li>
+</ol>
+<div class="callout note"><span class="callout-title">For people running ArabDev</span><p>Version 1.0.0 does not include an email provider. Until one is connected, reset links are written to the server log. See <a href="#self-hosting-email">Email</a>.</p></div>
+
+<h2 id="account-security-limits">Protection against guessing and abuse</h2>
+<p>ArabDev limits how often the same network can repeat sensitive actions. When a limit is reached you see "Too many attempts. Wait a moment and try again."</p>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Action</th><th scope="col">Limit per network</th></tr></thead>
+  <tbody>
+    <tr><td>Sign in</td><td>10 per minute</td></tr>
+    <tr><td>Create account</td><td>10 per hour</td></tr>
+    <tr><td>Forgot password</td><td>5 per 15 minutes</td></tr>
+    <tr><td>Reset password</td><td>10 per 15 minutes</td></tr>
+    <tr><td>Change password</td><td>10 per 15 minutes</td></tr>
+    <tr><td>Username and email availability checks</td><td>60 per minute</td></tr>
+    <tr><td>Session renewal</td><td>60 per minute</td></tr>
+    <tr><td>Publish a post</td><td>30 per hour</td></tr>
+    <tr><td>Comment</td><td>60 per 10 minutes</td></tr>
+    <tr><td>Like, save and repost</td><td>300 per hour</td></tr>
+    <tr><td>Follow</td><td>120 per hour</td></tr>
+    <tr><td>Upload an image</td><td>30 per 10 minutes</td></tr>
+    <tr><td>Search</td><td>120 per minute</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="account-security-other">Other protections</h2>
+<ul>
+  <li>Every request that changes something is checked on the server. The buttons you see in the app are for convenience; permission is always decided by the server.</li>
+  <li>Post content is cleaned on the server and again in the browser. See <a href="#writing-posts-safety">What happens to your post when you publish</a>.</li>
+  <li>Uploads are decoded as images and re-encoded; any other kind of file is refused.</li>
+  <li>The site tells browsers not to guess file types and not to show ArabDev inside other websites' frames.</li>
+</ul>
+
+<h2 id="account-security-tips">Tips</h2>
+<ul>
+  <li>Use a unique password for ArabDev and keep it in a password manager.</li>
+  <li>Uncheck "Keep me signed in" on shared or public computers, and sign out when you are done.</li>
+  <li>If you think someone else knows your password, change it: that signs every other device out.</li>
+</ul>
+<div class="categories">Categories: <a href="#account-security">Security</a><a href="#privacy-and-safety">Privacy</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== ADS -->
+<article class="wiki-article" id="ads" data-title="Ads on ArabDev">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Trust and safety</div>
+<h1 class="article-title">Ads on ArabDev</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>ArabDev shows a small number of ads to help keep the platform free. They follow strict rules so they never get in the way of reading or mislead anyone.</p>
+
+<h2 id="ads-placement">Where ads appear</h2>
+<ul>
+  <li><strong>In feeds:</strong> after every 8 posts, so after the 8th and the 16th post of a 20-post page. Never at random places.</li>
+  <li><strong>In the side column:</strong> one ad slot, only on large screens.</li>
+  <li><strong>Nowhere else:</strong> no ads inside posts, comments, profiles, search results, notifications or settings, and no pop-ups.</li>
+</ul>
+
+<h2 id="ads-labels">How to recognise an ad</h2>
+<ul>
+  <li>Every ad carries a boxed <strong>Sponsored</strong> label and says who is promoting it.</li>
+  <li>Ads sit on a tinted background with a dashed frame, and have no profile picture or action row, so they cannot be mistaken for posts.</li>
+  <li>An information icon explains why the ad is there.</li>
+</ul>
+
+<h2 id="ads-selection">How ads are chosen</h2>
+<p>An ad is chosen only by where it appears (feed or side column), your interface language and the page number, which rotates the ads predictably. <strong>Your personal information is never used to choose ads.</strong> ArabDev does not build advertising profiles and does not share anything about you with advertisers.</p>
+
+<h2 id="ads-counting">What is counted</h2>
+<p>For each ad, ArabDev keeps two totals: how many times it was shown and how many times it was clicked. These totals are not linked to you or to any account.</p>
+
+<h2 id="ads-house">House ads</h2>
+<p>At launch, the ads you see are ArabDev's own messages, for example inviting you to share an open-source project or complete your profile. They are labelled "Promoted by ArabDev".</p>
+<div class="categories">Categories: <a href="#ads">Ads</a><a href="#privacy-and-safety">Privacy</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== COMMUNITY GUIDELINES -->
+<article class="wiki-article" id="community-guidelines" data-title="Community guidelines">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Trust and safety</div>
+<h1 class="article-title">Community guidelines</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>ArabDev works best when it stays technical, generous and respectful. These guidelines describe what that means in practice.</p>
+
+<h2 id="community-guidelines-do">Do</h2>
+<ul>
+  <li>Share what you learn, including small tips and honest mistakes.</li>
+  <li>Explain the "why", not only the "how". Include versions, context and trade-offs.</li>
+  <li>Credit the work you build on: link to original authors, projects and documentation.</li>
+  <li>Give feedback on the code and the idea, not the person.</li>
+  <li>Welcome beginners. Everyone asked a first question once.</li>
+  <li>Write in whichever language serves your readers best: Arabic, English or both.</li>
+  <li>Use tags that describe the post, so the right people find it.</li>
+</ul>
+
+<h2 id="community-guidelines-dont">Do not</h2>
+<ul>
+  <li>Harass, insult, threaten or target anyone, for any reason.</li>
+  <li>Post hateful content about people's origin, religion, gender, disability or any other part of who they are.</li>
+  <li>Post spam, repeated self-promotion, link farms or misleading titles.</li>
+  <li>Share other people's private information.</li>
+  <li>Share malware, exploits aimed at systems you do not own, or stolen credentials.</li>
+  <li>Post content that is illegal, or that infringes someone's copyright or trademark.</li>
+  <li>Impersonate other people, companies or ArabDev.</li>
+</ul>
+
+<h2 id="community-guidelines-security">Security research</h2>
+<p>Discussing vulnerabilities, defensive techniques and how attacks work is welcome, because it is how developers learn to build safer software. Publish details about a specific, unpatched vulnerability in someone else's product only after giving them a reasonable chance to fix it. If you find a security problem in ArabDev itself, report it privately to <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a> rather than posting it (see <a href="#contact-security">Reporting a security problem</a>).</p>
+
+<h2 id="community-guidelines-moderation">Moderation</h2>
+<p>Post authors can delete comments on their own posts. ArabDev administrators can delete any post or comment that breaks these guidelines. Accounts that repeatedly or seriously break them may be deactivated. Version 1.0.0 has no in-app report button yet; until it does, send the link to <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a> (see <a href="#contact-reports">Reporting content</a>).</p>
+<div class="categories">Categories: <a href="#community-guidelines">Community</a><a href="#privacy-and-safety">Safety</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== ACCESSIBILITY AND LANGUAGES -->
+<article class="wiki-article" id="accessibility-and-languages" data-title="Accessibility and languages">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Help</div>
+<h1 class="article-title">Accessibility and languages</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>ArabDev aims to be usable by everyone, with any input method and in either of its languages.</p>
+
+<h2 id="accessibility-and-languages-languages">Arabic and English</h2>
+<ul>
+  <li>Arabic is the default. Switch with the language control in the top bar (when signed out), in the account menu, or under <a href="#settings-appearance">Settings → Appearance</a>.</li>
+  <li>Changing the language flips the entire layout: navigation, menus, drawers, arrows, spacing and text alignment all follow the new direction at once.</li>
+  <li>Icons with a direction, such as back arrows, pagination arrows and undo, are mirrored in Arabic.</li>
+  <li>Numbers are shown with Western digits (0–9) in both languages, which developers read most easily next to code.</li>
+  <li>Dates and relative times ("3 hr. ago", "منذ 3 ساعات") are written in the interface language.</li>
+  <li>Arabic grammar for counts is handled properly: one, two, a few and many each have their own wording.</li>
+</ul>
+
+<h2 id="accessibility-and-languages-keyboard">Keyboard use</h2>
+<ul>
+  <li>A <strong>Skip to content</strong> link appears when you first press <kbd>Tab</kbd>.</li>
+  <li>Every button, link, menu and form field can be reached and used with the keyboard, and shows a clear red outline when focused.</li>
+  <li>Search suggestions follow the standard combobox pattern: arrow keys, <kbd>Enter</kbd> and <kbd>Esc</kbd>.</li>
+  <li>Dialogs keep focus inside them until closed.</li>
+</ul>
+
+<h2 id="accessibility-and-languages-screen-readers">Screen readers</h2>
+<ul>
+  <li>Icon-only buttons have spoken names, such as "Like (4)" or "Remove from saved".</li>
+  <li>Toggle buttons such as like, save and follow announce whether they are on.</li>
+  <li>Images attached to posts are described as attached images, together with the post title.</li>
+  <li>Loading areas are marked as busy, and status messages such as "Link copied" are announced.</li>
+</ul>
+
+<h2 id="accessibility-and-languages-visual">Seeing the interface</h2>
+<ul>
+  <li>Text and buttons meet common contrast guidelines in both light and dark mode.</li>
+  <li>State is never shown by color alone. Unread notifications also have a "New" label, and selected interests have a check mark.</li>
+  <li>If your device asks for reduced motion, ArabDev turns animations off.</li>
+  <li>The layout works from small phones to wide screens, and you can zoom in without losing content.</li>
+</ul>
+<div class="categories">Categories: <a href="#accessibility-and-languages">Accessibility</a><a href="#settings">Settings</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== FAQ -->
+<article class="wiki-article" id="faq" data-title="Frequently asked questions">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Start here</div>
+<h1 class="article-title">Frequently asked questions</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+
+<h2 id="faq-account">Account</h2>
+<h3 id="faq-free">Is ArabDev free?</h3>
+<p>Yes. ArabDev is free to use, and its source code is free software under the GNU General Public License v3.</p>
+<h3 id="faq-email-visible">Can other people see my email address?</h3>
+<p>No. Your email address is only used to sign in and to reset your password.</p>
+<h3 id="faq-change-username">Can I change my username?</h3>
+<p>Yes, under Settings → Profile or Edit profile. Your profile address changes with it. See <a href="#profiles-editing">Editing your profile</a>.</p>
+<h3 id="faq-arabic-username">Why can't my username be in Arabic?</h3>
+<p>Usernames are used in addresses and @mentions, so they are limited to English letters, numbers and underscores to keep them easy to type everywhere. Your display name can be in Arabic.</p>
+<h3 id="faq-delete">How do I delete my account?</h3>
+<p>Settings → Account → Delete my account. You confirm with your password, and everything is removed permanently.</p>
+
+<h2 id="faq-posting">Posting</h2>
+<h3 id="faq-title-required">Does a post need a title?</h3>
+<p>No, but it helps people decide whether to read it. Without a title, the post is shown as "by" and your name.</p>
+<h3 id="faq-images">How many images can I add to a post?</h3>
+<p>One attached image per post in version 1.0.0.</p>
+<h3 id="faq-colors-gone">Why did my pasted colors disappear?</h3>
+<p>ArabDev keeps only its own five text colors, three fonts and six sizes so posts stay readable in both light and dark mode. See <a href="#writing-posts-fonts">Fonts, sizes and colors</a>.</p>
+<h3 id="faq-schedule">Can I schedule a post?</h3>
+<p>Not yet. Save it as a draft and publish it when you are ready.</p>
+<h3 id="faq-edit-history">Can people see what I changed when I edit a post?</h3>
+<p>They see an "edited" note, but not the previous version.</p>
+
+<h2 id="faq-feed">Feed and discovery</h2>
+<h3 id="faq-no-infinite">Why doesn't the feed scroll forever?</h3>
+<p>ArabDev uses numbered pages of 20 posts on purpose. See <a href="#home-feed-pagination">Pages instead of infinite scroll</a>.</p>
+<h3 id="faq-why-this-post">Why is this post at the top of my feed?</h3>
+<p>In the For you tab, posts from people you follow and posts about your interests come first within each day. Use the Latest tab for pure time order.</p>
+<h3 id="faq-hide">Can I stop appearing in suggestions?</h3>
+<p>Yes: turn off <strong>Show me in search and suggestions</strong> in Settings → Privacy.</p>
+
+<h2 id="faq-privacy">Privacy and ads</h2>
+<h3 id="faq-sell">Does ArabDev sell my data?</h3>
+<p>No. ArabDev does not sell, rent or trade personal information, and ads are never chosen using your personal data. See the <a href="https://privacy.arabdev.site/en/" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+<h3 id="faq-who-liked">Can people see which posts I liked?</h3>
+<p>The author of a post is notified when you like it. There is no public list of your likes.</p>
+<h3 id="faq-bookmarks-private">Are bookmarks private?</h3>
+<p>Yes, completely.</p>
+<h3 id="faq-ads-count">How many ads will I see?</h3>
+<p>At most two in each 20-post page of a feed, plus one in the side column on large screens.</p>
+
+<h2 id="faq-other">Other</h2>
+<h3 id="faq-messages">Is there private messaging?</h3>
+<p>Not in version 1.0.0.</p>
+<h3 id="faq-app">Is there a mobile app?</h3>
+<p>ArabDev is a responsive website designed for phones as well as computers. There is no separate app to install.</p>
+<h3 id="faq-contribute">Can I contribute to ArabDev?</h3>
+<p>Yes. See <a href="#contributing-and-license">Contributing and license</a>, or write to <a href="mailto:hi@arabdev.site" dir="ltr">hi@arabdev.site</a>.</p>
+<h3 id="faq-contact">How do I contact ArabDev?</h3>
+<p>For help, bugs and reports write to <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a>; for sponsorship, contributions and other questions write to <a href="mailto:hi@arabdev.site" dir="ltr">hi@arabdev.site</a>. See <a href="#contact">Contact and support</a>.</p>
+<div class="categories">Categories: <a href="#faq">Help</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== TROUBLESHOOTING -->
+<article class="wiki-article" id="troubleshooting" data-title="Troubleshooting">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Help</div>
+<h1 class="article-title">Troubleshooting</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>Common problems and how to fix them. Messages are quoted as they appear in the English interface.</p>
+
+<h2 id="troubleshooting-signin">Signing in</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Message or symptom</th><th scope="col">What to do</th></tr></thead>
+  <tbody>
+    <tr><td>"Email or password is incorrect."</td><td>Check the email for typos and make sure Caps Lock is off. If you are unsure of your password, use Forgot password?</td></tr>
+    <tr><td>"Too many attempts. Wait a moment and try again."</td><td>You reached a <a href="#account-security-limits">rate limit</a>. Wait a minute and try again.</td></tr>
+    <tr><td>"Your session has expired. Please sign in again."</td><td>Your sign-in ended: you were signed out elsewhere, you changed your password, or "Keep me signed in" was off and the session ran out. Sign in again.</td></tr>
+    <tr><td>You keep being signed out when closing the browser</td><td>Check "Keep me signed in" when signing in. Browsers set to delete cookies on exit also sign you out.</td></tr>
+    <tr><td>The reset link says it is invalid or expired</td><td>Links last 30 minutes and work only once. Request a new one.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="troubleshooting-signup">Creating an account</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Message</th><th scope="col">Meaning</th></tr></thead>
+  <tbody>
+    <tr><td>"This username is already taken."</td><td>Someone else has it. Try adding numbers or an underscore.</td></tr>
+    <tr><td>"This username is reserved."</td><td>The name is used by the site itself. Choose another.</td></tr>
+    <tr><td>"3–20 characters: English letters, numbers and _, starting with a letter."</td><td>The username breaks one of the <a href="#getting-started-username-rules">username rules</a>.</td></tr>
+    <tr><td>"An account with this email already exists."</td><td>Sign in instead, or reset the password for that account.</td></tr>
+    <tr><td>"Mix letters and numbers so it's harder to guess."</td><td>Add at least one letter and one number, and avoid repeating the same few characters.</td></tr>
+    <tr><td>"Passwords don't match."</td><td>The two password fields are different.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="troubleshooting-uploads">Uploading images</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Message</th><th scope="col">What to do</th></tr></thead>
+  <tbody>
+    <tr><td>"Images must be 5 MB or smaller."</td><td>Export the image at a smaller size or lower quality.</td></tr>
+    <tr><td>"Use a JPEG, PNG, WebP or GIF image."</td><td>Convert the file, for example from HEIC, BMP or TIFF, to one of these.</td></tr>
+    <tr><td>"This file isn't a valid image."</td><td>The file is damaged or is not really an image. Open and re-save it in an image editor.</td></tr>
+    <tr><td>"This image is too small."</td><td>Profile pictures need at least 96×96 pixels, post images at least 64 pixels on the shorter side.</td></tr>
+    <tr><td>"This image's dimensions are too large."</td><td>Resize it: profile pictures up to 8000 pixels per side, post images up to 10,000.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="troubleshooting-posting">Posting</h2>
+<ul>
+  <li><strong>"Write something before publishing."</strong> The body is empty. A title alone is not enough.</li>
+  <li><strong>"Enter a valid link starting with http:// or https://."</strong> Fix the attached link or clear the field.</li>
+  <li><strong>"You can't repost your own post."</strong> Reposting is for sharing other people's posts.</li>
+  <li><strong>My formatting changed after publishing.</strong> Formatting outside the editor's options is removed. See <a href="#writing-posts-safety">What happens to your post when you publish</a>.</li>
+</ul>
+
+<h2 id="troubleshooting-display">Display</h2>
+<ul>
+  <li><strong>The layout is mirrored the wrong way.</strong> The direction follows the language. Switch the language in the account menu or Settings → Appearance.</li>
+  <li><strong>Dark mode does not follow my device.</strong> Set the theme to System.</li>
+  <li><strong>"Can't reach the server."</strong> Check your internet connection and reload the page.</li>
+</ul>
+<div class="categories">Categories: <a href="#troubleshooting">Help</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== CONTACT -->
+<article class="wiki-article" id="contact" data-title="Contact and support">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Help</div>
+<h1 class="article-title">Contact and support</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>ArabDev has two email addresses, one for getting help and one for everything else. Write in Arabic or English; a person reads every message.</p>
+
+<h2 id="contact-addresses">Which address to use</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Address</th><th scope="col">Write to it about</th></tr></thead>
+  <tbody>
+    <tr><td><a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a></td><td>Problems with your account, signing in or password resets; bugs and anything that does not work as described in this wiki; reporting posts, comments or profiles that break the <a href="#community-guidelines">community guidelines</a>; security problems; privacy requests such as a copy of your data.</td></tr>
+    <tr><td><a href="mailto:hi@arabdev.site" dir="ltr">hi@arabdev.site</a></td><td>Sponsoring ArabDev or advertising on it; contributing code, translations or documentation; partnerships and commitments with communities, companies and universities; press; and general questions about ArabDev.</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="callout tip"><span class="callout-title">Not sure?</span><p>If something is broken or blocking you, use support. For anything you would like to discuss, say hi.</p></div>
+
+<h2 id="contact-support">Getting support</h2>
+<p>To help us answer quickly:</p>
+<ul>
+  <li>Write from the email address of your ArabDev account, and include your username.</li>
+  <li>Describe what you were doing, what you expected and what happened instead.</li>
+  <li>Quote any message exactly as it appeared, or attach a screenshot.</li>
+  <li>Say which browser and device you use, and whether ArabDev was in Arabic or English.</li>
+  <li>Never send your password. Nobody from ArabDev will ever ask for it.</li>
+</ul>
+<p>Before writing, the <a href="#troubleshooting">Troubleshooting</a> and <a href="#faq">Frequently asked questions</a> articles may already have the answer.</p>
+
+<h3 id="contact-reports">Reporting content</h3>
+<p>Version 1.0.0 has no in-app report button yet. To report a post, comment or profile, send its link to <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a> with a short explanation. Reports are handled confidentially; the person reported is not told who reported them.</p>
+
+<h3 id="contact-security">Reporting a security problem</h3>
+<p>Send security problems privately to <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a> with the subject "Security", and do not publish them until they are fixed. Include the steps to reproduce the problem and what an attacker could do with it. Please do not access other people's data or disrupt the service while testing.</p>
+
+<h3 id="contact-privacy">Privacy requests</h3>
+<p>To get a copy of your data, correct it, or ask a question about how it is used, write to <a href="mailto:support@arabdev.site" dir="ltr">support@arabdev.site</a> from your account's email address. Requests are acknowledged within 7 days and answered within 30. See the <a href="https://privacy.arabdev.site/en/#your-rights" target="_blank" rel="noopener">Privacy Policy</a> for your rights.</p>
+
+<h2 id="contact-hello">Sponsors, contributors and partners</h2>
+<p>Write to <a href="mailto:hi@arabdev.site" dir="ltr">hi@arabdev.site</a> if you would like to:</p>
+<ul>
+  <li>Sponsor ArabDev or place an ad. Ads follow strict rules; see <a href="#ads">Ads on ArabDev</a>.</li>
+  <li>Contribute code, fix a translation or improve this wiki. See <a href="#contributing-and-license">Contributing and license</a>.</li>
+  <li>Bring your community, company or university to ArabDev, or make a longer-term commitment to support it.</li>
+  <li>Ask anything else about ArabDev.</li>
+</ul>
+
+<h2 id="contact-sites">ArabDev addresses</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Address</th><th scope="col">What it is</th></tr></thead>
+  <tbody>
+    <tr><td><a href="https://arabdev.site/dashboard" dir="ltr">arabdev.site/dashboard</a></td><td>The ArabDev app. The dashboard is your home feed; <span dir="ltr">arabdev.site</span> takes you there.</td></tr>
+    <tr><td><a href="https://wiki.arabdev.site/" dir="ltr">wiki.arabdev.site</a></td><td>This wiki.</td></tr>
+    <tr><td><a href="https://privacy.arabdev.site/" dir="ltr">privacy.arabdev.site</a></td><td>The Privacy Policy.</td></tr>
+    <tr><td><a href="https://patch.arabdev.site/" dir="ltr">patch.arabdev.site</a></td><td>Patch notes: what changed in each release.</td></tr>
+  </tbody>
+</table>
+</div>
+<p>ArabDev will only ever email you from an <span dir="ltr">@arabdev.site</span> address, and never asks for your password by email. Treat any other message claiming to be from ArabDev as suspicious.</p>
+<div class="categories">Categories: <a href="#troubleshooting">Help</a> · <a href="#privacy-and-safety">Safety</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== GLOSSARY -->
+<article class="wiki-article" id="glossary" data-title="Glossary">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › Start here</div>
+<h1 class="article-title">Glossary</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<dl>
+  <dt><strong>Bookmark</strong></dt><dd>A private save of a post, listed on your Bookmarks page and the Saved tab of your profile.</dd>
+  <dt><strong>Display name</strong></dt><dd>The name shown on your profile and posts. Any script, up to 50 characters.</dd>
+  <dt><strong>Draft</strong></dt><dd>An unpublished post that only you can see.</dd>
+  <dt><strong>Feed</strong></dt><dd>A list of posts. The home feed has three tabs: For you, Following and Latest.</dd>
+  <dt><strong>Follow</strong></dt><dd>Subscribing to someone's posts and reposts in your Following feed.</dd>
+  <dt><strong>House ad</strong></dt><dd>An ad in which ArabDev promotes its own features.</dd>
+  <dt><strong>Interest</strong></dt><dd>One of 25 topics you can pick to shape your feed and suggestions.</dd>
+  <dt><strong>Mention</strong></dt><dd>Writing <code>@username</code> in a post or comment, which notifies that person.</dd>
+  <dt><strong>Onboarding</strong></dt><dd>The four-step setup window shown on your first visit.</dd>
+  <dt><strong>Repost</strong></dt><dd>Sharing someone else's post with your followers without changing it.</dd>
+  <dt><strong>RTL / LTR</strong></dt><dd>Right-to-left (Arabic) and left-to-right (English) text direction.</dd>
+  <dt><strong>Sponsored</strong></dt><dd>The label that marks every ad.</dd>
+  <dt><strong>Tag</strong></dt><dd>A keyword describing a post, such as <code>#python</code>. Up to 5 per post.</dd>
+  <dt><strong>Trending</strong></dt><dd>Posts from the last 7 days ranked by likes, comments and reposts.</dd>
+  <dt><strong>Username</strong></dt><dd>Your unique handle, used in your profile address and in mentions.</dd>
+</dl>
+<div class="categories">Categories: <a href="#glossary">Reference</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== DEVELOPERS OVERVIEW -->
+<article class="wiki-article" id="developers-overview" data-title="Architecture overview">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › For developers</div>
+<h1 class="article-title">Architecture overview</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>ArabDev is a single-page web application backed by a REST API. This article describes how the pieces fit together.</p>
+
+<h2 id="developers-overview-stack">Technology</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Layer</th><th scope="col">Technology</th></tr></thead>
+  <tbody>
+    <tr><td>User interface</td><td>React 19, TypeScript, Material UI 9, Emotion (with a right-to-left style plugin)</td></tr>
+    <tr><td>Routing and data</td><td>React Router 8, TanStack Query 5, Axios</td></tr>
+    <tr><td>Editor</td><td>TipTap 3 (ProseMirror)</td></tr>
+    <tr><td>Languages</td><td>i18next with <code>ar.json</code> and <code>en.json</code></td></tr>
+    <tr><td>Build</td><td>Vite 8</td></tr>
+    <tr><td>API</td><td>Python, FastAPI, Pydantic 2</td></tr>
+    <tr><td>Database</td><td>SQLite through SQLAlchemy 2, migrations with Alembic</td></tr>
+    <tr><td>Security</td><td>Argon2id password hashing, JWT access tokens, rotating refresh tokens</td></tr>
+    <tr><td>Content safety</td><td>nh3 on the server, DOMPurify in the browser</td></tr>
+    <tr><td>Images</td><td>Pillow, re-encoding to WebP</td></tr>
+    <tr><td>Optional</td><td>Redis for shared rate limiting and caching</td></tr>
+    <tr><td>Tests</td><td>pytest (47 tests)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="developers-overview-layout">Repository layout</h2>
+<pre><code>Arabdev/
+├── backend/          FastAPI application, Alembic migrations, tests
+├── frontend/         React application
+├── wiki/             This wiki (static site)
+├── privacy/          Privacy Policy (static site)
+├── patch-notes/      Patch notes (static site)
+├── LICENSE           GNU GPL v3
+├── docker-compose.yml
+└── README.md</code></pre>
+
+<h2 id="developers-overview-backend">Backend structure</h2>
+<ul>
+  <li><code>app/main.py</code> creates the application: middleware, error handlers, the API router and the media file mount.</li>
+  <li><code>app/core/</code>: settings, database engine, security helpers, dependencies, error types, rate limiting and caching.</li>
+  <li><code>app/models/</code>: SQLAlchemy models for the 19 tables.</li>
+  <li><code>app/schemas/</code>: Pydantic models for requests and responses.</li>
+  <li><code>app/api/v1/</code>: route modules grouped by topic.</li>
+  <li><code>app/repositories/</code>: query builders.</li>
+  <li><code>app/services/</code>: business rules such as permissions, notifications, feeds and media processing.</li>
+  <li><code>app/utils/</code>: the HTML sanitizer, validators, pagination and text helpers.</li>
+</ul>
+
+<h2 id="developers-overview-frontend">Frontend structure</h2>
+<ul>
+  <li><code>src/api/</code>: the HTTP client, endpoint functions, query keys and cache update helpers.</li>
+  <li><code>src/features/</code>: auth, onboarding, posts, editor, comments, profile, users, search, ads, notifications and preferences.</li>
+  <li><code>src/components/</code>: shared pieces such as Logo, EmptyState, LoadingState, Pagination and Notifier.</li>
+  <li><code>src/layouts/</code>: AppLayout, Navbar, Sidebar, RightSidebar and MobileNavigation.</li>
+  <li><code>src/pages/</code>: route components, loaded on demand.</li>
+  <li><code>src/theme/</code>: colors, typography, tokens and the Material UI theme.</li>
+</ul>
+
+<h2 id="developers-overview-database">Database tables</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Table</th><th scope="col">Holds</th></tr></thead>
+  <tbody>
+    <tr><td><code>users</code></td><td>Accounts: username, email, password hash, flags, token version</td></tr>
+    <tr><td><code>profiles</code></td><td>Display name, bio, location, website, avatar</td></tr>
+    <tr><td><code>user_settings</code></td><td>Theme, language, privacy and notification preferences</td></tr>
+    <tr><td><code>interests</code>, <code>user_interests</code></td><td>The 25 topics and who picked them</td></tr>
+    <tr><td><code>posts</code>, <code>drafts</code></td><td>Published posts (with counters) and unpublished drafts</td></tr>
+    <tr><td><code>tags</code>, <code>post_tags</code></td><td>Tags, their link to interests, and which posts use them</td></tr>
+    <tr><td><code>comments</code></td><td>Comments and replies</td></tr>
+    <tr><td><code>likes</code>, <code>bookmarks</code>, <code>reposts</code>, <code>follows</code></td><td>One row per person and target</td></tr>
+    <tr><td><code>notifications</code></td><td>Who did what to whom, and whether it was read</td></tr>
+    <tr><td><code>media</code></td><td>Uploaded images: owner, kind, storage key, size and dimensions</td></tr>
+    <tr><td><code>ads</code></td><td>Ads with placement, language, schedule and total counts</td></tr>
+    <tr><td><code>refresh_tokens</code>, <code>password_reset_tokens</code></td><td>Hashed session and reset tokens with expiry</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Foreign keys, usernames, emails, creation dates, tags and follow relationships are indexed. SQLite runs in WAL mode with foreign keys enforced.</p>
+<div class="categories">Categories: <a href="#developers-overview">Developers</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== SELF-HOSTING -->
+<article class="wiki-article" id="self-hosting" data-title="Running and self-hosting">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › For developers</div>
+<h1 class="article-title">Running and self-hosting</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+
+<h2 id="self-hosting-local">Running locally</h2>
+<pre><code># Backend
+cd backend
+python -m venv .venv
+.venv/Scripts/activate        # macOS/Linux: source .venv/bin/activate
+pip install -e ".[dev]"
+cp .env.example .env          # set SECRET_KEY
+alembic upgrade head          # creates backend/arabdev.db
+python -m app.cli seed --demo # optional demo content
+uvicorn app.main:app --reload --port 8000
+
+# Frontend (second terminal)
+cd frontend
+npm install
+npm run dev                   # http://localhost:5173</code></pre>
+<p>The development server forwards <code>/api</code> and <code>/media</code> to the API on port 8000 and serves this wiki, the privacy policy and the patch notes at <code>/wiki/</code>, <code>/privacy/</code> and <code>/patch-notes/</code>.</p>
+
+<h2 id="self-hosting-config">Configuration</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Variable</th><th scope="col">Default</th><th scope="col">Purpose</th></tr></thead>
+  <tbody>
+    <tr><td><code>SECRET_KEY</code></td><td>development value</td><td>Signs access tokens. Required in production.</td></tr>
+    <tr><td><code>DATABASE_URL</code></td><td><code>backend/arabdev.db</code></td><td>SQLite file location.</td></tr>
+    <tr><td><code>ENVIRONMENT</code></td><td><code>development</code></td><td><code>production</code> refuses to start without a real secret key.</td></tr>
+    <tr><td><code>REDIS_URL</code></td><td>unset</td><td>Shares rate limits and caches between processes.</td></tr>
+    <tr><td><code>CORS_ORIGINS</code></td><td>local dev addresses</td><td>Comma-separated list of allowed browser origins.</td></tr>
+    <tr><td><code>FRONTEND_URL</code></td><td><code>http://localhost:5173</code></td><td>Base address used in password reset links. In production: <code>https://arabdev.site</code>.</td></tr>
+    <tr><td><code>COOKIE_SECURE</code></td><td><code>false</code></td><td>Set to <code>true</code> when serving over HTTPS.</td></tr>
+    <tr><td><code>MEDIA_ROOT</code></td><td><code>backend/media</code></td><td>Where uploaded images are stored.</td></tr>
+    <tr><td><code>ACCESS_TOKEN_EXPIRE_MINUTES</code></td><td>15</td><td>Access token lifetime.</td></tr>
+    <tr><td><code>REFRESH_TOKEN_EXPIRE_DAYS</code></td><td>30</td><td>"Keep me signed in" lifetime.</td></tr>
+    <tr><td><code>RATE_LIMIT_ENABLED</code></td><td><code>true</code></td><td>Turns rate limiting on or off.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="self-hosting-commands">Management commands</h2>
+<ul>
+  <li><code>python -m app.cli seed</code> adds the 25 interests and the house ads. Safe to run repeatedly.</li>
+  <li><code>python -m app.cli seed --demo</code> also adds ten fictional developers and 26 posts. For development only.</li>
+  <li><code>python -m app.cli make-admin USERNAME</code> gives a user administrator rights.</li>
+  <li><code>python -m app.cli purge-tokens</code> deletes ended sign-in sessions and old password reset links. The API also does this by itself every six hours.</li>
+  <li><code>alembic upgrade head</code> applies database migrations.</li>
+  <li><code>pytest</code> runs the test suite on a fresh in-memory database.</li>
+</ul>
+
+<h2 id="self-hosting-docker">Docker</h2>
+<p><code>docker compose up --build</code> starts Redis, the API (with the SQLite file on a <code>data</code> volume and uploads on a <code>media</code> volume) and nginx serving the app on port 8080. The API container applies migrations and seeds reference data when it starts.</p>
+
+<h2 id="self-hosting-deploy">Deploying</h2>
+<ul>
+  <li>The app is a static build (<code>frontend/dist</code>, including <code>LICENSE.txt</code>) served at <code>arabdev.site</code>, for example on Cloudflare Pages. When the API runs on another address, build with <code>VITE_API_ORIGIN</code> set to it.</li>
+  <li>The <code>wiki</code>, <code>privacy</code> and <code>patch-notes</code> folders are complete static sites with no build step, deployed to <code>wiki.arabdev.site</code>, <code>privacy.arabdev.site</code> and <code>patch.arabdev.site</code>.</li>
+  <li>The API needs a server with a persistent disk for the SQLite file and uploads, such as a small VPS. Run it as a single process.</li>
+  <li>Serve everything over HTTPS and set <code>COOKIE_SECURE=true</code>.</li>
+</ul>
+
+<h2 id="self-hosting-backups">Backups</h2>
+<p>Back up <code>arabdev.db</code> and the media folder. While the API is running, use <code>sqlite3 arabdev.db ".backup backup.db"</code> for a consistent copy.</p>
+
+<h2 id="self-hosting-email">Email</h2>
+<p>Version 1.0.0 writes password reset emails to the server log. To send real email, connect a provider in <code>backend/app/services/email_service.py</code>.</p>
+<div class="categories">Categories: <a href="#self-hosting">Developers</a><a href="#developers-overview">Operations</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== API REFERENCE -->
+<article class="wiki-article" id="api-reference" data-title="API reference">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › For developers</div>
+<h1 class="article-title">API reference</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+<p>Everything the app does goes through a versioned REST API under <code>/api/v1</code>. Interactive documentation is served at <code>/api/docs</code> (Swagger UI) and <code>/api/redoc</code>, and the machine-readable description at <code>/api/v1/openapi.json</code>.</p>
+
+<h2 id="api-reference-auth">Authentication</h2>
+<ul>
+  <li>Send the access token as <code>Authorization: Bearer &lt;token&gt;</code>.</li>
+  <li><code>POST /auth/login</code> and <code>POST /auth/register</code> return <code>{access_token, token_type, expires_in, user}</code> and set the refresh cookie.</li>
+  <li><code>POST /auth/refresh</code> and <code>POST /auth/logout</code> use the cookie and require an <code>X-ArabDev-Client</code> header, which protects them from cross-site requests.</li>
+</ul>
+
+<h2 id="api-reference-pagination">Pagination</h2>
+<p>Every list endpoint accepts <code>page</code> (from 1) and <code>limit</code> (1–20, default 20) and returns:</p>
+<pre><code>{ "items": [...], "page": 1, "limit": 20, "total": 100, "pages": 5 }</code></pre>
+
+<h2 id="api-reference-errors">Errors</h2>
+<p>Errors always have a readable <code>detail</code> and a stable <code>code</code>. Validation errors add an <code>errors</code> list; errors about one field add <code>field</code>.</p>
+<pre><code>{ "detail": "Username is already taken", "code": "username_taken", "field": "username" }</code></pre>
+<p>Common codes include <code>invalid_credentials</code>, <code>token_invalid</code>, <code>session_expired</code>, <code>rate_limited</code>, <code>username_taken</code>, <code>email_taken</code>, <code>password_too_weak</code>, <code>post_empty</code>, <code>not_post_author</code>, <code>cannot_repost_own</code>, <code>cannot_follow_self</code>, <code>follow_lists_private</code>, <code>file_too_large</code>, <code>file_not_image</code> and <code>media_not_owned</code>.</p>
+
+<h2 id="api-reference-endpoints">Endpoints</h2>
+<div class="table-wrap">
+<table class="wikitable">
+  <thead><tr><th scope="col">Group</th><th scope="col">Endpoints</th></tr></thead>
+  <tbody>
+    <tr><td>Authentication</td><td><code>POST /auth/register</code>, <code>POST /auth/login</code>, <code>POST /auth/refresh</code>, <code>POST /auth/logout</code>, <code>GET /auth/availability</code>, <code>POST /auth/forgot-password</code>, <code>POST /auth/reset-password</code></td></tr>
+    <tr><td>Your account</td><td><code>GET /users/me</code>, <code>PATCH /users/me/profile</code>, <code>PATCH /users/me/username</code>, <code>PATCH /users/me/email</code>, <code>PUT /users/me/password</code>, <code>PUT /users/me/interests</code>, <code>GET|PATCH /users/me/settings</code>, <code>POST /users/me/onboarding/complete</code>, <code>POST|DELETE /users/me/avatar</code>, <code>DELETE /users/me</code>, <code>GET /users/me/bookmarks</code></td></tr>
+    <tr><td>Users</td><td><code>GET /users/recommended</code>, <code>GET /users/{username}</code>, <code>GET /users/{username}/posts</code>, <code>GET /users/{username}/replies</code>, <code>GET /users/{username}/followers</code>, <code>GET /users/{username}/following</code>, <code>POST|DELETE /users/{id}/follow</code></td></tr>
+    <tr><td>Posts</td><td><code>GET /posts?tab=for_you|following|latest&amp;tag=</code>, <code>GET /posts/trending</code>, <code>GET /posts/{id}</code>, <code>POST /posts</code>, <code>PUT /posts/{id}</code>, <code>DELETE /posts/{id}</code></td></tr>
+    <tr><td>Interactions</td><td><code>POST|DELETE /posts/{id}/like</code>, <code>POST|DELETE /posts/{id}/bookmark</code>, <code>POST|DELETE /posts/{id}/repost</code></td></tr>
+    <tr><td>Comments</td><td><code>GET /posts/{id}/comments</code>, <code>POST /posts/{id}/comments</code>, <code>DELETE /comments/{id}</code></td></tr>
+    <tr><td>Drafts</td><td><code>GET|POST /drafts</code>, <code>GET|PUT|DELETE /drafts/{id}</code></td></tr>
+    <tr><td>Search, tags, interests</td><td><code>GET /search?q=&amp;type=all|posts|users|tags</code>, <code>GET /tags/popular</code>, <code>GET /tags/{slug}</code>, <code>GET /interests</code></td></tr>
+    <tr><td>Notifications</td><td><code>GET /notifications</code>, <code>GET /notifications/unread-count</code>, <code>POST /notifications/read-all</code>, <code>POST /notifications/{id}/read</code></td></tr>
+    <tr><td>Media</td><td><code>POST /media</code>, <code>DELETE /media/{id}</code></td></tr>
+    <tr><td>Ads</td><td><code>GET /ads</code>, <code>POST /ads/{id}/click</code>; for administrators, <code>GET|POST /ads/manage</code> and <code>PUT|DELETE /ads/manage/{id}</code></td></tr>
+    <tr><td>Health</td><td><code>GET /health</code></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="api-reference-example">Example: publishing a post</h2>
+<pre><code>POST /api/v1/posts
+Authorization: Bearer eyJhbGciOi...
+Content-Type: application/json
+
+{
+  "title": "Pagination that doesn't lie",
+  "content_html": "&lt;p&gt;Always return total and pages.&lt;/p&gt;",
+  "link_url": "https://example.org/article",
+  "image_media_id": null,
+  "tags": ["fastapi", "databases"]
+}</code></pre>
+<p>The response is the created post, with its sanitized HTML, tags, author, counters and your like, save and repost state.</p>
+<div class="categories">Categories: <a href="#api-reference">Developers</a><a href="#developers-overview">API</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<!-- ================================================================== CONTRIBUTING AND LICENSE -->
+<article class="wiki-article" id="contributing-and-license" data-title="Contributing and license">
+<div class="breadcrumbs"><a href="#main-page">Main Page</a> › For developers</div>
+<h1 class="article-title">Contributing and license</h1>
+<p class="article-tagline">From ArabDev Wiki, the community's guide to ArabDev</p>
+
+<h2 id="contributing-and-license-license">The license</h2>
+<p>ArabDev is free software released under the <a href="https://arabdev.site/LICENSE.txt" target="_blank" rel="noopener">GNU General Public License, version 3 or later</a> (GPL-3.0-or-later). In short:</p>
+<ul>
+  <li>You may use, study, share and change ArabDev.</li>
+  <li>If you distribute ArabDev or a modified version, you must share its source code under the same license and keep the copyright and license notices.</li>
+  <li>ArabDev comes without any warranty.</li>
+</ul>
+<p>This summary is for convenience. The license text itself is what applies.</p>
+
+<h2 id="contributing-and-license-third-party">Third-party components</h2>
+<p>ArabDev uses open-source libraries under their own licenses, listed in <code>frontend/package.json</code> and <code>backend/pyproject.toml</code>. The Alexandria, Tajawal and Anton fonts are used under the SIL Open Font License; each font folder under <code>frontend/public/fonts</code> includes its license.</p>
+
+<p>To talk about contributing, sponsoring or partnering with ArabDev, write to <a href="mailto:hi@arabdev.site" dir="ltr">hi@arabdev.site</a>.</p>
+
+<h2 id="contributing-and-license-code">Contributing code</h2>
+<ul>
+  <li>Keep the backend layering: routes call services, services use repositories.</li>
+  <li>Return errors with a stable <code>code</code> and add its translation to both language files.</li>
+  <li>Never put interface text directly in components: add keys to <code>src/i18n/ar.json</code> and <code>src/i18n/en.json</code>.</li>
+  <li>Use theme values, not hard-coded colors, and physical CSS properties that the RTL plugin can mirror (or logical ones where content direction matters).</li>
+  <li>Add or update tests for backend changes and run <code>pytest</code>, <code>npm run typecheck</code> and <code>npm run format:check</code>.</li>
+  <li>Update this wiki and the patch notes when behaviour changes.</li>
+</ul>
+
+<h2 id="contributing-and-license-translations">Improving translations</h2>
+<p>Both languages live in two JSON files with identical keys. Arabic plural forms (zero, one, two, few, many, other) are supported and should be filled in for any text that contains a number.</p>
+<div class="categories">Categories: <a href="#contributing-and-license">Developers</a><a href="#main-page">About</a></div>
+<p class="article-footer">Describes ArabDev 1.0.0 · Last updated 19 September 2026</p>
+</article>
+
+<nav class="prev-next" data-prev-next aria-label="Previous and next article">
+  <a class="prev" href="#main-page" hidden></a>
+  <a class="next" href="#getting-started" hidden></a>
+</nav>
+</main>
+</div>
+
+<footer class="site-footer">
+  <span dir="ltr">© 2026 ArabDev</span> ·
+  <a href="https://arabdev.site/dashboard">Open ArabDev</a>
+  <a href="https://privacy.arabdev.site/en/" target="_blank" rel="noopener">Privacy Policy</a>
+  <a href="https://patch.arabdev.site/en/" target="_blank" rel="noopener">Patch notes</a>
+  <a href="https://arabdev.site/LICENSE.txt" target="_blank" rel="noopener">GNU GPL v3</a>
+</footer>
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

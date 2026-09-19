@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+backend/media/
+*.db
+*.db-wal
+*.db-shm
+backend/data/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Environment
+.env
+backend/.env
+frontend/.env
+
+# Local tooling
+.claude/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Source font archive (the web fonts live in frontend/public/fonts)
+Alexandria,Anton,Tajawal/
+
+
+# Original project brief (kept local)
+Readme.txt

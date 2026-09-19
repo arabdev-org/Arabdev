@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patch notes · ملاحظات الإصدار — ArabDev</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>
+    // Open the patch notes in the language the reader last used here (Arabic unless they chose English).
+    (function () {
+      var lang = 'ar';
+      try { if (localStorage.getItem('arabdev.lang') === 'en') lang = 'en'; } catch (e) {}
+      location.replace(lang + "/" + location.search + location.hash);
+    })();
+  </script>
+  <style>
+    body { font-family: system-ui, sans-serif; display: grid; place-items: center; min-height: 100vh; margin: 0; }
+    a { margin: 0 12px; color: #c8102e; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <p><a href="ar/" lang="ar">ملاحظات الإصدار بالعربية</a> <a href="en/" lang="en">Patch notes in English</a></p>
+</body>
+</html>

@@ -1,0 +1,98 @@
+/*
+ * Project fonts (SIL Open Font License, see public/fonts/<family>/OFL.txt).
+ * Tajawal: body and UI. Alexandria: headings. Anton: logo and large numbers.
+ */
+
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src:
+    local('Tajawal Light'),
+    url('/fonts/tajawal/tajawal-300.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('Tajawal'),
+    local('Tajawal Regular'),
+    url('/fonts/tajawal/tajawal-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    local('Tajawal Medium'),
+    url('/fonts/tajawal/tajawal-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    local('Tajawal Bold'),
+    url('/fonts/tajawal/tajawal-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src:
+    local('Tajawal ExtraBold'),
+    url('/fonts/tajawal/tajawal-800.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/alexandria/alexandria-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/alexandria/alexandria-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/alexandria/alexandria-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/alexandria/alexandria-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/alexandria/alexandria-800.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('Anton'),
+    local('Anton Regular'),
+    url('/fonts/anton/anton-400.woff2') format('woff2');
+}

@@ -1,0 +1,56 @@
+# Runs the full stack: Redis, the FastAPI backend (SQLite on a volume) and the frontend (nginx).
+#   cp .env.example .env   # then set SECRET_KEY
+#   docker compose up --build
+# App: http://localhost:8080   API docs: http://localhost:8080/api/docs
+
+services:
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    environment:
+      ENVIRONMENT: ${ENVIRONMENT:-production}
+      DATABASE_URL: sqlite:////app/data/arabdev.db
+      REDIS_URL: redis://redis:6379/0
+      SECRET_KEY: ${SECRET_KEY:?set SECRET_KEY in .env}
+      CORS_ORIGINS: ${PUBLIC_URL:-http://localhost:8080}
+      FRONTEND_URL: ${PUBLIC_URL:-http://localhost:8080}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      MEDIA_ROOT: /app/media
+    volumes:
+      - data:/app/data
+      - media:/app/media
+    depends_on:
+      redis:
+        condition: service_healthy
+    logging: &logging
+      # Bounded container logs. Also delete logs older than 30 days, as the privacy policy promises.
+      driver: local
+      options:
+        max-size: 10m
+        max-file: "3"
+    restart: unless-stopped
+
+  frontend:
+    # Built from the project root so the image can include LICENSE, which lives outside frontend/.
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "${HTTP_PORT:-8080}:80"
+    depends_on:
+      - backend
+    logging: *logging
+    restart: unless-stopped
+
+volumes:
+  data:
+  media:
