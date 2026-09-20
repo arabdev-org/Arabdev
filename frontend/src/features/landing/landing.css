@@ -204,30 +204,8 @@
   gap: 56px;
   align-items: center;
 }
-.lp-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 26px;
-  padding-inline: 10px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--panel);
-  font-size: 12.5px;
-  color: var(--dim);
-}
-.lp-badge b {
-  color: var(--ink);
-  font-weight: 600;
-}
-.lp-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #22a06b;
-}
 .lp-h1 {
-  margin: 20px 0 0;
+  margin: 0;
   font-family: var(--head);
   font-weight: 700;
   font-size: clamp(32px, 3.6vw, 46px);

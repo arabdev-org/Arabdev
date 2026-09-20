@@ -154,10 +154,6 @@ export default function LandingPage() {
         <section className="lp-shell lp-hero">
           <div className="lp-hero-grid">
             <div>
-              <span className="lp-badge">
-                <span className="lp-dot" aria-hidden="true" />
-                {t('home.badge')} <b>1.0</b>
-              </span>
               <h1 className="lp-h1">
                 {t('home.heroLine1')}
                 <br />
