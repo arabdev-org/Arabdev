@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { createBrowserRouter, Navigate, useLocation } from 'react-router';
+import { createBrowserRouter, Navigate } from 'react-router';
 
 import { AppLayout } from '@/layouts/AppLayout';
 import { HOME_PATH } from '@/site';
@@ -23,6 +23,7 @@ const ProfilePage = lazy(() => import('@/pages/ProfilePage'));
 const FollowListPage = lazy(() => import('@/pages/FollowListPage'));
 const EditProfilePage = lazy(() => import('@/pages/EditProfilePage'));
 const SettingsPage = lazy(() => import('@/pages/SettingsPage'));
+const LandingPage = lazy(() => import('@/pages/LandingPage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
 
 /** Pages marked wide use the right-hand column too (no sidebar). */
@@ -32,15 +33,12 @@ export interface RouteHandle {
 
 const wide: RouteHandle = { wide: true };
 
-function RootRedirect() {
-  const { search, hash } = useLocation();
-  return <Navigate to={`${HOME_PATH}${search}${hash}`} replace />;
-}
-
 export const router = createBrowserRouter([
   {
     element: <RootRoute />,
     children: [
+      // arabdev.site/ is the public homepage, for visitors and signed-in members alike.
+      { index: true, element: <LandingPage /> },
       {
         path: '/login',
         element: (
@@ -62,8 +60,6 @@ export const router = createBrowserRouter([
       {
         element: <AppLayout />,
         children: [
-          // arabdev.site/ opens the dashboard; old links such as /?tab=following keep their query.
-          { index: true, element: <RootRedirect /> },
           {
             path: HOME_PATH.slice(1),
             element: (
