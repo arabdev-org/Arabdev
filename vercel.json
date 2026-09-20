@@ -10,6 +10,11 @@
       "maxDuration": 30
     }
   },
+  "redirects": [
+    { "source": "/wiki/:path*", "destination": "https://wiki.arabdev.site/:path*" },
+    { "source": "/privacy/:path*", "destination": "https://privacy.arabdev.site/:path*" },
+    { "source": "/patch-notes/:path*", "destination": "https://patch.arabdev.site/:path*" }
+  ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/index" },
     { "source": "/media/(.*)", "destination": "/api/index" },

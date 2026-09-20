@@ -52,6 +52,7 @@ def test_images_are_stored_in_and_served_from_the_database(database_storage_clie
     assert "immutable" in served.headers["cache-control"]
     assert Image.open(BytesIO(served.content)).size == (400, 400)
 
+    assert client.head(url).status_code == 200  # caches ask for headers only
     assert client.get("/media/avatar/missing.webp").status_code == 404
     client.delete(f"{API}/users/me/avatar", headers=headers)
     assert client.get(url).status_code == 404  # the bytes went with the row

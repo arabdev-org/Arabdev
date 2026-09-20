@@ -120,7 +120,8 @@ def create_app() -> FastAPI:
         app.mount(media_path, CachedStaticFiles(directory=settings.media_root), name="media")
     else:
 
-        @app.get(f"{media_path}/{{key:path}}", include_in_schema=False)
+        # HEAD as well as GET, so caches and link checkers can ask for headers only.
+        @app.api_route(f"{media_path}/{{key:path}}", methods=["GET", "HEAD"], include_in_schema=False)
         def media_file(key: str, db: DbSession) -> Response:
             media = media_service.load_file(db, key)
             if media is None or media.data is None:
