@@ -1388,12 +1388,12 @@
     <tr><td>اللغات</td><td>i18next مع الملفين <code>ar.json</code> و<code>en.json</code></td></tr>
     <tr><td>البناء</td><td>Vite 8</td></tr>
     <tr><td>الواجهة البرمجية</td><td>Python وFastAPI وPydantic 2</td></tr>
-    <tr><td>قاعدة البيانات</td><td>SQLite عبر SQLAlchemy 2، والترحيلات عبر Alembic</td></tr>
+    <tr><td>قاعدة البيانات</td><td>SQLAlchemy 2 وترحيلات Alembic: SQLite للتطوير والاستضافة على خادم واحد، وPostgreSQL (Neon) على Vercel</td></tr>
     <tr><td>الأمان</td><td>تجزئة كلمات المرور بـArgon2id، ورموز وصول JWT، ورموز تحديث دوّارة</td></tr>
     <tr><td>سلامة المحتوى</td><td>nh3 على الخادم وDOMPurify في المتصفح</td></tr>
     <tr><td>الصور</td><td>Pillow مع إعادة الترميز إلى WebP</td></tr>
     <tr><td>اختياري</td><td>Redis لمشاركة حدود الاستخدام والتخزين المؤقت</td></tr>
-    <tr><td>الاختبارات</td><td>pytest (47 اختبارًا)</td></tr>
+    <tr><td>الاختبارات</td><td>pytest (51 اختبارًا، تعمل على SQLite وPostgreSQL)</td></tr>
   </tbody>
 </table>
 </div>
@@ -1405,6 +1405,9 @@
 ├── wiki/             This wiki (static site)
 ├── privacy/          Privacy Policy (static site)
 ├── patch-notes/      Patch notes (static site)
+├── api/index.py      Entry point that serves the API on Vercel
+├── vercel.json       Build, routing and the scheduled clean-up
+├── requirements.txt  Python packages for the Vercel function
 ├── LICENSE           GNU GPL v3
 ├── docker-compose.yml
 └── README.md</code></pre>
@@ -1485,13 +1488,15 @@ npm run dev                   # http://localhost:5173</code></pre>
   <thead><tr><th scope="col">المتغير</th><th scope="col">القيمة الافتراضية</th><th scope="col">الغرض</th></tr></thead>
   <tbody>
     <tr><td><code>SECRET_KEY</code></td><td>قيمة للتطوير</td><td>توقيع رموز الوصول، وهو مطلوب في بيئة الإنتاج.</td></tr>
-    <tr><td><code>DATABASE_URL</code></td><td><code>backend/arabdev.db</code></td><td>مكان ملف SQLite.</td></tr>
+    <tr><td><code>DATABASE_URL</code></td><td><code>backend/arabdev.db</code></td><td>مكان ملف SQLite، أو رابط PostgreSQL مثل الذي يضيفه Neon إلى مشروع Vercel.</td></tr>
     <tr><td><code>ENVIRONMENT</code></td><td><code>development</code></td><td>قيمة <code>production</code> ترفض التشغيل دون مفتاح سري حقيقي.</td></tr>
     <tr><td><code>REDIS_URL</code></td><td>غير مضبوط</td><td>مشاركة حدود الاستخدام والذاكرة المؤقتة بين العمليات.</td></tr>
     <tr><td><code>CORS_ORIGINS</code></td><td>عناوين التطوير المحلية</td><td>قائمة مفصولة بفواصل بمصادر المتصفح المسموحة.</td></tr>
     <tr><td><code>FRONTEND_URL</code></td><td><code>http://localhost:5173</code></td><td>العنوان الأساسي في روابط استعادة كلمة المرور. في بيئة الإنتاج: <code>https://arabdev.site</code>.</td></tr>
     <tr><td><code>COOKIE_SECURE</code></td><td><code>false</code></td><td>اضبطه على <code>true</code> عند التقديم عبر HTTPS.</td></tr>
     <tr><td><code>MEDIA_ROOT</code></td><td><code>backend/media</code></td><td>مكان تخزين الصور المرفوعة.</td></tr>
+    <tr><td><code>STORAGE_BACKEND</code></td><td><code>local</code></td><td>القيمة <code>database</code> تحفظ الصور في قاعدة البيانات بدل القرص (الافتراضي على Vercel).</td></tr>
+    <tr><td><code>CRON_SECRET</code></td><td>غير مضبوط</td><td>الرمز الذي تتوقعه نقطة التنظيف المجدولة.</td></tr>
     <tr><td><code>ACCESS_TOKEN_EXPIRE_MINUTES</code></td><td>15</td><td>عمر رمز الوصول.</td></tr>
     <tr><td><code>REFRESH_TOKEN_EXPIRE_DAYS</code></td><td>30</td><td>مدة «إبقائي مسجلًا للدخول».</td></tr>
     <tr><td><code>RATE_LIMIT_ENABLED</code></td><td><code>true</code></td><td>تفعيل حدود الاستخدام أو إيقافها.</td></tr>
@@ -1504,7 +1509,7 @@ npm run dev                   # http://localhost:5173</code></pre>
   <li><code>python -m app.cli seed</code> يضيف الاهتمامات الـ25 وإعلانات المنصة، ويمكن تشغيله مرارًا بأمان.</li>
   <li><code>python -m app.cli seed --demo</code> يضيف أيضًا عشرة مطورين وهميين و26 منشورًا، للتطوير فقط.</li>
   <li><code>python -m app.cli make-admin USERNAME</code> يمنح مستخدمًا صلاحيات المسؤول.</li>
-  <li><code>python -m app.cli purge-tokens</code> يحذف جلسات الدخول المنتهية وروابط إعادة تعيين كلمة المرور القديمة. وتقوم الواجهة البرمجية بذلك تلقائيًا كل ست ساعات.</li>
+  <li><code>python -m app.cli purge-tokens</code> يحذف جلسات الدخول المنتهية وروابط إعادة تعيين كلمة المرور القديمة. وتقوم الواجهة البرمجية بذلك عند تشغيلها، ثم كل ست ساعات على الخادم، أو مرة يوميًا على Vercel عبر المهمة المجدولة في <code>vercel.json</code>.</li>
   <li><code>alembic upgrade head</code> يطبّق ترحيلات قاعدة البيانات.</li>
   <li><code>pytest</code> يشغّل الاختبارات على قاعدة بيانات جديدة في الذاكرة.</li>
 </ul>
@@ -1514,14 +1519,15 @@ npm run dev                   # http://localhost:5173</code></pre>
 
 <h2 id="self-hosting-deploy">النشر</h2>
 <ul>
-  <li>التطبيق ناتج بناء ثابت (<code>frontend/dist</code>، ومعه <code>LICENSE.txt</code>) يُقدَّم على <code>arabdev.site</code>، مثلًا عبر Cloudflare Pages. وإذا كانت الواجهة البرمجية على عنوان آخر فابنِ التطبيق مع ضبط <code>VITE_API_ORIGIN</code> عليه.</li>
-  <li>المجلدات <code>wiki</code> و<code>privacy</code> و<code>patch-notes</code> مواقع ثابتة كاملة لا تحتاج إلى بناء، وتُنشر على <code>wiki.arabdev.site</code> و<code>privacy.arabdev.site</code> و<code>patch.arabdev.site</code>.</li>
-  <li>تحتاج الواجهة البرمجية إلى خادم بقرص دائم لملف SQLite والصور، كخادم افتراضي صغير، وتُشغَّل في عملية واحدة.</li>
+  <li><strong>Vercel</strong> (وهو ما يعمل عليه arabdev.site): مشروع واحد يُبنى من جذر المستودع. يبني <code>vercel.json</code> التطبيق في <code>frontend/dist</code> ويقدّم الواجهة البرمجية من <code>api/index.py</code>، فيتشارك التطبيق والواجهة عنوانًا واحدًا دون أي إعدادات عبر المواقع.</li>
+  <li>يحتاج هذا المشروع إلى قاعدة بيانات PostgreSQL (أضف Neon من تبويب <em>Storage</em> فيضبط <code>DATABASE_URL</code>)، إضافة إلى <code>SECRET_KEY</code> و<code>CRON_SECRET</code>. أما <code>VERCEL=1</code> فيُضبط تلقائيًا ويشغّل وضع الإنتاج وملفات الارتباط الآمنة وتخزين الصور في قاعدة البيانات.</li>
+  <li>المجلدات <code>wiki</code> و<code>privacy</code> و<code>patch-notes</code> مواقع ثابتة كاملة لا تحتاج إلى بناء، وتُنشر كمشاريع مستقلة على <code>wiki.arabdev.site</code> و<code>privacy.arabdev.site</code> و<code>patch.arabdev.site</code>.</li>
+  <li><strong>أو على خادم واحد</strong> (خادم افتراضي أو Docker): أبقِ SQLite واحفظ الصور على القرص. عندها تحتاج الواجهة البرمجية إلى قرص دائم لملف قاعدة البيانات والصور، وتُشغَّل في عملية واحدة. وقدّم ناتج بناء التطبيق (<code>frontend/dist</code> ومعه <code>LICENSE.txt</code>) كموقع ثابت، مع ضبط <code>VITE_API_ORIGIN</code> إذا كانت الواجهة البرمجية على عنوان آخر.</li>
   <li>قدّم كل شيء عبر HTTPS واضبط <code>COOKIE_SECURE=true</code>.</li>
 </ul>
 
 <h2 id="self-hosting-backups">النسخ الاحتياطي</h2>
-<p>انسخ احتياطيًا الملف <code>arabdev.db</code> ومجلد الوسائط. وأثناء عمل الواجهة البرمجية استخدم <code>sqlite3 arabdev.db ".backup backup.db"</code> للحصول على نسخة متسقة.</p>
+<p>مع SQLite انسخ احتياطيًا الملف <code>arabdev.db</code> ومجلد الوسائط، وأثناء عمل الواجهة البرمجية استخدم <code>sqlite3 arabdev.db ".backup backup.db"</code> للحصول على نسخة متسقة. ومع PostgreSQL استخدم النسخ الاحتياطي لدى مزوّدك (يحتفظ Neon بنافذة استرجاع) أو <code>pg_dump</code>؛ والصور داخل قاعدة البيانات، فنسخة واحدة تغطي كل شيء.</p>
 
 <h2 id="self-hosting-email">البريد الإلكتروني</h2>
 <p>يكتب الإصدار 1.0.0 رسائل استعادة كلمة المرور في سجل الخادم. ولإرسال بريد حقيقي اربط مزوّدًا في <code>backend/app/services/email_service.py</code>.</p>

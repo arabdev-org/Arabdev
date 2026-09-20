@@ -18,7 +18,7 @@ full English (LTR) translation.
 |---|---|
 | **Frontend** | React 19 · TypeScript · Vite · MUI 9 · React Router · TanStack Query · i18next · TipTap |
 | **Backend** | Python · FastAPI · Pydantic · SQLAlchemy 2 · Alembic · JWT · Redis (optional) · Pytest |
-| **Database** | SQLite (WAL mode) — a single file, no database server to run. |
+| **Database** | SQLite (WAL mode) for development and single-server hosting; PostgreSQL (Neon) when hosted on Vercel. |
 
 ---
 
@@ -58,6 +58,9 @@ full English (LTR) translation.
 ├── wiki/                      # ArabDev Wiki → wiki.arabdev.site (ar/ + en/, 25 articles each)
 ├── privacy/                   # Privacy Policy → privacy.arabdev.site (ar/ + en/)
 ├── patch-notes/               # Patch notes → patch.arabdev.site (ar/ + en/)
+├── api/index.py               # Serves the API as a Vercel function
+├── vercel.json                # Vercel build, routing and the daily clean-up job
+├── requirements.txt           # Python packages for the Vercel function
 ├── LICENSE                    # GNU GPL v3
 ├── docker-compose.yml         # redis + backend + frontend
 ├── .dockerignore              # for the root-context frontend build
@@ -84,8 +87,8 @@ uvicorn app.main:app --reload --port 8000
 - API docs: <http://localhost:8000/api/docs> (Swagger) and <http://localhost:8000/api/redoc>
 - Health: <http://localhost:8000/api/v1/health>
 - Make someone an admin (to manage ads): `python -m app.cli make-admin <username>`
-- Delete ended sessions and old reset links now: `python -m app.cli purge-tokens` (the API also does
-  this by itself every six hours)
+- Delete ended sessions and old reset links now: `python -m app.cli purge-tokens`. The API also does
+  this when it starts, then every six hours on a server, or once a day on Vercel (`vercel.json`)
 
 `--demo` creates ten fictional developer accounts (password `ArabDev2026`, emails
 `<username>@demo.arabdev.site`, e.g. `layla_dev@demo.arabdev.site`) and 26 posts, so the feed,
@@ -219,7 +222,7 @@ Backend settings (env vars or `backend/.env`, see `backend/.env.example`):
 
 | Variable | Default | Notes |
 |---|---|---|
-| `DATABASE_URL` | `backend/arabdev.db` | `sqlite:///` + path (four slashes for an absolute Linux path) |
+| `DATABASE_URL` | `backend/arabdev.db` | `sqlite:///` + path (four slashes for an absolute Linux path), or a PostgreSQL URL |
 | `SECRET_KEY` | dev value | **Required** in production |
 | `REDIS_URL` | unset | Enables shared rate limiting and caching |
 | `CORS_ORIGINS` | `http://localhost:5173,…` | Comma separated |
@@ -227,11 +230,14 @@ Backend settings (env vars or `backend/.env`, see `backend/.env.example`):
 | `SUPPORT_EMAIL` / `HELLO_EMAIL` | `support@` / `hi@arabdev.site` | Shown in emails and the API docs |
 | `MAIL_FROM` | `ArabDev <support@arabdev.site>` | Sender for outgoing email |
 | `COOKIE_SECURE` | `false` | Set `true` behind HTTPS |
-| `MEDIA_ROOT` | `backend/media` | Uploaded files |
+| `MEDIA_ROOT` | `backend/media` | Uploaded files (local storage only) |
+| `STORAGE_BACKEND` | `local` | `database` keeps images in the database, for hosts without a disk |
+| `CRON_SECRET` | unset | Bearer token for the scheduled clean-up endpoint |
+| `VERCEL` | unset | Set to `1` by Vercel; turns on production mode, secure cookies and database image storage |
 | `ACCESS_TOKEN_EXPIRE_MINUTES` / `REFRESH_TOKEN_EXPIRE_DAYS` | 15 / 30 | |
 
 Frontend build settings (`frontend/.env`, see `frontend/.env.example`): `VITE_API_ORIGIN` points the
-app at an API on another address (for example when the app is on Cloudflare Pages), and
+app at an API on another address (not needed on Vercel, where both share one), and
 `VITE_WIKI_URL`, `VITE_PRIVACY_URL`, `VITE_PATCH_NOTES_URL` override the documentation addresses.
 
 Email: no mail provider is wired up yet. In development, password reset links are printed in the
@@ -246,7 +252,8 @@ points depend on how the service is operated, so check them before launch:
   notes promise a reply within 30 days (acknowledgement within 7).
 - Keep server and proxy logs for no longer than **30 days** (for example with logrotate or your
   host's log retention setting). `docker-compose.yml` caps container log size but not their age.
-- Rotate backups so deleted data disappears from them within **30 days**.
+- Rotate backups so deleted data disappears from them within **30 days** (on Neon, check the
+  restore window).
 - Serve everything over HTTPS with `COOKIE_SECURE=true`.
 - Have the policy reviewed by someone qualified for the countries you operate in. It is written to be
   accurate about the software, not as legal advice.
@@ -255,24 +262,43 @@ points depend on how the service is operated, so check them before launch:
 
 ## Notes and deliberate choices
 
-- **SQLite** is the database: one file, nothing to operate, and fast for this workload. The engine
-  enables WAL (readers never wait for a writer), foreign keys and a busy timeout. Back it up by copying
-  `arabdev.db` (or `sqlite3 arabdev.db ".backup backup.db"` while running). Run the API as a single
-  process; if write traffic ever outgrows one SQLite file, SQLAlchemy and Alembic make moving to a
-  server database a configuration change.
-- **Deployment** (four static sites plus the API):
+- **SQLite** is the development database: one file, nothing to operate, and fast for this workload.
+  The engine enables WAL (readers never wait for a writer), foreign keys and a busy timeout. Back it
+  up by copying `arabdev.db` (or `sqlite3 arabdev.db ".backup backup.db"` while running), and run the
+  API as a single process.
+- **PostgreSQL** is used when ArabDev is hosted on Vercel, where there is no disk to keep a file on.
+  Nothing else changes: the same models, migrations and tests run on both, and `DATABASE_URL` decides.
+  Hosted `postgres://` URLs are pointed at psycopg 3 automatically, and Neon's connection pooler is
+  accounted for.
+- **Uploaded images** normally live on disk. With `STORAGE_BACKEND=database` they are stored in the
+  `media` table instead (loaded only when requested) and served by the API with immutable cache
+  headers, so hosts without a disk still work. Images between 4 and 5 MB are re-encoded in the browser
+  first, because Vercel refuses request bodies above 4.5 MB.
+- **Deployment on Vercel** (how arabdev.site runs): four projects from this one repository.
 
-  | Site | Cloudflare Pages settings |
-  |---|---|
-  | `arabdev.site` | Root directory `frontend`, build command `npm run build`, output `dist`. Set `VITE_API_ORIGIN` if the API is elsewhere. Pages serves `index.html` for app routes such as `/dashboard`. |
-  | `wiki.arabdev.site` | Root directory `wiki`, no build command, output `.` |
-  | `privacy.arabdev.site` | Root directory `privacy`, no build command, output `.` |
-  | `patch.arabdev.site` | Root directory `patch-notes`, no build command, output `.` |
+  | Project | Vercel settings | Domain |
+  |---|---|---|
+  | App **and API** | Root directory `./` — `vercel.json` sets the build and routing | `arabdev.site` |
+  | Wiki | Root directory `wiki`, no build command, output `.` | `wiki.arabdev.site` |
+  | Privacy | Root directory `privacy`, no build command, output `.` | `privacy.arabdev.site` |
+  | Patch notes | Root directory `patch-notes`, no build command, output `.` | `patch.arabdev.site` |
 
-  The FastAPI backend needs a host with a persistent disk for the database and uploads (a VPS,
-  Fly.io, Railway…); Cloudflare Pages itself can't run it. Set `FRONTEND_URL=https://arabdev.site`
-  and `CORS_ORIGINS=https://arabdev.site` on it. If it runs on a subdomain such as
-  `api.arabdev.site`, the sign-in cookie still works because both are on `arabdev.site`.
+  The first project needs a PostgreSQL database — add **Neon** under *Storage*, which sets
+  `DATABASE_URL` — plus `SECRET_KEY` and `CRON_SECRET` (any long random value; Vercel sends it to the
+  daily clean-up job). `VERCEL=1` is set automatically and turns on production mode, secure cookies
+  and database image storage. The app and the API share one address, so no CORS or cross-site cookie
+  settings are needed, and `/dashboard` and other app routes fall back to `index.html`.
+
+  `api/index.py` runs the schema migrations and inserts reference data when an instance starts, under
+  a PostgreSQL lock so instances starting together cannot collide. Rate limiting counts attempts in
+  memory, which on serverless is per instance; connect a Redis URL (for example Upstash) as
+  `REDIS_URL` to share the counters.
+
+- **Deployment on one server** (VPS or Docker) also works unchanged: SQLite on disk, images on disk,
+  `docker compose up --build`. Serve the app build as a static site and set
+  `FRONTEND_URL=https://arabdev.site` and `CORS_ORIGINS=https://arabdev.site` on the API. If the API
+  runs on a subdomain such as `api.arabdev.site`, the sign-in cookie still works because both are on
+  `arabdev.site`.
 - **Messages** was listed as "possible navigation" but had no endpoints or tables in the brief, so it
   is left out rather than shipped as a dead menu item.
 - Fonts (Alexandria, Tajawal, Anton) are self-hosted as WOFF2 under the SIL Open Font License.

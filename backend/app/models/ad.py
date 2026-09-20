@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import Boolean, Index, Integer, String, text
+from sqlalchemy import Boolean, Index, Integer, String, text, true
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.database import Base
@@ -24,7 +24,7 @@ class Ad(Base):
     placement: Mapped[str] = mapped_column(String(20), default="all")
     # Null means the ad is shown regardless of the viewer's language.
     language: Mapped[str | None] = mapped_column(String(5), nullable=True)
-    is_active: Mapped[bool] = mapped_column(Boolean, default=True, server_default=text("1"))
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True, server_default=true())
     starts_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
     ends_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
     impressions: Mapped[int] = mapped_column(Integer, default=0, server_default=text("0"))

@@ -1,7 +1,9 @@
 """Storage abstraction for uploaded media.
 
-Only a local-disk backend ships today. An S3-compatible backend only needs to implement
-StorageBackend (save/delete/url) and be returned from get_storage(); nothing else changes.
+Two backends ship: LocalStorage (files on disk, served from MEDIA_URL) and DatabaseStorage
+(bytes kept in media.data and served by GET /media/{key}, for hosts without a persistent disk
+such as Vercel). An S3-compatible backend only needs to implement StorageBackend and be
+returned from get_storage(); nothing else changes.
 """
 
 from functools import lru_cache
@@ -12,6 +14,9 @@ from app.core.config import settings
 
 
 class StorageBackend(Protocol):
+    # True when the bytes live in media.data rather than in the backend itself.
+    in_database: bool
+
     def save(self, key: str, data: bytes, content_type: str) -> None: ...
 
     def delete(self, key: str) -> None: ...
@@ -20,6 +25,8 @@ class StorageBackend(Protocol):
 
 
 class LocalStorage:
+    in_database = False
+
     def __init__(self, root: Path, base_url: str) -> None:
         self.root = root
         self.base_url = base_url.rstrip("/")
@@ -45,6 +52,26 @@ class LocalStorage:
         return f"{self.base_url}/{key}"
 
 
+class DatabaseStorage:
+    """Image bytes are written and deleted together with their Media row."""
+
+    in_database = True
+
+    def __init__(self, base_url: str) -> None:
+        self.base_url = base_url.rstrip("/")
+
+    def save(self, key: str, data: bytes, content_type: str) -> None:
+        pass
+
+    def delete(self, key: str) -> None:
+        pass
+
+    def url(self, key: str) -> str:
+        return f"{self.base_url}/{key}"
+
+
 @lru_cache
 def get_storage() -> StorageBackend:
+    if settings.storage_backend == "database":
+        return DatabaseStorage(settings.media_url)
     return LocalStorage(settings.media_root, settings.media_url)

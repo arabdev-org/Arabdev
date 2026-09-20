@@ -1,8 +1,9 @@
 import asyncio
 import logging
 from contextlib import asynccontextmanager, suppress
+from urllib.parse import urlparse
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.concurrency import run_in_threadpool
@@ -11,7 +12,9 @@ from fastapi.staticfiles import StaticFiles
 from app.api.v1.router import api_router
 from app.core.config import settings
 from app.core.database import SessionLocal
-from app.core.errors import register_error_handlers
+from app.core.deps import DbSession
+from app.core.errors import NotFound, register_error_handlers
+from app.services import media_service
 from app.services.auth_service import purge_expired_tokens
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
@@ -64,8 +67,11 @@ async def _purge_tokens_periodically() -> None:
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
-    settings.media_root.mkdir(parents=True, exist_ok=True)
-    purge_task = None if settings.environment == "test" else asyncio.create_task(_purge_tokens_periodically())
+    if settings.storage_backend == "local":
+        settings.media_root.mkdir(parents=True, exist_ok=True)
+    # On Vercel the scheduled job in vercel.json calls /api/v1/internal/cron/purge-tokens instead.
+    background = settings.environment != "test" and not settings.vercel
+    purge_task = asyncio.create_task(_purge_tokens_periodically()) if background else None
     yield
     if purge_task is not None:
         purge_task.cancel()
@@ -108,8 +114,24 @@ def create_app() -> FastAPI:
 
     app.include_router(api_router, prefix=settings.api_v1_prefix)
 
-    settings.media_root.mkdir(parents=True, exist_ok=True)
-    app.mount(settings.media_url, CachedStaticFiles(directory=settings.media_root), name="media")
+    media_path = urlparse(settings.media_url).path.rstrip("/") or "/media"
+    if settings.storage_backend == "local":
+        settings.media_root.mkdir(parents=True, exist_ok=True)
+        app.mount(media_path, CachedStaticFiles(directory=settings.media_root), name="media")
+    else:
+
+        @app.get(f"{media_path}/{{key:path}}", include_in_schema=False)
+        def media_file(key: str, db: DbSession) -> Response:
+            media = media_service.load_file(db, key)
+            if media is None or media.data is None:
+                raise NotFound("Image not found", "media_not_found")
+            # Keys are unique and files never change, so browsers and Vercel's CDN keep them.
+            return Response(
+                media.data,
+                media_type=media.content_type,
+                headers={"Cache-Control": "public, max-age=31536000, immutable"},
+            )
+
     return app
 
 

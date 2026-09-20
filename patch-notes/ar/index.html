@@ -627,7 +627,7 @@
       <li data-type="security"><span class="tag security">أمان</span><span class="text">لا يمكن إرفاق الصور إلا من الحساب الذي رفعها.</span></li>
       <li data-type="security"><span class="tag security">أمان</span><span class="text">ترفض الواجهة البرمجية العمل في بيئة الإنتاج دون مفتاح سري حقيقي.</span></li>
       <li data-type="security"><span class="tag security">أمان</span><span class="text">وصول المتصفحات إلى الواجهة البرمجية مقصور على المصادر المُعدّة.</span></li>
-      <li data-type="security"><span class="tag security">أمان</span><span class="text">تُحذف جلسات الدخول المنتهية وروابط إعادة التعيين القديمة تلقائيًا كل ست ساعات.</span></li>
+      <li data-type="security"><span class="tag security">أمان</span><span class="text">تُحذف جلسات الدخول المنتهية وروابط إعادة التعيين القديمة تلقائيًا: عند تشغيل الواجهة البرمجية، ثم كل ست ساعات على الخادم أو مرة يوميًا على Vercel.</span></li>
       <li data-type="fixed"><span class="tag fixed">إصلاح</span><span class="text">لم يعد تجديد تبويبين للجلسة في اللحظة نفسها يسجّل خروجك: فترة سماح مدتها 20 ثانية تميّز ذلك عن سرقة حقيقية للرمز.</span></li>
     </ul>
   </section>
@@ -736,7 +736,7 @@
       <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">منظِّف HTML يسمح فقط بما ينتجه المحرر، بما فيه خطوطه وأحجامه وألوان المظهر والمحاذاة واتجاه النص.</span></li>
       <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">بيانات أولية: 25 اهتمامًا و6 إعلانات خاصة بـ ArabDev، تُدرج دون تكرار.</span></li>
       <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">بيانات تجريبية: عشرة مطوّرين خياليين مع منشورات ومتابعات وإعجابات وتعليقات، لتجربة ArabDev محليًا.</span></li>
-      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">مهمة خلفية دورية تحذف الجلسات المنتهية وروابط إعادة التعيين القديمة كل ست ساعات.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">تُحذف الجلسات المنتهية وروابط إعادة التعيين القديمة بمهمة خلفية كل ست ساعات على الخادم، وبمهمة مجدولة على Vercel، وكلتاهما تستخدمان التنظيف نفسه.</span></li>
     </ul>
   </section>
 
@@ -772,13 +772,20 @@
       <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">إعداد Docker Compose يضم Redis والواجهة البرمجية وحاوية nginx تقدّم التطبيق على المنفذ 8080.</span></li>
       <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">حاوية الواجهة البرمجية تطبّق الترحيلات وتُدرج البيانات الأولية عند بدء تشغيلها.</span></li>
       <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">وحدات تخزين دائمة لملف قاعدة البيانات والوسائط المرفوعة.</span></li>
-      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">تُبنى الواجهة كموقع ثابت، جاهز لـ Cloudflare Pages أو أي استضافة ثابتة.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">تُبنى الواجهة كموقع ثابت، جاهز لـ Vercel أو أي استضافة ثابتة.</span></li>
       <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">خادم التطوير يمرّر <code>/api</code> و<code>/media</code> إلى الواجهة البرمجية.</span></li>
       <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">الويكي وسياسة الخصوصية وملاحظات الإصدار مواقع ثابتة مكتفية بذاتها، بخطوطها وأيقونتها، تُنشر دون خطوة بناء على <code>wiki.arabdev.site</code> و<code>privacy.arabdev.site</code> و<code>patch.arabdev.site</code>.</span></li>
       <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">خادم التطوير يقدّم هذه المواقع محليًا على <code>/wiki/</code> و<code>/privacy/</code> و<code>/patch-notes/</code>، وتبقى الروابط بينها محلية على جهازك.</span></li>
       <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">بناء التطبيق ينشر الرخصة على <code>arabdev.site/LICENSE.txt</code>.</span></li>
-      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">المتغير <code>VITE_API_ORIGIN</code> يتيح للتطبيق على Cloudflare Pages الوصول إلى واجهة برمجية مستضافة على عنوان آخر، ويمكن تغيير عناوين التوثيق بالطريقة نفسها.</span></li>
-      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">أصبح ArabDev يعمل على SQLite فقط. أُزيل دعم MySQL لإبقاء المنظومة خفيفة وسهلة النشر.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">المتغير <code>VITE_API_ORIGIN</code> يتيح للتطبيق الوصول إلى واجهة برمجية مستضافة على عنوان آخر، ويمكن تغيير عناوين التوثيق بالطريقة نفسها.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">يعمل على Vercel: يبني <code>vercel.json</code> التطبيق ويقدّم الواجهة البرمجية من <code>api/index.py</code> في مشروع واحد، فيتشاركان العنوان نفسه.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">دعم PostgreSQL للاستضافة (Neon على Vercel)، مع بقاء SQLite الافتراضي للتطوير والاستضافة على خادم واحد. وتعمل الاختبارات على الاثنين.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">روابط PostgreSQL المستضافة (<code>postgres://</code> و<code>postgresql://</code>) تُوجَّه تلقائيًا إلى مشغّل psycopg 3، ويُتعامل مع مجمّع اتصالات Neon.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">على Vercel تُرحّل الواجهة البرمجية قاعدة البيانات وتزرع بياناتها بنفسها عند تشغيل أي نسخة، ويمنع قفل في PostgreSQL تعارض النسخ التي تبدأ معًا.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">يمكن حفظ الصور المرفوعة في قاعدة البيانات (<code>STORAGE_BACKEND=database</code>) للمستضيفات التي لا قرص لها، وتُقدَّم بترويسات تخزين مؤقت طويلة.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">نقطة مجدولة للتنظيف اليومي، محمية بـ<code>CRON_SECRET</code> ومخفية عندما لا يكون مضبوطًا.</span></li>
+      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">أُزيل دعم MySQL. يستخدم ArabDev قاعدة SQLite للتطوير والاستضافة على خادم واحد، وPostgreSQL عند الاستضافة على Vercel.</span></li>
+      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">تُعاد ترميز الصور بين 4 و5 ميغابايت في المتصفح قبل رفعها لتناسب حدود الاستضافة. والخادم يعيد ترميز كل صورة على أي حال، فلا يتغير شيء مرئي.</span></li>
     </ul>
   </section>
 
@@ -812,7 +819,7 @@
   <section class="area" id="v100-quality" aria-labelledby="v100-quality-title">
     <h3 id="v100-quality-title">الاختبارات وجودة الشيفرة<span class="area-count"></span></h3>
     <ul class="changes">
-      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">47 اختبارًا آليًا للخادم تغطي المصادقة والجلسات والمنشورات والخلاصات والتعليقات والتفاعلات والإشعارات والرفع والبحث وحذف الحساب.</span></li>
+      <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">51 اختبارًا آليًا للخادم تغطي المصادقة والجلسات والمنشورات والخلاصات والتعليقات والتفاعلات والإشعارات والرفع والبحث وحذف الحساب والاستضافة بلا خوادم. وتعمل على SQLite وPostgreSQL.</span></li>
       <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">كل اختبار يعمل على قاعدة بيانات جديدة في الذاكرة.</span></li>
       <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">TypeScript صارم في كل الواجهة، يُفحص بـ<code>npm run typecheck</code>.</span></li>
       <li data-type="developer"><span class="tag developer">للمطوّرين</span><span class="text">تنسيق متسق بـ Prettier (<code>npm run format</code>).</span></li>
@@ -847,7 +854,7 @@
       <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">أصبح عدد المنشورات في صفحة الوسم يستخدم صيغ الجمع الصحيحة في اللغتين.</span></li>
       <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">أُعيد بناء استعلامات خلاصة المتابَعين وإعادات النشر لتكون أدق وأسرع.</span></li>
       <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">أصبح الخادم يمنع متابعة المرء لنفسه برسالة خطأ واضحة، بدل الاعتماد على قاعدة البيانات.</span></li>
-      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">بُسّطت طبقة قاعدة البيانات لتعمل على SQLite فقط، تمهيدًا لنشر الواجهة على Cloudflare Pages.</span></li>
+      <li data-type="improved"><span class="tag improved">تحسين</span><span class="text">بُسّطت طبقة قاعدة البيانات لتعمل على SQLite، ثم تعلّمت PostgreSQL أيضًا ليصبح بالإمكان استضافة ArabDev على Vercel بقاعدة بيانات Neon.</span></li>
       <li data-type="security"><span class="tag security">أمان</span><span class="text">أصبحت الجلسات المنتهية والمغلقة وروابط إعادة التعيين القديمة تُنظَّف تلقائيًا، كما تصف سياسة الخصوصية.</span></li>
       <li data-type="new"><span class="tag new">جديد</span><span class="text">أُضيفت رخصة GNU GPL الإصدار 3 والويكي وسياسة الخصوصية وملاحظات الإصدار هذه قبل الإطلاق.</span></li>
     </ul>
@@ -863,7 +870,7 @@
       <li><strong>25</strong> اهتمامًا مرتبطًا بالوسوم.</li>
       <li><strong>3</strong> خطوط و<strong>6</strong> أحجام و<strong>5</strong> ألوان تتكيّف مع المظهر في المحرر.</li>
       <li><strong>19</strong> جدولًا في قاعدة البيانات و<strong>49</strong> مسارًا في الواجهة البرمجية.</li>
-      <li><strong>47</strong> اختبارًا آليًا للخادم.</li>
+      <li><strong>51</strong> اختبارًا آليًا للخادم.</li>
       <li><strong>25</strong> مقالة في الويكي، وسياسة خصوصية من <strong>28</strong> قسمًا، وملاحظات الإصدار هذه، وكلها باللغتين.</li>
       <li>ملف تعريف ارتباط <strong>1</strong>، و<strong>0</strong> أدوات تتبّع.</li>
     </ul>
@@ -949,7 +956,7 @@ npm run dev                 # http://localhost:5173</code></pre>
       <li>التعليقات نص عادي؛ لا تدعم التنسيق ولا الصور.</li>
       <li>لا توجد بعد أداة لتنزيل بياناتك بنفسك؛ نسخ بياناتك متاحة عند الطلب.</li>
       <li>الإشعارات تظهر داخل ArabDev فقط؛ لا إشعارات بالبريد أو إشعارات فورية.</li>
-      <li>صُمّمت الواجهة البرمجية لتعمل كعملية واحدة مع SQLite.</li>
+      <li>مع SQLite تعمل الواجهة البرمجية كعملية واحدة؛ أما الاستضافة على Vercel فتستخدم PostgreSQL.</li>
     </ul>
   </section>
 

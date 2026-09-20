@@ -628,7 +628,7 @@
       <li data-type="security"><span class="tag security">Security</span><span class="text">Images can only be attached by the account that uploaded them.</span></li>
       <li data-type="security"><span class="tag security">Security</span><span class="text">The API refuses to start in production without a real secret key.</span></li>
       <li data-type="security"><span class="tag security">Security</span><span class="text">Browser access to the API is limited to configured origins.</span></li>
-      <li data-type="security"><span class="tag security">Security</span><span class="text">Ended sign-in sessions and old password reset links are deleted automatically every six hours.</span></li>
+      <li data-type="security"><span class="tag security">Security</span><span class="text">Ended sign-in sessions and old password reset links are deleted automatically: when the API starts, then every six hours on a server or once a day on Vercel.</span></li>
       <li data-type="fixed"><span class="tag fixed">Fixed</span><span class="text">Two tabs renewing the session at the same moment no longer sign you out: a 20-second grace period tells this apart from real token theft.</span></li>
     </ul>
   </section>
@@ -737,7 +737,7 @@
       <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The HTML sanitiser allows only the markup the editor produces, including its fonts, sizes, theme colors, alignment and text direction.</span></li>
       <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Seed data: 25 interests and 6 house ads, inserted idempotently.</span></li>
       <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Demo data: ten fictional developers with posts, follows, likes and comments, for trying ArabDev locally.</span></li>
-      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">A periodic background task deletes ended sessions and old reset links every six hours.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Ended sessions and old reset links are deleted by a background task every six hours on a server, and by a scheduled job on Vercel; both reuse the same clean-up.</span></li>
     </ul>
   </section>
 
@@ -773,13 +773,20 @@
       <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Docker Compose setup with Redis, the API and an nginx container serving the app on port 8080.</span></li>
       <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The API container applies migrations and seeds reference data when it starts.</span></li>
       <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Persistent volumes for the database file and uploaded media.</span></li>
-      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The frontend builds to a static site, ready for Cloudflare Pages or any static host.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The frontend builds to a static site, ready for Vercel or any static host.</span></li>
       <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The development server proxies <code>/api</code> and <code>/media</code> to the API.</span></li>
       <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The wiki, privacy policy and patch notes are self-contained static sites, with their own fonts and icon, deployed without a build step to <code>wiki.arabdev.site</code>, <code>privacy.arabdev.site</code> and <code>patch.arabdev.site</code>.</span></li>
       <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The development server serves those sites locally at <code>/wiki/</code>, <code>/privacy/</code> and <code>/patch-notes/</code>, and links between them stay local on your machine.</span></li>
       <li data-type="developer"><span class="tag developer">Developer</span><span class="text">The app build publishes the license at <code>arabdev.site/LICENSE.txt</code>.</span></li>
-      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>VITE_API_ORIGIN</code> lets the app on Cloudflare Pages reach an API hosted on another address; the documentation addresses can be overridden the same way.</span></li>
-      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">ArabDev now runs on SQLite only. MySQL support was removed to keep the stack light and simple to deploy.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text"><code>VITE_API_ORIGIN</code> lets the app reach an API hosted on another address; the documentation addresses can be overridden the same way.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Runs on Vercel: <code>vercel.json</code> builds the app and serves the API from <code>api/index.py</code> in one project, so both share an address.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">PostgreSQL support for hosted deployments (Neon on Vercel), with SQLite still the default for development and single-server hosting. The tests run against both.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Hosted Postgres URLs (<code>postgres://</code>, <code>postgresql://</code>) are pointed at the psycopg 3 driver automatically, and Neon's connection pooler is handled.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">On Vercel the API migrates and seeds the database itself when an instance starts; a PostgreSQL lock keeps instances that start together from colliding.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Uploaded images can be kept in the database (<code>STORAGE_BACKEND=database</code>) for hosts without a disk, and are served with long-lived cache headers.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">A scheduled endpoint for the daily clean-up, protected by <code>CRON_SECRET</code> and hidden when it is not configured.</span></li>
+      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">MySQL support was removed. ArabDev uses SQLite for development and single-server hosting, and PostgreSQL when hosted on Vercel.</span></li>
+      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">Images between 4 and 5 MB are re-encoded in the browser before uploading, so they fit hosting limits. The server re-encodes every image anyway, so nothing visible changes.</span></li>
     </ul>
   </section>
 
@@ -813,7 +820,7 @@
   <section class="area" id="v100-quality" aria-labelledby="v100-quality-title">
     <h3 id="v100-quality-title">Tests and code quality<span class="area-count"></span></h3>
     <ul class="changes">
-      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">47 automated backend tests covering authentication, sessions, posts, feeds, comments, interactions, notifications, uploads, search and account deletion.</span></li>
+      <li data-type="developer"><span class="tag developer">Developer</span><span class="text">51 automated backend tests covering authentication, sessions, posts, feeds, comments, interactions, notifications, uploads, search, account deletion and serverless hosting. They run against SQLite and PostgreSQL.</span></li>
       <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Every test runs against a fresh in-memory database.</span></li>
       <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Strict TypeScript across the frontend, checked with <code>npm run typecheck</code>.</span></li>
       <li data-type="developer"><span class="tag developer">Developer</span><span class="text">Consistent formatting with Prettier (<code>npm run format</code>).</span></li>
@@ -848,7 +855,7 @@
       <li data-type="improved"><span class="tag improved">Improved</span><span class="text">The number of posts on a tag page now uses proper plural wording in both languages.</span></li>
       <li data-type="improved"><span class="tag improved">Improved</span><span class="text">Following-feed and repost queries were reworked to be stricter and faster.</span></li>
       <li data-type="improved"><span class="tag improved">Improved</span><span class="text">Following yourself is prevented by the server with a clear error, instead of relying on the database.</span></li>
-      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">The database layer was simplified to SQLite only, ahead of deploying the frontend to Cloudflare Pages.</span></li>
+      <li data-type="improved"><span class="tag improved">Improved</span><span class="text">The database layer was simplified to SQLite, then taught PostgreSQL as well so ArabDev could be hosted on Vercel with a Neon database.</span></li>
       <li data-type="security"><span class="tag security">Security</span><span class="text">Expired and ended sessions and old password reset links are now cleaned up automatically, as described in the privacy policy.</span></li>
       <li data-type="new"><span class="tag new">New</span><span class="text">The GNU GPL v3 license, the wiki, the privacy policy and these patch notes were added before launch.</span></li>
     </ul>
@@ -864,7 +871,7 @@
       <li><strong>25</strong> interests linked to tags.</li>
       <li><strong>3</strong> fonts, <strong>6</strong> sizes and <strong>5</strong> theme-aware colors in the editor.</li>
       <li><strong>19</strong> database tables and <strong>49</strong> API paths.</li>
-      <li><strong>47</strong> automated backend tests.</li>
+      <li><strong>51</strong> automated backend tests.</li>
       <li><strong>25</strong> wiki articles, a <strong>28</strong>-section privacy policy, and these patch notes, each in both languages.</li>
       <li><strong>1</strong> cookie, and <strong>0</strong> trackers.</li>
     </ul>
@@ -950,7 +957,7 @@ npm run dev                 # http://localhost:5173</code></pre>
       <li>Comments are plain text; they do not support formatting or images.</li>
       <li>There is no self-service data download yet; copies of your data are available on request.</li>
       <li>Notifications appear inside ArabDev only; there are no email or push notifications.</li>
-      <li>The API is designed to run as a single process with SQLite.</li>
+      <li>With SQLite the API runs as a single process; hosting on Vercel uses PostgreSQL instead.</li>
     </ul>
   </section>
 

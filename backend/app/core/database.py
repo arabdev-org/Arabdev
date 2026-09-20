@@ -1,4 +1,7 @@
-"""SQLAlchemy engine, session factory and declarative base (SQLite)."""
+"""SQLAlchemy engine, session factory and declarative base.
+
+SQLite for local development and self-hosting on one server; PostgreSQL (Neon) on Vercel.
+"""
 
 from collections.abc import Iterator
 from pathlib import Path
@@ -24,6 +27,19 @@ class Base(DeclarativeBase):
 
 
 def create_db_engine(url: str, echo: bool = False) -> Engine:
+    if make_url(url).get_backend_name() == "postgresql":
+        return create_engine(
+            url,
+            echo=echo,
+            # Serverless instances sleep; check connections before use and recycle them early.
+            pool_pre_ping=True,
+            pool_size=5,
+            max_overflow=5,
+            pool_recycle=300,
+            # Neon's pooler (PgBouncer in transaction mode) cannot keep prepared statements.
+            connect_args={"prepare_threshold": None},
+        )
+
     database = make_url(url).database
     in_memory = not database or database == ":memory:"
     if not in_memory:

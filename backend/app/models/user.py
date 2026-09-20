@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, ForeignKey, Integer, String, text
+from sqlalchemy import Boolean, ForeignKey, Integer, String, false, text, true
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.database import Base
@@ -20,9 +20,9 @@ class User(Base):
     username: Mapped[str] = mapped_column(String(30), unique=True, index=True)
     email: Mapped[str] = mapped_column(String(254), unique=True, index=True)
     hashed_password: Mapped[str] = mapped_column(String(255))
-    is_active: Mapped[bool] = mapped_column(Boolean, default=True, server_default=text("1"))
-    is_admin: Mapped[bool] = mapped_column(Boolean, default=False, server_default=text("0"))
-    onboarding_completed: Mapped[bool] = mapped_column(Boolean, default=False, server_default=text("0"))
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True, server_default=true())
+    is_admin: Mapped[bool] = mapped_column(Boolean, default=False, server_default=false())
+    onboarding_completed: Mapped[bool] = mapped_column(Boolean, default=False, server_default=false())
     # Bumped on password change so outstanding access tokens stop working.
     token_version: Mapped[int] = mapped_column(Integer, default=0, server_default=text("0"))
     created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow, index=True)
@@ -71,16 +71,16 @@ class UserSettings(Base):
     language: Mapped[str] = mapped_column(String(5), default="ar", server_default="ar")
 
     # Privacy
-    discoverable: Mapped[bool] = mapped_column(Boolean, default=True, server_default=text("1"), index=True)
-    show_follow_lists: Mapped[bool] = mapped_column(Boolean, default=True, server_default=text("1"))
+    discoverable: Mapped[bool] = mapped_column(Boolean, default=True, server_default=true(), index=True)
+    show_follow_lists: Mapped[bool] = mapped_column(Boolean, default=True, server_default=true())
     mentions_from: Mapped[str] = mapped_column(String(12), default="everyone", server_default="everyone")
 
     # Notification preferences
-    notify_likes: Mapped[bool] = mapped_column(Boolean, default=True, server_default=text("1"))
-    notify_comments: Mapped[bool] = mapped_column(Boolean, default=True, server_default=text("1"))
-    notify_follows: Mapped[bool] = mapped_column(Boolean, default=True, server_default=text("1"))
-    notify_reposts: Mapped[bool] = mapped_column(Boolean, default=True, server_default=text("1"))
-    notify_mentions: Mapped[bool] = mapped_column(Boolean, default=True, server_default=text("1"))
+    notify_likes: Mapped[bool] = mapped_column(Boolean, default=True, server_default=true())
+    notify_comments: Mapped[bool] = mapped_column(Boolean, default=True, server_default=true())
+    notify_follows: Mapped[bool] = mapped_column(Boolean, default=True, server_default=true())
+    notify_reposts: Mapped[bool] = mapped_column(Boolean, default=True, server_default=true())
+    notify_mentions: Mapped[bool] = mapped_column(Boolean, default=True, server_default=true())
 
     updated_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow, onupdate=utcnow)
 

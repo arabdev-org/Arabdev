@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, ForeignKey, Index, String, text
+from sqlalchemy import Boolean, ForeignKey, Index, String, false
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.database import Base
@@ -33,7 +33,7 @@ class Notification(Base):
     comment_id: Mapped[int | None] = mapped_column(
         ID, ForeignKey("comments.id", ondelete="CASCADE"), nullable=True, index=True
     )
-    is_read: Mapped[bool] = mapped_column(Boolean, default=False, server_default=text("0"))
+    is_read: Mapped[bool] = mapped_column(Boolean, default=False, server_default=false())
     created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
 
     actor: Mapped["User"] = relationship(foreign_keys=[actor_id], lazy="joined", innerjoin=True)

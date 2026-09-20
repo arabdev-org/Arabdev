@@ -9,6 +9,7 @@ import type {
   TagDetail,
   TagStat,
 } from '@/types/api';
+import { fitForUpload } from '@/utils/upload';
 
 import { api } from './client';
 
@@ -28,9 +29,9 @@ export const notificationsApi = {
 };
 
 export const mediaApi = {
-  upload: (file: File, onProgress?: (percent: number) => void) => {
+  upload: async (file: File, onProgress?: (percent: number) => void) => {
     const form = new FormData();
-    form.append('file', file);
+    form.append('file', await fitForUpload(file));
     form.append('kind', 'post_image');
     return api
       .post<Media>('/media', form, {

@@ -8,9 +8,13 @@ from app.core.config import settings
 from app.core.database import Base
 
 config = context.config
-config.set_main_option("sqlalchemy.url", settings.database_url.replace("%", "%%"))
+config.set_main_option("sqlalchemy.url", settings.migration_url.replace("%", "%%"))
 
-if config.config_file_name is not None:
+# When the app runs migrations itself (app/core/bootstrap.py) it passes its own connection and
+# keeps its logging configuration.
+shared_connection = config.attributes.get("connection")
+
+if config.config_file_name is not None and shared_connection is None:
     fileConfig(config.config_file_name)
 
 target_metadata = Base.metadata
@@ -30,6 +34,17 @@ def run_migrations_offline() -> None:
 
 
 def run_migrations_online() -> None:
+    if shared_connection is not None:
+        context.configure(
+            connection=shared_connection,
+            target_metadata=target_metadata,
+            compare_type=True,
+            render_as_batch=shared_connection.dialect.name == "sqlite",
+        )
+        with context.begin_transaction():
+            context.run_migrations()
+        return
+
     connectable = engine_from_config(
         config.get_section(config.config_ini_section, {}),
         prefix="sqlalchemy.",

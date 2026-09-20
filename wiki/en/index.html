@@ -1388,12 +1388,12 @@
     <tr><td>Languages</td><td>i18next with <code>ar.json</code> and <code>en.json</code></td></tr>
     <tr><td>Build</td><td>Vite 8</td></tr>
     <tr><td>API</td><td>Python, FastAPI, Pydantic 2</td></tr>
-    <tr><td>Database</td><td>SQLite through SQLAlchemy 2, migrations with Alembic</td></tr>
+    <tr><td>Database</td><td>SQLAlchemy 2 with Alembic migrations: SQLite for development and single-server hosting, PostgreSQL (Neon) on Vercel</td></tr>
     <tr><td>Security</td><td>Argon2id password hashing, JWT access tokens, rotating refresh tokens</td></tr>
     <tr><td>Content safety</td><td>nh3 on the server, DOMPurify in the browser</td></tr>
     <tr><td>Images</td><td>Pillow, re-encoding to WebP</td></tr>
     <tr><td>Optional</td><td>Redis for shared rate limiting and caching</td></tr>
-    <tr><td>Tests</td><td>pytest (47 tests)</td></tr>
+    <tr><td>Tests</td><td>pytest (51 tests, run against SQLite and PostgreSQL)</td></tr>
   </tbody>
 </table>
 </div>
@@ -1405,6 +1405,9 @@
 ├── wiki/             This wiki (static site)
 ├── privacy/          Privacy Policy (static site)
 ├── patch-notes/      Patch notes (static site)
+├── api/index.py      Entry point that serves the API on Vercel
+├── vercel.json       Build, routing and the scheduled clean-up
+├── requirements.txt  Python packages for the Vercel function
 ├── LICENSE           GNU GPL v3
 ├── docker-compose.yml
 └── README.md</code></pre>
@@ -1485,13 +1488,15 @@ npm run dev                   # http://localhost:5173</code></pre>
   <thead><tr><th scope="col">Variable</th><th scope="col">Default</th><th scope="col">Purpose</th></tr></thead>
   <tbody>
     <tr><td><code>SECRET_KEY</code></td><td>development value</td><td>Signs access tokens. Required in production.</td></tr>
-    <tr><td><code>DATABASE_URL</code></td><td><code>backend/arabdev.db</code></td><td>SQLite file location.</td></tr>
+    <tr><td><code>DATABASE_URL</code></td><td><code>backend/arabdev.db</code></td><td>SQLite file location, or a PostgreSQL URL such as the one Neon adds to a Vercel project.</td></tr>
     <tr><td><code>ENVIRONMENT</code></td><td><code>development</code></td><td><code>production</code> refuses to start without a real secret key.</td></tr>
     <tr><td><code>REDIS_URL</code></td><td>unset</td><td>Shares rate limits and caches between processes.</td></tr>
     <tr><td><code>CORS_ORIGINS</code></td><td>local dev addresses</td><td>Comma-separated list of allowed browser origins.</td></tr>
     <tr><td><code>FRONTEND_URL</code></td><td><code>http://localhost:5173</code></td><td>Base address used in password reset links. In production: <code>https://arabdev.site</code>.</td></tr>
     <tr><td><code>COOKIE_SECURE</code></td><td><code>false</code></td><td>Set to <code>true</code> when serving over HTTPS.</td></tr>
     <tr><td><code>MEDIA_ROOT</code></td><td><code>backend/media</code></td><td>Where uploaded images are stored.</td></tr>
+    <tr><td><code>STORAGE_BACKEND</code></td><td><code>local</code></td><td><code>database</code> keeps images in the database instead of on disk (the default on Vercel).</td></tr>
+    <tr><td><code>CRON_SECRET</code></td><td>unset</td><td>Bearer token the scheduled clean-up endpoint expects.</td></tr>
     <tr><td><code>ACCESS_TOKEN_EXPIRE_MINUTES</code></td><td>15</td><td>Access token lifetime.</td></tr>
     <tr><td><code>REFRESH_TOKEN_EXPIRE_DAYS</code></td><td>30</td><td>"Keep me signed in" lifetime.</td></tr>
     <tr><td><code>RATE_LIMIT_ENABLED</code></td><td><code>true</code></td><td>Turns rate limiting on or off.</td></tr>
@@ -1504,7 +1509,7 @@ npm run dev                   # http://localhost:5173</code></pre>
   <li><code>python -m app.cli seed</code> adds the 25 interests and the house ads. Safe to run repeatedly.</li>
   <li><code>python -m app.cli seed --demo</code> also adds ten fictional developers and 26 posts. For development only.</li>
   <li><code>python -m app.cli make-admin USERNAME</code> gives a user administrator rights.</li>
-  <li><code>python -m app.cli purge-tokens</code> deletes ended sign-in sessions and old password reset links. The API also does this by itself every six hours.</li>
+  <li><code>python -m app.cli purge-tokens</code> deletes ended sign-in sessions and old password reset links. The API also does this when it starts, then every six hours on a server, or once a day on Vercel through the scheduled job in <code>vercel.json</code>.</li>
   <li><code>alembic upgrade head</code> applies database migrations.</li>
   <li><code>pytest</code> runs the test suite on a fresh in-memory database.</li>
 </ul>
@@ -1514,14 +1519,15 @@ npm run dev                   # http://localhost:5173</code></pre>
 
 <h2 id="self-hosting-deploy">Deploying</h2>
 <ul>
-  <li>The app is a static build (<code>frontend/dist</code>, including <code>LICENSE.txt</code>) served at <code>arabdev.site</code>, for example on Cloudflare Pages. When the API runs on another address, build with <code>VITE_API_ORIGIN</code> set to it.</li>
-  <li>The <code>wiki</code>, <code>privacy</code> and <code>patch-notes</code> folders are complete static sites with no build step, deployed to <code>wiki.arabdev.site</code>, <code>privacy.arabdev.site</code> and <code>patch.arabdev.site</code>.</li>
-  <li>The API needs a server with a persistent disk for the SQLite file and uploads, such as a small VPS. Run it as a single process.</li>
+  <li><strong>Vercel</strong> (how arabdev.site runs): one project built from the repository root. <code>vercel.json</code> builds the app into <code>frontend/dist</code> and serves the API from <code>api/index.py</code>, so the app and the API share one address and no cross-site settings are needed.</li>
+  <li>That project needs a PostgreSQL database (add Neon under <em>Storage</em>, which sets <code>DATABASE_URL</code>), plus <code>SECRET_KEY</code> and <code>CRON_SECRET</code>. <code>VERCEL=1</code> is set for you and switches on production mode, secure cookies and database image storage.</li>
+  <li>The <code>wiki</code>, <code>privacy</code> and <code>patch-notes</code> folders are complete static sites with no build step, deployed as their own projects to <code>wiki.arabdev.site</code>, <code>privacy.arabdev.site</code> and <code>patch.arabdev.site</code>.</li>
+  <li><strong>One server instead</strong> (VPS, Docker): keep SQLite and store images on disk. The API then needs a persistent disk for the database file and uploads, and runs as a single process. Serve the app build (<code>frontend/dist</code>, including <code>LICENSE.txt</code>) as a static site; set <code>VITE_API_ORIGIN</code> when the API is on another address.</li>
   <li>Serve everything over HTTPS and set <code>COOKIE_SECURE=true</code>.</li>
 </ul>
 
 <h2 id="self-hosting-backups">Backups</h2>
-<p>Back up <code>arabdev.db</code> and the media folder. While the API is running, use <code>sqlite3 arabdev.db ".backup backup.db"</code> for a consistent copy.</p>
+<p>With SQLite, back up <code>arabdev.db</code> and the media folder; while the API is running, use <code>sqlite3 arabdev.db ".backup backup.db"</code> for a consistent copy. With PostgreSQL, use your provider's backups (Neon keeps a restore window) or <code>pg_dump</code>; images are inside the database, so one dump covers everything.</p>
 
 <h2 id="self-hosting-email">Email</h2>
 <p>Version 1.0.0 writes password reset emails to the server log. To send real email, connect a provider in <code>backend/app/services/email_service.py</code>.</p>

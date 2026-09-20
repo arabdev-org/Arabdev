@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import ForeignKey, Integer, String
+from sqlalchemy import ForeignKey, Integer, LargeBinary, String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.database import Base
@@ -22,3 +22,6 @@ class Media(Base):
     width: Mapped[int] = mapped_column(Integer)
     height: Mapped[int] = mapped_column(Integer)
     created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utcnow)
+    # The image itself when STORAGE_BACKEND=database (hosts without a disk, such as Vercel).
+    # Deferred, so listing posts or profiles never loads image bytes.
+    data: Mapped[bytes | None] = mapped_column(LargeBinary, nullable=True, deferred=True)

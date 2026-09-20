@@ -1,6 +1,7 @@
 import type { FollowState, Me, Page, Post, Profile, Reply, TokenResponse, UserCard, UserSettings } from '@/types/api';
 
 import { api } from './client';
+import { fitForUpload } from '@/utils/upload';
 
 export interface ProfilePayload {
   display_name: string;
@@ -21,9 +22,9 @@ export const usersApi = {
   updateSettings: (payload: Partial<UserSettings>) =>
     api.patch<UserSettings>('/users/me/settings', payload).then((r) => r.data),
   completeOnboarding: () => api.post<Me>('/users/me/onboarding/complete').then((r) => r.data),
-  uploadAvatar: (file: File, onProgress?: (percent: number) => void) => {
+  uploadAvatar: async (file: File, onProgress?: (percent: number) => void) => {
     const form = new FormData();
-    form.append('file', file);
+    form.append('file', await fitForUpload(file));
     return api
       .post<Me>('/users/me/avatar', form, {
         onUploadProgress: (event) => {

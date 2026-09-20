@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from fastapi import UploadFile
 from PIL import Image, ImageOps, UnidentifiedImageError
 from sqlalchemy import select
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, undefer
 
 from app.core.config import settings
 from app.core.errors import BadRequest, Forbidden, NotFound, UnprocessableEntity
@@ -102,7 +102,8 @@ def store_image(db: Session, owner: User, raw: bytes, kind: str) -> Media:
     processed = process_image(raw, kind)
     now = utcnow()
     key = f"{kind}/{now:%Y/%m}/{uuid.uuid4().hex}.webp"
-    get_storage().save(key, processed.data, processed.content_type)
+    storage = get_storage()
+    storage.save(key, processed.data, processed.content_type)
     media = Media(
         owner_id=owner.id,
         kind=kind,
@@ -111,6 +112,7 @@ def store_image(db: Session, owner: User, raw: bytes, kind: str) -> Media:
         size_bytes=len(processed.data),
         width=processed.width,
         height=processed.height,
+        data=processed.data if storage.in_database else None,
     )
     db.add(media)
     db.flush()
@@ -153,6 +155,11 @@ def delete_if_orphaned(db: Session, media_id: int | None) -> None:
     media = db.get(Media, media_id)
     if media is not None and not is_referenced(db, media_id):
         delete_media(db, media)
+
+
+def load_file(db: Session, key: str) -> Media | None:
+    """The media row for a storage key, with its bytes (used by DatabaseStorage)."""
+    return db.scalar(select(Media).where(Media.storage_key == key).options(undefer(Media.data)))
 
 
 def storage_keys_for_user(db: Session, user_id: int) -> list[str]:
